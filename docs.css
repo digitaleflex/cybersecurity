@@ -1,4 +1,5 @@
 /* Lecteur de documentation — repose sur les tokens de ui.css */
+.docs-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid var(--line)}
 .docs-breadcrumb{display:flex;align-items:center;gap:10px;min-width:0;font:500 13px var(--mono);color:var(--muted)}
 .docs-breadcrumb a{color:var(--accent-text)}
 .docs-breadcrumb b{font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -58,8 +59,6 @@
 .docs-mobile-toc{display:none}
 .docs-footer{display:flex;justify-content:space-between;gap:14px;margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted-2);font:500 12px var(--mono)}
 .docs-footer a{color:var(--accent-text)}
-.back-btn{display:none}
-@media(min-width:1081px){.back-btn{display:inline-flex}}
 @media(max-width:1180px){
   .docs-shell{grid-template-columns:220px minmax(0,1fr);gap:28px}
   .docs-toc-panel{display:none}
@@ -76,7 +75,6 @@
   .docs-nav-label{display:none}
   .docs-nav-link{white-space:nowrap;border-color:var(--line);margin:0}
   .docs-breadcrumb{display:none}
-  #sourceLink{display:none}
   .markdown-body{font-size:14.5px}
   .markdown-body pre{font-size:12px;padding:14px}
 }

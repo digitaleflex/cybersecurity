@@ -3,9 +3,11 @@ name: Catalog validation
 on:
   pull_request:
     paths:
-      - "index.html"
-      - "app.js"
+      - "*.html"
+      - "js/**"
       - "ui.css"
+      - "docs.css"
+      - "docs.js"
       - "tests/**"
       - "site.webmanifest"
       - "robots.txt"
@@ -18,9 +20,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "index.html"
-      - "app.js"
+      - "*.html"
+      - "js/**"
       - "ui.css"
+      - "docs.css"
+      - "docs.js"
       - "tests/**"
       - "site.webmanifest"
       - "robots.txt"

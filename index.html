@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#070b0a">
   <meta name="color-scheme" content="dark light">
+  <title>HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique</title>
   <meta name="description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources vérifiées, outils, méthodes et parcours.">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
   <meta property="og:title" content="HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique">
-  <meta property="og:description" content="Ressources vérifiées, outils, méthodes, guides et parcours pour apprendre, pratiquer et mener des investigations en sources ouvertes.">
+  <meta property="og:description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources vérifiées, outils, méthodes et parcours.">
   <meta property="og:image" content="assets/logo.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <title>HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique</title>
   <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="site.webmanifest">
@@ -21,129 +21,23 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>try{var t=localStorage.getItem("hc-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="stylesheet" href="ui.css">
-  <script defer src="app.js"></script>
 </head>
-<body class="app">
-  <!-- Sprite d'icônes (trait 1.8, 24×24) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
-      <symbol id="i-catalog" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
-      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 12l9-5M12 12v10M12 12L3 7"/></symbol>
-      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/></symbol>
-      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
-      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H13a4.5 4.5 0 0 0 4.5-4.5V10M6 15.8V12a4 4 0 0 1 4-4h5.8"/></symbol>
-      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
-      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.5" cy="7.5" r="3.5"/><path d="M2.5 20v-1a4.5 4.5 0 0 1 4.5-4.5h5a4.5 4.5 0 0 1 4.5 4.5v1M16 3.6a3.5 3.5 0 0 1 0 6.8M21.5 20v-1a4.5 4.5 0 0 0-3-4.2"/></symbol>
-      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></symbol>
-      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 18.2l-6.2 3.3L7 14.7 2 9.8l6.9-1z"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-      <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
-      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
-      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
-      <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
-      <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
-      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20.5 12A8.5 8.5 0 0 1 6 18M3.5 12A8.5 8.5 0 0 1 18 6M18 2v4h-4M6 22v-4h4"/></symbol>
-      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-3-2-5-3-8-1.5 2-2.5 2.5-3.5 2.5C12.5 7 11 4 9 2c0 4-4 6-4 12a7 7 0 0 0 7 8z"/></symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
-      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H7a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 19 10.5 4.25 4.25 0 0 1 17.5 19z"/></symbol>
-      <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6M14 4l-4 16"/></symbol>
-      <symbol id="i-bug" viewBox="0 0 24 24"><path d="M9 8a3 3 0 0 1 6 0v8a3 3 0 0 1-6 0zM12 8v11M4.5 8l3 2M19.5 8l-3 2M3.5 14h4M16.5 14h4M4.5 20l3-2M19.5 20l-3-2"/></symbol>
-      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
-      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
-      <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 9v6"/></symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5"/></symbol>
-      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
-      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></symbol>
-      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-      <symbol id="i-book-plus" viewBox="0 0 24 24"><path d="M5 3h11a3 3 0 0 1 3 3v15H8a3 3 0 0 1-3-3z"/><path d="M12 8v6M9 11h6"/></symbol>
-    </defs>
-  </svg>
-
+<body class="app" data-page="home">
   <a class="skip-link" href="#main">Aller au contenu</a>
   <div class="scrim" id="scrim" hidden></div>
-
   <div class="shell">
-    <!-- ============ SIDEBAR ============ -->
-    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale">
-      <a class="brand" href="./" aria-label="HashCode Cyber Library, accueil">
-        <img src="assets/logo-mark.webp" alt="" width="40" height="40">
-        <span class="brand-text"><b>HashCode</b><small>Cyber <span>Library</span></small></span>
-      </a>
-
-      <nav class="side-nav" aria-label="Sections">
-        <a class="side-link is-active" href="#home" data-nav="home" aria-current="page"><svg class="ico"><use href="#i-home"/></svg><span>Accueil</span></a>
-        <a class="side-link" href="#explore" data-nav="catalog"><svg class="ico"><use href="#i-catalog"/></svg><span>Catalogue</span><em class="count" id="navCountAll">—</em></a>
-        <div class="side-group">
-          <button class="side-link" type="button" id="sideDomainsToggle" aria-expanded="false" aria-controls="sideDomains"><svg class="ico"><use href="#i-cube"/></svg><span>Domaines</span><svg class="ico chev"><use href="#i-chev-down"/></svg></button>
-          <div class="side-sub" id="sideDomains" hidden></div>
-        </div>
-        <a class="side-link" href="#explore" data-nav="osint"><svg class="ico"><use href="#i-shield-check"/></svg><span>OSINT</span><em class="count" id="navCountOsint">—</em></a>
-        <a class="side-link" href="docs.html?doc=LEARNING-PATHS.md"><svg class="ico"><use href="#i-route"/></svg><span>Parcours</span><em class="count count-new">Nouveau</em></a>
-        <a class="side-link" href="#collections" data-nav="collections"><svg class="ico"><use href="#i-folder"/></svg><span>Collections</span></a>
-        <a class="side-link" href="docs.html"><svg class="ico"><use href="#i-doc"/></svg><span>Guides &amp; Docs</span></a>
-        <a class="side-link" href="https://github.com/digitaleflex/cybersecurity/discussions" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-users"/></svg><span>Communauté</span><svg class="ico ext"><use href="#i-external"/></svg></a>
-      </nav>
-
-      <div class="side-label" id="mySpaceLabel">Mon espace</div>
-      <nav class="side-nav" aria-labelledby="mySpaceLabel">
-        <button class="side-link" type="button" data-view="favorites"><svg class="ico"><use href="#i-star"/></svg><span>Favoris</span><em class="count" id="navCountFav">0</em></button>
-        <button class="side-link" type="button" data-view="recent"><svg class="ico"><use href="#i-clock"/></svg><span>Consultés récemment</span></button>
-        <a class="side-link" href="https://github.com/digitaleflex/cybersecurity/pulls" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-user"/></svg><span>Mes contributions</span><svg class="ico ext"><use href="#i-external"/></svg></a>
-      </nav>
-
-      <section class="contrib-card" aria-labelledby="contribTitle">
-        <svg class="ico ico-lg"><use href="#i-book-plus"/></svg>
-        <h2 id="contribTitle">Contribuez à la bibliothèque</h2>
-        <p>Ajoutez des ressources, proposez des mises à jour et enrichissez la base.</p>
-        <a class="btn btn-primary btn-block" href="https://github.com/digitaleflex/cybersecurity/issues/new/choose" target="_blank" rel="noopener noreferrer">Contribuer <svg class="ico"><use href="#i-arrow"/></svg></a>
-      </section>
-
-      <div class="side-foot">
-        <button class="icon-btn" type="button" id="themeToggle" aria-label="Passer au thème clair"><svg class="ico"><use href="#i-sun"/></svg></button>
-      </div>
-    </aside>
-
-    <!-- ============ MAIN ============ -->
+    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale"></aside>
     <div class="main-col">
-      <header class="topbar">
-        <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sidebar" aria-expanded="false"><svg class="ico"><use href="#i-menu"/></svg></button>
-        <a class="brand brand-compact" href="./" aria-label="Accueil"><img src="assets/logo-mark.webp" alt="" width="32" height="32"><span class="brand-text"><b>HashCode</b></span></a>
-        <nav class="tabs" aria-label="Navigation principale">
-          <a class="tab is-active" href="#home" data-tab="home">Explorer</a>
-          <div class="tab-menu">
-            <button class="tab" type="button" id="domainsMenuBtn" aria-expanded="false" aria-controls="domainsMenu" aria-haspopup="true">Domaines <svg class="ico"><use href="#i-chev-down"/></svg></button>
-            <div class="menu-pop" id="domainsMenu" hidden></div>
-          </div>
-          <a class="tab" href="docs.html?doc=LEARNING-PATHS.md">Parcours</a>
-          <a class="tab" href="#explore" data-tab="catalog">Ressources</a>
-          <a class="tab" href="https://github.com/digitaleflex/cybersecurity/discussions" target="_blank" rel="noopener noreferrer">Communauté</a>
-        </nav>
-        <div class="top-actions">
-          <button class="icon-btn" type="button" id="topSearchBtn" aria-label="Rechercher (Ctrl K)"><svg class="ico"><use href="#i-search"/></svg></button>
-          <a class="icon-btn has-badge" href="#activity" id="bellLink" aria-label="Nouveautés du catalogue"><svg class="ico"><use href="#i-bell"/></svg><i class="badge-dot" id="bellBadge" hidden></i></a>
-          <a class="avatar" href="https://github.com/digitaleflex" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub HashCode">HC</a>
-        </div>
-      </header>
-
+      <header class="topbar" id="topbar"></header>
       <main id="main">
-        <!-- HERO -->
+<!-- HERO -->
         <section class="hero" id="home" aria-labelledby="heroTitle">
           <div class="hero-copy">
             <p class="eyebrow"><i></i> HashCode Community Project</p>
             <h1 id="heroTitle">La bibliothèque de référence en cybersécurité, OSINT et <span>investigation numérique.</span></h1>
             <p class="hero-lead">Ressources vérifiées, outils, méthodes, guides et parcours pour apprendre, pratiquer et mener des investigations en sources ouvertes.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#explore"><svg class="ico"><use href="#i-catalog"/></svg> Explorer le catalogue <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-primary" href="catalogue.html"><svg class="ico"><use href="#i-catalog"/></svg> Explorer le catalogue <svg class="ico"><use href="#i-arrow"/></svg></a>
               <a class="btn btn-ghost" href="docs.html?doc=README.md"><svg class="ico"><use href="#i-play"/></svg> Voir la présentation</a>
             </div>
           </div>
@@ -160,20 +54,20 @@
 
         <!-- RECHERCHE -->
         <section class="search-block" aria-label="Recherche rapide">
-          <form class="searchbar" role="search" id="heroSearchForm">
+          <form class="searchbar" role="search" id="heroSearchForm" action="catalogue.html" method="get">
             <svg class="ico"><use href="#i-search"/></svg>
             <label class="sr-only" for="heroSearch">Rechercher une ressource, un outil, une méthode, un guide</label>
-            <input id="heroSearch" data-search type="search" placeholder="Rechercher une ressource, un outil, une méthode, un guide…" autocomplete="off">
+            <input id="heroSearch" data-search type="search" name="q" maxlength="100" placeholder="Rechercher une ressource, un outil, une méthode, un guide…" autocomplete="off">
             <span class="kbds" aria-hidden="true"><kbd>Ctrl</kbd><kbd>K</kbd></span>
           </form>
           <div class="popular" aria-label="Recherches populaires">
             <span>Recherches populaires :</span>
-            <button type="button" class="chip" data-query="OSINT">OSINT</button>
-            <button type="button" class="chip" data-query="Reconnaissance">Reconnaissance</button>
-            <button type="button" class="chip" data-query="Analyse de données">Analyse de données</button>
-            <button type="button" class="chip" data-query="Forensic">Forensic</button>
-            <button type="button" class="chip" data-query="Cloud">Cloud Security</button>
-            <button type="button" class="chip" data-query="Red Team">Red Team</button>
+            <a class="chip" href="catalogue.html?q=OSINT">OSINT</a>
+            <a class="chip" href="catalogue.html?q=Reconnaissance">Reconnaissance</a>
+            <a class="chip" href="catalogue.html?q=Analyse%20de%20donn%C3%A9es">Analyse de données</a>
+            <a class="chip" href="catalogue.html?q=Forensic">Forensic</a>
+            <a class="chip" href="catalogue.html?q=Cloud">Cloud Security</a>
+            <a class="chip" href="catalogue.html?q=Red%20Team">Red Team</a>
           </div>
         </section>
 
@@ -190,7 +84,7 @@
               <p class="kicker"><svg class="ico"><use href="#i-layers"/></svg> Collection à la une</p>
               <h2 id="collTitle">—</h2>
               <p id="collDesc"></p>
-              <a class="btn btn-primary btn-sm" href="#explore" id="collCta">Explorer la collection <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-primary btn-sm" href="catalogue.html" id="collCta">Explorer la collection <svg class="ico"><use href="#i-arrow"/></svg></a>
             </div>
             <div class="coll-art" aria-hidden="true">
               <svg viewBox="0 0 260 170" class="coll-svg">
@@ -233,7 +127,7 @@
             <svg class="ico ico-lg"><use href="#i-grid"/></svg>
             <h2 id="domainsTitle"><span data-stat="domains">12</span> domaines d'expertise</h2>
             <p>Un seul point de départ pour explorer tous les fondamentaux.</p>
-            <a class="btn btn-primary btn-sm" href="#explore" id="domainsCta">Explorer les domaines <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-primary btn-sm" href="domaines.html" id="domainsCta">Explorer les domaines <svg class="ico"><use href="#i-arrow"/></svg></a>
           </div>
           <div class="rail-wrap rail-inline">
             <div class="rail rail-domains" id="domainCards" tabindex="-1"></div>
@@ -241,52 +135,19 @@
           </div>
         </section>
 
-        <!-- CATALOGUE -->
-        <section class="catalog" id="explore" aria-labelledby="catalogTitle">
+        <!-- À LA UNE -->
+        <section class="featured-section" aria-labelledby="featuredTitle">
           <div class="catalog-head">
-            <div>
-              <p class="eyebrow"><i></i> Le catalogue</p>
-              <h2 id="catalogTitle">Toutes les ressources</h2>
-            </div>
-            <p class="muted">Outils, documentations, formations, laboratoires et communautés classés par spécialité.</p>
+            <div><p class="eyebrow"><i></i> À la une</p><h2 id="featuredTitle">Sélection HashCode</h2></div>
+            <a class="btn btn-ghost" href="catalogue.html?view=featured">Voir toute la sélection <svg class="ico"><use href="#i-arrow"/></svg></a>
           </div>
-
-          <div class="toolbar">
-            <label class="field field-search" for="searchInput"><svg class="ico"><use href="#i-search"/></svg><span class="sr-only">Rechercher dans le catalogue</span><input id="searchInput" data-search type="search" placeholder="Filtrer le catalogue…" autocomplete="off"></label>
-            <div class="filters">
-              <label class="sr-only" for="domainFilter">Domaine</label><select id="domainFilter"><option value="">Tous les domaines</option></select>
-              <label class="sr-only" for="categoryFilter">Catégorie</label><select id="categoryFilter"><option value="">Toutes les catégories</option></select>
-              <label class="sr-only" for="typeFilter">Format</label><select id="typeFilter"><option value="">Tous les formats</option></select>
-              <label class="sr-only" for="levelFilter">Niveau</label><select id="levelFilter"><option value="">Tous les niveaux</option></select>
-              <label class="sr-only" for="statusFilter">Statut</label><select id="statusFilter"><option value="">Tous les statuts</option></select>
-            </div>
-          </div>
-          <div class="toolbar-bottom">
-            <div class="results-line">
-              <span id="resultsCount" role="status" aria-live="polite">Chargement du catalogue…</span>
-              <span class="view-chip" id="viewChip" hidden></span>
-              <button id="resetFilters" class="link-btn" type="button"><svg class="ico"><use href="#i-refresh"/></svg> Réinitialiser</button>
-            </div>
-            <label class="sort-control">Trier par
-              <select id="sortFilter"><option value="featured">Sélection HashCode</option><option value="az">Nom A → Z</option><option value="za">Nom Z → A</option><option value="newest">Ajouts récents</option></select>
-            </label>
-          </div>
-
-          <div id="resourceGrid" class="resource-grid" aria-live="polite"></div>
-          <div id="emptyState" class="empty-state" hidden><svg class="ico ico-lg"><use href="#i-search"/></svg><h3>Aucune ressource trouvée</h3><p id="emptyText">Essaie un autre terme ou modifie les filtres.</p><button class="btn btn-ghost" id="emptyReset" type="button">Effacer les filtres</button></div>
-          <div class="load-more-wrap"><button id="loadMore" class="btn btn-ghost" type="button" hidden>Afficher plus de ressources <svg class="ico"><use href="#i-chev-down"/></svg></button></div>
-          <p class="catalog-note">Les ressources « À vérifier » sont en attente de validation par un mainteneur.</p>
+          <div id="featuredGrid" class="resource-grid featured-grid" aria-live="polite"></div>
         </section>
 
-        <footer class="footer">
-          <a class="brand" href="./"><img src="assets/logo-mark.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b><small>Cyber <span>Library</span></small></span></a>
-          <p>Une initiative de partage de connaissances cyber.</p>
-          <nav aria-label="Liens utiles"><a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs.html?doc=QUALITY.md">Qualité &amp; éthique</a><a href="docs.html?doc=CONTRIBUTING.md">Contribuer</a></nav>
-          <small>© <span id="currentYear">2026</span> HashCode · Digital E-Flex</small>
-        </footer>
       </main>
     </div>
   </div>
-  <noscript><p class="noscript">JavaScript est nécessaire pour afficher le catalogue interactif.</p></noscript>
+  <script type="module" src="js/home.js"></script>
+  <noscript><p class="noscript">JavaScript est nécessaire pour afficher la navigation et le catalogue.</p></noscript>
 </body>
 </html>

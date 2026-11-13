@@ -28,9 +28,11 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const body = await readFile(file);
+    let target = file;
+    if (!extname(file)) target = `${file}.html`; // mêmes URL propres que Vercel (cleanUrls)
+    const body = await readFile(target);
     response.writeHead(200, {
-      "Content-Type": mime[extname(file).toLowerCase()] || "application/octet-stream",
+      "Content-Type": mime[extname(target).toLowerCase()] || "application/octet-stream",
       "X-Content-Type-Options": "nosniff",
       "Cache-Control": "no-cache"
     });
