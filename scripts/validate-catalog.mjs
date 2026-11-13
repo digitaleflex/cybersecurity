@@ -6,7 +6,8 @@ const domainIds = new Set((data.domains ?? []).map((domain) => domain.id));
 const allowedTypes = new Set(["tool", "course", "lab", "documentation", "repository", "framework", "platform", "community", "report", "library", "directory"]);
 const allowedLevels = new Set(["beginner", "intermediate", "advanced", "professional"]);
 const allowedStatuses = new Set(["verified", "needs-review", "archived", "removed"]);
-const required = ["id", "title", "description", "url", "domain", "category", "type", "level", "access", "language", "tags", "source", "verified", "status", "featured"];
+const required = ["id", "title", "description", "url", "domain", "category", "type", "level", "access", "language", "tags", "source", "status", "featured"];
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const errors = [];
 const ids = new Set();
 const urls = new Set();
@@ -16,6 +17,7 @@ for (const [index, resource] of (data.resources ?? []).entries()) {
   for (const key of required) {
     if (resource[key] === undefined || resource[key] === null || resource[key] === "") errors.push(`${label}: missing ${key}`);
   }
+  if (!Object.hasOwn(resource, "verified")) errors.push(`${label}: missing verified field`);
   if (ids.has(resource.id)) errors.push(`${label}: duplicate id`);
   ids.add(resource.id);
   if (urls.has(resource.url)) errors.push(`${label}: duplicate URL`);
@@ -30,7 +32,9 @@ for (const [index, resource] of (data.resources ?? []).entries()) {
   if (!allowedTypes.has(resource.type)) errors.push(`${label}: unsupported type ${resource.type}`);
   if (!allowedLevels.has(resource.level)) errors.push(`${label}: unsupported level ${resource.level}`);
   if (!allowedStatuses.has(resource.status)) errors.push(`${label}: unsupported status ${resource.status}`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(resource.verified)) errors.push(`${label}: verified must use YYYY-MM-DD`);
+  if (resource.status === "verified" && !datePattern.test(resource.verified ?? "")) errors.push(`${label}: verified resources need a YYYY-MM-DD verification date`);
+  if (resource.status === "needs-review" && resource.verified !== null) errors.push(`${label}: needs-review resources must have verified=null`);
+  if (resource.added && !datePattern.test(resource.added)) errors.push(`${label}: added must use YYYY-MM-DD`);
   if (!Array.isArray(resource.language) || !Array.isArray(resource.tags)) errors.push(`${label}: language and tags must be arrays`);
 }
 

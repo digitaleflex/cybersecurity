@@ -1124,9 +1124,10 @@
         "recon"
       ],
       "source": "SpiderFoot",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "theharvester",
@@ -1147,9 +1148,10 @@
         "domains"
       ],
       "source": "theHarvester",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "sherlock",
@@ -1170,9 +1172,10 @@
         "username"
       ],
       "source": "Sherlock Project",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "ghdb",
@@ -1193,9 +1196,10 @@
         "search"
       ],
       "source": "Exploit-DB",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "inteltechniques",
@@ -1216,9 +1220,10 @@
         "training"
       ],
       "source": "IntelTechniques",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "osintshifu-awesome-osint-repos",
@@ -1239,9 +1244,10 @@
         "catalog"
       ],
       "source": "osintshifu",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "nmap",
@@ -1262,9 +1268,10 @@
         "nmap"
       ],
       "source": "Nmap Project",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "nuclei",
@@ -1285,9 +1292,10 @@
         "vulnerability"
       ],
       "source": "ProjectDiscovery",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "subfinder",
@@ -1308,9 +1316,10 @@
         "passive"
       ],
       "source": "ProjectDiscovery",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "bloodhound",
@@ -1331,9 +1340,10 @@
         "graph"
       ],
       "source": "SpecterOps",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "ffuf",
@@ -1354,9 +1364,10 @@
         "pentest"
       ],
       "source": "ffuf project",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "zeek",
@@ -1377,9 +1388,10 @@
         "logs"
       ],
       "source": "Zeek Project",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "suricata",
@@ -1400,9 +1412,10 @@
         "network-security"
       ],
       "source": "OISF",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "security-onion",
@@ -1423,9 +1436,10 @@
         "network-monitoring"
       ],
       "source": "Security Onion Solutions",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "thehive",
@@ -1446,9 +1460,10 @@
         "soc"
       ],
       "source": "TheHive Project",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "openccti",
@@ -1469,9 +1484,10 @@
         "knowledge-graph"
       ],
       "source": "OpenCTI",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "cutter",
@@ -1492,9 +1508,10 @@
         "debugger"
       ],
       "source": "Rizin / Cutter",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "radare2",
@@ -1515,9 +1532,10 @@
         "debugging"
       ],
       "source": "radare2",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "capa",
@@ -1538,9 +1556,10 @@
         "yara"
       ],
       "source": "Mandiant",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "cape-sandbox",
@@ -1561,9 +1580,10 @@
         "dynamic-analysis"
       ],
       "source": "CAPE Sandbox",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "prowler",
@@ -1584,9 +1604,10 @@
         "compliance"
       ],
       "source": "Prowler",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "scoutsuite",
@@ -1609,9 +1630,10 @@
         "gcp"
       ],
       "source": "NCC Group",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "kube-bench",
@@ -1632,9 +1654,10 @@
         "containers"
       ],
       "source": "Aqua Security",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-zap",
@@ -1655,9 +1678,10 @@
         "dast"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-asvs",
@@ -1678,9 +1702,10 @@
         "verification"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-masvs",
@@ -1701,9 +1726,10 @@
         "standard"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "semgrep",
@@ -1724,9 +1750,10 @@
         "devsecops"
       ],
       "source": "Semgrep",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "trivy",
@@ -1747,9 +1774,10 @@
         "iac"
       ],
       "source": "Aqua Security",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "cyberdefenders",
@@ -1770,9 +1798,10 @@
         "labs"
       ],
       "source": "CyberDefenders",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "rootme",
@@ -1793,9 +1822,10 @@
         "learning"
       ],
       "source": "Root-Me",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "blueteamlabs",
@@ -1816,9 +1846,10 @@
         "soc"
       ],
       "source": "Blue Team Labs Online",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "opensecuritytraining",
@@ -1839,9 +1870,10 @@
         "systems"
       ],
       "source": "OpenSecurityTraining2",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "microsoft-learn-security",
@@ -1862,9 +1894,10 @@
         "cloud-security"
       ],
       "source": "Microsoft Learn",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "nvd",
@@ -1885,9 +1918,10 @@
         "nist"
       ],
       "source": "NIST",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "first-epss",
@@ -1908,9 +1942,10 @@
         "vulnerability"
       ],
       "source": "FIRST",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "urlhaus",
@@ -1931,9 +1966,10 @@
         "ioc"
       ],
       "source": "abuse.ch",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "first",
@@ -1954,9 +1990,10 @@
         "incident-response"
       ],
       "source": "FIRST",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "security-reference-guide",
@@ -1981,9 +2018,10 @@
         "cloud"
       ],
       "source": "s0cm0nkey",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": true
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-cybersecurity-learning-resources",
@@ -2006,9 +2044,10 @@
         "cybersecurity"
       ],
       "source": "jassics",
-      "verified": "2026-11-13",
+      "verified": null,
       "status": "needs-review",
-      "featured": false
+      "featured": false,
+      "added": "2026-11-13"
     }
   ]
 }

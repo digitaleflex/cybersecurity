@@ -3,7 +3,7 @@
 The static website reads `data/resources.json`.
 
 ## Required fields
-`id`, `title`, `description`, `url`, `domain`, `category`, `type`, `level`, `access`, `language`, `tags`, `source`, `verified`, `status`, `featured`.
+`id`, `title`, `description`, `url`, `domain`, `category`, `type`, `level`, `access`, `language`, `tags`, `source`, `verified`, `status` and `featured`.
 
 ## Domain IDs
 `fundamentals`, `osint`, `red-team`, `blue-team`, `reverse-engineering`, `malware-analysis`, `cloud-security`, `application-security`, `ctf-labs`, `courses-books`, `communities`, `research-reports`.
@@ -12,19 +12,12 @@ The static website reads `data/resources.json`.
 `tool`, `course`, `lab`, `documentation`, `repository`, `framework`, `platform`, `community`, `report`, `library`, `directory`.
 
 ## Skill levels
-- `beginner`
-- `intermediate`
-- `advanced`
-- `professional`
+`beginner`, `intermediate`, `advanced`, `professional`.
 
-## Access values
-Use concise, factual values such as `free`, `freemium`, `paid`, `open-source`, or `mixed`. Do not label a resource open source without checking its license.
-
-## Status values
-- `verified`: canonical URL and essential metadata have been checked.
-- `needs-review`: entry is proposed but requires curator validation.
+## Status and dates
+- `verified`: the canonical URL and essential metadata have been checked by a maintainer. `verified` must contain an ISO `YYYY-MM-DD` date.
+- `needs-review`: proposed entry pending human validation. Set `verified` to `null` and record its catalog entry date in `added`.
 - `archived`: historical resource retained for reference.
 - `removed`: withdrawn from the public catalog.
 
-## Verification discipline
-`verified` is the date of the last human check in ISO `YYYY-MM-DD` format. A `needs-review` entry must not be presented as fully verified. Recheck access, license, language, maintenance and scope before changing it to `verified`.
+Never use the catalog entry date as a verification date. Check access, license, language, maintenance and scope before changing `needs-review` to `verified`.
