@@ -2093,6 +2093,777 @@
       "status": "needs-review",
       "featured": false,
       "added": "2026-11-13"
+    },
+    {
+      "id": "internet-archive",
+      "title": "Internet Archive — Wayback Machine",
+      "description": "Archives de captures de pages web pour retrouver des versions historiques et documenter l'évolution d'un site.",
+      "url": "https://web.archive.org/",
+      "domain": "osint",
+      "category": "Web Archives",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "webint",
+        "archives",
+        "history"
+      ],
+      "source": "Internet Archive",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "common-crawl",
+      "title": "Common Crawl",
+      "description": "Corpus ouvert de crawls web et de données WARC pour la recherche et l'analyse à grande échelle.",
+      "url": "https://commoncrawl.org/",
+      "domain": "osint",
+      "category": "Web Archives",
+      "type": "dataset",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "webint",
+        "crawl",
+        "warc"
+      ],
+      "source": "Common Crawl",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "gdelt-project",
+      "title": "GDELT Project",
+      "description": "Base et API ouvertes pour explorer la couverture médiatique mondiale et les événements rapportés.",
+      "url": "https://www.gdeltproject.org/",
+      "domain": "osint",
+      "category": "NEWSINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "newsint",
+        "media-monitoring",
+        "events"
+      ],
+      "source": "GDELT Project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "openalex",
+      "title": "OpenAlex",
+      "description": "Catalogue ouvert de travaux scientifiques, auteurs, institutions, concepts et citations.",
+      "url": "https://openalex.org/",
+      "domain": "osint",
+      "category": "ACADINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "acadint",
+        "research",
+        "scholarly"
+      ],
+      "source": "OurResearch",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "crossref",
+      "title": "Crossref",
+      "description": "Registre de métadonnées bibliographiques et DOI pour retrouver publications et éditeurs scientifiques.",
+      "url": "https://www.crossref.org/",
+      "domain": "osint",
+      "category": "ACADINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "acadint",
+        "doi",
+        "publications"
+      ],
+      "source": "Crossref",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "invid-weverify",
+      "title": "InVID-WeVerify Verification Plugin",
+      "description": "Extension et outils de vérification de contenus visuels, vidéos, keyframes et contexte de publication.",
+      "url": "https://www.invid-project.eu/tools-and-services/invid-verification-plugin/",
+      "domain": "osint",
+      "category": "VIDINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "vidint",
+        "verification",
+        "media"
+      ],
+      "source": "InVID / WeVerify",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "tineye",
+      "title": "TinEye Reverse Image Search",
+      "description": "Moteur de recherche inversée d'images pour retrouver des occurrences et versions d'une image sur le web.",
+      "url": "https://tineye.com/",
+      "domain": "osint",
+      "category": "IMINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "imint",
+        "reverse-image",
+        "verification"
+      ],
+      "source": "TinEye",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "copernicus-browser",
+      "title": "Copernicus Browser",
+      "description": "Interface d'exploration des données d'observation de la Terre Sentinel et autres collections Copernicus.",
+      "url": "https://browser.dataspace.copernicus.eu/",
+      "domain": "osint",
+      "category": "IMINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "imint",
+        "geoint",
+        "satellite"
+      ],
+      "source": "Copernicus Data Space Ecosystem",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "usgs-earthexplorer",
+      "title": "USGS EarthExplorer",
+      "description": "Portail de recherche et d'accès à des collections d'images Landsat, d'élévation et d'autres données géospatiales.",
+      "url": "https://earthexplorer.usgs.gov/",
+      "domain": "osint",
+      "category": "IMINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "imint",
+        "geoint",
+        "landsat"
+      ],
+      "source": "United States Geological Survey",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "suncalc",
+      "title": "SunCalc",
+      "description": "Outil de calcul de position du soleil et des ombres pour contextualiser des observations visuelles.",
+      "url": "https://www.suncalc.org/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "geoint",
+        "sun-position",
+        "verification"
+      ],
+      "source": "SunCalc",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "mapillary",
+      "title": "Mapillary",
+      "description": "Plateforme d'imagerie au niveau de la rue utile à l'exploration et à la comparaison de lieux publics.",
+      "url": "https://www.mapillary.com/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "geoint",
+        "street-imagery",
+        "mapping"
+      ],
+      "source": "Mapillary",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "icann-lookup",
+      "title": "ICANN Lookup",
+      "description": "Service de consultation des données d'enregistrement de domaines via RDAP, selon les informations publiées par les registres.",
+      "url": "https://lookup.icann.org/",
+      "domain": "osint",
+      "category": "DOMINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "domint",
+        "rdap",
+        "domain"
+      ],
+      "source": "ICANN",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "crt-sh",
+      "title": "crt.sh Certificate Search",
+      "description": "Moteur de recherche public dans les journaux Certificate Transparency pour explorer les certificats TLS publiés.",
+      "url": "https://crt.sh/",
+      "domain": "osint",
+      "category": "DOMINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "domint",
+        "certificate-transparency",
+        "tls"
+      ],
+      "source": "Sectigo / crt.sh",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "urlscan",
+      "title": "urlscan.io",
+      "description": "Service d'analyse et d'archivage de chargements de pages web soumis publiquement ou consultables selon leurs règles de visibilité.",
+      "url": "https://urlscan.io/",
+      "domain": "osint",
+      "category": "NETINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "netint",
+        "web-analysis",
+        "url-intelligence"
+      ],
+      "source": "urlscan.io",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "censys-search",
+      "title": "Censys Search",
+      "description": "Moteur de recherche de données publiques sur les hôtes, services web et certificats observés sur Internet.",
+      "url": "https://search.censys.io/",
+      "domain": "osint",
+      "category": "NETINT",
+      "type": "platform",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "netint",
+        "certificates",
+        "internet-assets"
+      ],
+      "source": "Censys",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "opencorporates",
+      "title": "OpenCorporates",
+      "description": "Agrégateur international de données de registres d'entreprises ; toujours recouper avec le registre officiel compétent.",
+      "url": "https://opencorporates.com/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "corpint",
+        "companies",
+        "registry"
+      ],
+      "source": "OpenCorporates",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "opensanctions",
+      "title": "OpenSanctions",
+      "description": "Base structurée de listes de sanctions, personnes politiquement exposées et données de conformité avec provenance des sources.",
+      "url": "https://www.opensanctions.org/",
+      "domain": "osint",
+      "category": "SANCINT",
+      "type": "database",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "sancint",
+        "compliance",
+        "entities"
+      ],
+      "source": "OpenSanctions",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "sec-edgar",
+      "title": "SEC EDGAR",
+      "description": "Système officiel de la SEC américaine pour consulter les dépôts réglementaires, rapports et déclarations des sociétés concernées.",
+      "url": "https://www.sec.gov/edgar/search/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "finint",
+        "corpint",
+        "filings"
+      ],
+      "source": "U.S. Securities and Exchange Commission",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "openstreetmap-wiki",
+      "title": "OpenStreetMap Wiki",
+      "description": "Documentation et ressources sur les données cartographiques collaboratives et leur schéma.",
+      "url": "https://wiki.openstreetmap.org/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "documentation",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "geoint",
+        "mapping",
+        "geodata"
+      ],
+      "source": "OpenStreetMap contributors",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nasa-firms",
+      "title": "NASA FIRMS",
+      "description": "Données ouvertes de détection des anomalies thermiques et feux actifs à partir de capteurs satellitaires.",
+      "url": "https://firms.modaps.eosdis.nasa.gov/",
+      "domain": "osint",
+      "category": "ENVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "envint",
+        "imint",
+        "wildfire"
+      ],
+      "source": "NASA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "flightradar24",
+      "title": "Flightradar24",
+      "description": "Service de suivi aérien et d'information sur les vols ; disponibilité et profondeur de l'historique dépendent de l'offre.",
+      "url": "https://www.flightradar24.com/",
+      "domain": "osint",
+      "category": "AVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "avint",
+        "flight-tracking",
+        "aviation"
+      ],
+      "source": "Flightradar24",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "marinetraffic",
+      "title": "MarineTraffic",
+      "description": "Plateforme de visualisation du trafic maritime et des données AIS, avec limites de couverture et fonctionnalités selon l'offre.",
+      "url": "https://www.marinetraffic.com/",
+      "domain": "osint",
+      "category": "MARINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "marint",
+        "ais",
+        "shipping"
+      ],
+      "source": "MarineTraffic",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-journal-officiel",
+      "title": "Journal Officiel du Bénin",
+      "description": "Publication officielle des textes et annonces gouvernementales de la République du Bénin.",
+      "url": "https://www.journalofficiel.gouv.bj/",
+      "domain": "osint",
+      "category": "LEGINT",
+      "type": "database",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "legint",
+        "official-records"
+      ],
+      "source": "Secrétariat général du Gouvernement du Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-instad",
+      "title": "INStaD — Institut National de la Statistique et de la Démographie",
+      "description": "Source institutionnelle de statistiques, recensements, enquêtes et publications nationales du Bénin.",
+      "url": "https://www.instad.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "govint",
+        "statistics"
+      ],
+      "source": "INStaD",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-open-data",
+      "title": "Bénin Open Data — Africa Development Indicators",
+      "description": "Portail de diffusion d'indicateurs et jeux de données statistiques concernant le Bénin.",
+      "url": "https://benin.opendataforafrica.org/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "database",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "open-data",
+        "statistics"
+      ],
+      "source": "INStaD / Open Data for Africa",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-nada",
+      "title": "INStaD — National Data Archive",
+      "description": "Catalogue de métadonnées et de microdonnées d'enquêtes et de recensements, avec modalités d'accès propres à chaque jeu.",
+      "url": "https://nada.instad.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "fr",
+        "en"
+      ],
+      "tags": [
+        "benin",
+        "nada",
+        "microdata"
+      ],
+      "source": "INStaD",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-budget-data",
+      "title": "Base de données financières de la DGB",
+      "description": "Portail de consultation et d'export des données budgétaires publiques du Bénin, notamment recettes et dépenses.",
+      "url": "https://databudgetbenin.finances.bj/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "finint",
+        "public-budget"
+      ],
+      "source": "Direction Générale du Budget — Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-procurement-journal",
+      "title": "Journal National des Marchés Publics du Bénin",
+      "description": "Plateforme officielle de consultation et de téléchargement des journaux et avis de marchés publics.",
+      "url": "https://sygjmap.finances.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "govint",
+        "procurement"
+      ],
+      "source": "Direction Nationale du Contrôle — Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-dnc",
+      "title": "Direction Nationale du Contrôle — Bénin",
+      "description": "Portail institutionnel donnant accès aux informations sur les marchés publics et aux plateformes associées.",
+      "url": "https://dnc.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "govint",
+        "public-procurement"
+      ],
+      "source": "Direction Nationale du Contrôle — Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-government-portal",
+      "title": "Portail officiel du Gouvernement du Bénin",
+      "description": "Point d'entrée vers les communications gouvernementales et les plateformes publiques officielles.",
+      "url": "https://www.gouv.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "govint",
+        "official-portal"
+      ],
+      "source": "Gouvernement du Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-apiex",
+      "title": "APIEx Bénin",
+      "description": "Agence de promotion des investissements et des exportations ; informations institutionnelles sur les formalités et l'environnement des entreprises.",
+      "url": "https://apiex.bj/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "corpint",
+        "business"
+      ],
+      "source": "Agence de Promotion des Investissements et des Exportations",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "benin-public-services",
+      "title": "Portail National des Services Publics du Bénin",
+      "description": "Catalogue officiel des démarches et services administratifs numériques, utile pour identifier les procédures et registres accessibles.",
+      "url": "https://service-public.bj/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "fr"
+      ],
+      "tags": [
+        "benin",
+        "govint",
+        "public-services"
+      ],
+      "source": "Gouvernement du Bénin",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     }
   ]
 }
