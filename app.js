@@ -285,8 +285,16 @@ function bindEvents() {
     if (event.key === "Escape") $("#searchInput").blur();
   });
 
-  const quickSearch = $("#quickSearch");\n  if (quickSearch) quickSearch.addEventListener("input", () => {\n    $("#searchInput").value = quickSearch.value;\n    $("#searchInput").dispatchEvent(new Event("input", { bubbles: true }));\n  });\n\n  document.querySelectorAll("[data-query]").forEach((button) => button.addEventListener("click", () => {
-    $("#searchInput").value = button.dataset.query;\n    if (quickSearch) quickSearch.value = button.dataset.query;\n    state.query = button.dataset.query; state.visible = PAGE_SIZE; renderResources(); $("#explore").scrollIntoView({ behavior: "smooth" });
+  const quickSearch = $("#quickSearch");
+  if (quickSearch) quickSearch.addEventListener("input", () => {
+    $("#searchInput").value = quickSearch.value;
+    $("#searchInput").dispatchEvent(new Event("input", { bubbles: true }));
+  });
+
+  document.querySelectorAll("[data-query]").forEach((button) => button.addEventListener("click", () => {
+    $("#searchInput").value = button.dataset.query;
+    if (quickSearch) quickSearch.value = button.dataset.query;
+    state.query = button.dataset.query; state.visible = PAGE_SIZE; renderResources(); $("#explore").scrollIntoView({ behavior: "smooth" });
   }));
   const focusSearch = $("#focusSearch"); if (focusSearch) focusSearch.addEventListener("click", () => { $("#searchInput").focus(); $("#explore").scrollIntoView({ behavior: "smooth" }); });
 
