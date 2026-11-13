@@ -134,6 +134,9 @@ function resourceCard(resource) {
   const type = TYPE_LABELS[resource.type] || resource.type;
   const level = LEVEL_LABELS[resource.level] || resource.level;
   const status = STATUS_LABELS[resource.status] || "Statut inconnu";
+  const access = resource.access === "free" ? "Gratuit" : resource.access === "paid" ? "Payant" : resource.access === "freemium" ? "Freemium" : resource.access;
+  const languages = (resource.language || []).slice(0, 2).map((language) => language.toUpperCase()).join(" · ");
+  const tags = (resource.tags || []).slice(0, 3);
 
   return `<article class="resource-card">
     <div class="card-topline">
@@ -143,8 +146,9 @@ function resourceCard(resource) {
     </div>
     <h3>${escapeHTML(resource.title)} ${resource.featured ? '<span class="featured-mark" aria-label="Sélection HashCode">✦</span>' : ""}</h3>
     <p>${escapeHTML(resource.description)}</p>
+    <div class="resource-tags">${tags.map((tag) => `<span>#${escapeHTML(tag)}</span>`).join("")}</div>
     <div class="card-footer">
-      <span class="card-domain">${escapeHTML(domain?.title || resource.domain)} · ${escapeHTML(resource.category)}</span>
+      <span class="card-domain">${escapeHTML(domain?.title || resource.domain)} · ${escapeHTML(resource.category)}<small>${escapeHTML([access, languages].filter(Boolean).join(" / "))}</small></span>
       ${url ? `<a class="card-open" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir ${escapeHTML(resource.title)} dans un nouvel onglet">↗</a>` : '<span class="card-open card-unavailable" title="URL invalide">—</span>'}
     </div>
   </article>`;
