@@ -122,7 +122,10 @@ function populateCategoryFilter() {
 }
 
 function updateStats() {
-  $("#statResources").textContent = state.resources.length.toString().padStart(2, "0");
+  $("#statResources").textContent = state.resources.length.toString();
+  $("#heroResourceCount").textContent = state.resources.length.toString();
+  const sideCount = $("#sideResourceCount"); if (sideCount) sideCount.textContent = state.resources.length.toString();
+  const categoryStat = $("#statCategories"); if (categoryStat) categoryStat.textContent = state.osintCategories.length.toString();
   $("#statDomains").textContent = state.domains.length.toString().padStart(2, "0");
   $("#statTypes").textContent = new Set(state.resources.map((resource) => resource.type)).size.toString().padStart(2, "0");
   $("#statPending").textContent = state.resources.filter((resource) => resource.status === "needs-review").length.toString().padStart(2, "0");
@@ -280,7 +283,7 @@ function bindEvents() {
     if (event.key === "Escape") $("#searchInput").blur();
   });
 
-  $("#menuToggle").addEventListener("click", () => {
+  document.querySelectorAll("[data-query]").forEach((button) => button.addEventListener("click", () => {\n    $("#searchInput").value = button.dataset.query; state.query = button.dataset.query; state.visible = PAGE_SIZE; renderResources(); $("#explore").scrollIntoView({ behavior: "smooth" });\n  }));\n  const focusSearch = $("#focusSearch"); if (focusSearch) focusSearch.addEventListener("click", () => { $("#searchInput").focus(); $("#explore").scrollIntoView({ behavior: "smooth" }); });\n\n  $("#menuToggle").addEventListener("click", () => {
     const nav = $("#primaryNav");
     const isOpen = nav.classList.toggle("open");
     $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
