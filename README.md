@@ -2,7 +2,7 @@
 
 > A curated, community-maintained library for cybersecurity, OSINT, security engineering and digital investigations.
 
-**HashCode project** · Maintained by [Digital E-Flex](https://github.com/digitaleflex).
+**HashCode project** · Maintained by [HashCode](https://github.com/digitaleflex) and [Digital E-Flex](https://github.com/digitaleflex).
 
 HashCode Cyber Library brings together official documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
 
