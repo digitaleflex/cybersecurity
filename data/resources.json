@@ -2864,6 +2864,877 @@
       "status": "needs-review",
       "featured": false,
       "added": "2026-11-13"
+    },
+    {
+      "id": "eu-data-portal",
+      "title": "data.europa.eu — Portail officiel des données européennes",
+      "description": "Portail officiel de découverte des jeux de données des institutions européennes et des administrations des États membres.",
+      "url": "https://data.europa.eu/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "open-data",
+        "government"
+      ],
+      "source": "Publications Office of the European Union",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "eur-lex",
+      "title": "EUR-Lex — Droit de l'Union européenne",
+      "description": "Accès aux traités, actes juridiques, accords internationaux, procédures législatives et jurisprudence de l'Union européenne.",
+      "url": "https://eur-lex.europa.eu/",
+      "domain": "osint",
+      "category": "LEGINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "law",
+        "legal-records"
+      ],
+      "source": "Office des publications de l'Union européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ted-europa",
+      "title": "TED — Tenders Electronic Daily",
+      "description": "Portail officiel des avis de marchés publics européens et des appels d'offres publiés au niveau européen.",
+      "url": "https://ted.europa.eu/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "procurement",
+        "tenders"
+      ],
+      "source": "Office des publications de l'Union européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "eu-transparency-register",
+      "title": "Registre de transparence de l'Union européenne",
+      "description": "Registre officiel des organisations et personnes agissant comme représentants d'intérêts auprès des institutions européennes.",
+      "url": "https://transparency-register.europa.eu/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "lobbying",
+        "transparency"
+      ],
+      "source": "Parlement européen et Commission européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "european-e-justice",
+      "title": "Portail e-Justice européen — Registres d'entreprises",
+      "description": "Point d'accès aux services européens de justice, dont l'interconnexion des registres nationaux d'entreprises via BRIS.",
+      "url": "https://e-justice.europa.eu/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "company-registers",
+        "justice"
+      ],
+      "source": "Commission européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "eu-sanctions-map",
+      "title": "EU Sanctions Map",
+      "description": "Portail officiel pour explorer les régimes de sanctions de l'Union européenne et les actes juridiques associés.",
+      "url": "https://www.sanctionsmap.eu/",
+      "domain": "osint",
+      "category": "SANCINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "sanctions",
+        "compliance"
+      ],
+      "source": "Commission européenne / EEAS",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "eurostat",
+      "title": "Eurostat",
+      "description": "Office statistique de l'Union européenne : données harmonisées sur population, économie, commerce, transport, environnement et société.",
+      "url": "https://ec.europa.eu/eurostat/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "eu",
+        "statistics",
+        "economy"
+      ],
+      "source": "Commission européenne — Eurostat",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cordis",
+      "title": "CORDIS — EU Research Results",
+      "description": "Base officielle des projets, résultats et publications de recherche financés par les programmes de recherche de l'Union européenne.",
+      "url": "https://cordis.europa.eu/",
+      "domain": "osint",
+      "category": "ACADINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "research",
+        "funding"
+      ],
+      "source": "Commission européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "copernicus-data",
+      "title": "Copernicus Data Space Ecosystem",
+      "description": "Accès officiel aux données d'observation de la Terre du programme Copernicus, notamment les missions Sentinel.",
+      "url": "https://dataspace.copernicus.eu/",
+      "domain": "osint",
+      "category": "IMINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "satellite",
+        "earth-observation"
+      ],
+      "source": "Commission européenne / ESA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "inspire-geoportal",
+      "title": "INSPIRE Geoportal",
+      "description": "Point d'accès européen aux données géographiques produites par les autorités publiques selon la directive INSPIRE.",
+      "url": "https://inspire-geoportal.ec.europa.eu/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "platform",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "geospatial",
+        "inspire"
+      ],
+      "source": "Commission européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "euipo",
+      "title": "EUIPO — eSearch plus",
+      "description": "Recherche officielle dans les marques de l'Union européenne et les dessins ou modèles enregistrés auprès de l'EUIPO.",
+      "url": "https://euipo.europa.eu/eSearch/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "trademarks",
+        "intellectual-property"
+      ],
+      "source": "European Union Intellectual Property Office",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "epo-espacenet",
+      "title": "Espacenet — European Patent Office",
+      "description": "Recherche de documents de brevets et d'informations bibliographiques et techniques sur les inventions.",
+      "url": "https://worldwide.espacenet.com/",
+      "domain": "osint",
+      "category": "ACADINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "patents",
+        "technology"
+      ],
+      "source": "European Patent Office",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "europa-public-registers",
+      "title": "EU — Public Registers and Access to Documents",
+      "description": "Point d'entrée institutionnel vers les registres publics, documents, agendas, procès-verbaux et informations de transparence de l'Union.",
+      "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/access-information_en",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "directory",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "eu",
+        "public-registers",
+        "transparency"
+      ],
+      "source": "Union européenne",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "us-data-gov",
+      "title": "Data.gov — U.S. Government Open Data",
+      "description": "Catalogue officiel des jeux de données ouverts des agences fédérales américaines et de certains portails étatiques et locaux.",
+      "url": "https://data.gov/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "open-data",
+        "government"
+      ],
+      "source": "U.S. General Services Administration",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "usaspending",
+      "title": "USAspending.gov",
+      "description": "Source officielle des données de dépenses fédérales américaines : contrats, subventions, prêts, bénéficiaires et agences.",
+      "url": "https://www.usaspending.gov/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "public-spending",
+        "contracts"
+      ],
+      "source": "U.S. Department of the Treasury",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "sam-gov",
+      "title": "SAM.gov — Contract Opportunities and Entity Information",
+      "description": "Portail officiel fédéral américain pour les opportunités de marchés publics et les données d'enregistrement des entités contractantes.",
+      "url": "https://sam.gov/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "procurement",
+        "entities"
+      ],
+      "source": "U.S. General Services Administration",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "fec-data",
+      "title": "FEC — Campaign Finance Data",
+      "description": "Base officielle des déclarations de financement des campagnes fédérales américaines, contributions, comités et dépenses électorales.",
+      "url": "https://www.fec.gov/data/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "elections",
+        "campaign-finance"
+      ],
+      "source": "U.S. Federal Election Commission",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "govinfo",
+      "title": "GovInfo — U.S. Government Publications",
+      "description": "Dépôt officiel de publications numériques des branches législative, exécutive et judiciaire du gouvernement fédéral américain.",
+      "url": "https://www.govinfo.gov/",
+      "domain": "osint",
+      "category": "LEGINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "official-publications",
+        "law"
+      ],
+      "source": "U.S. Government Publishing Office",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "uspto-search",
+      "title": "USPTO — Patent and Trademark Search",
+      "description": "Outils officiels de recherche de brevets et de marques enregistrés ou déposés aux États-Unis.",
+      "url": "https://www.uspto.gov/",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "patents",
+        "trademarks"
+      ],
+      "source": "United States Patent and Trademark Office",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "usgs-earthquake",
+      "title": "USGS — Earthquake Catalog",
+      "description": "Catalogue officiel des séismes observés et signalés, avec données géographiques, temporelles et instrumentales.",
+      "url": "https://earthquake.usgs.gov/earthquakes/search/",
+      "domain": "osint",
+      "category": "ENVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "earth-science",
+        "geospatial"
+      ],
+      "source": "United States Geological Survey",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "noaa-data",
+      "title": "NOAA — National Centers for Environmental Information",
+      "description": "Données officielles américaines sur climat, météo, océans, environnement et observations historiques.",
+      "url": "https://www.ncei.noaa.gov/",
+      "domain": "osint",
+      "category": "ENVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "climate",
+        "ocean"
+      ],
+      "source": "National Oceanic and Atmospheric Administration",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nasa-earthdata",
+      "title": "NASA Earthdata Search",
+      "description": "Catalogue et accès aux données scientifiques de la NASA sur la Terre, l'atmosphère, les océans et les changements environnementaux.",
+      "url": "https://search.earthdata.nasa.gov/",
+      "domain": "osint",
+      "category": "IMINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "earth-observation",
+        "science"
+      ],
+      "source": "NASA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "census-data",
+      "title": "U.S. Census Bureau — Data",
+      "description": "Données officielles sur population, ménages, économie, entreprises et géographie aux États-Unis.",
+      "url": "https://data.census.gov/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "usa",
+        "demographics",
+        "economy"
+      ],
+      "source": "U.S. Census Bureau",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "un-data",
+      "title": "UNdata — United Nations Statistics",
+      "description": "Portail statistique des Nations Unies agrégeant des bases de données thématiques de plusieurs agences de l'ONU.",
+      "url": "https://data.un.org/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "un",
+        "international-statistics",
+        "open-data"
+      ],
+      "source": "United Nations Statistics Division",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "un-comtrade",
+      "title": "UN Comtrade Database",
+      "description": "Base officielle de statistiques détaillées sur les importations et exportations par produit et partenaire commercial, rapportées par les pays.",
+      "url": "https://comtrade.un.org/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "database",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "un",
+        "trade",
+        "customs"
+      ],
+      "source": "United Nations Statistics Division",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "world-bank-data",
+      "title": "World Bank Open Data",
+      "description": "Données ouvertes sur le développement, l'économie, la population, la pauvreté, les infrastructures et les indicateurs nationaux.",
+      "url": "https://data.worldbank.org/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "development",
+        "statistics"
+      ],
+      "source": "World Bank",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "imf-data",
+      "title": "IMF Data",
+      "description": "Bases statistiques du Fonds monétaire international sur les finances publiques, la balance des paiements, les taux de change et l'économie mondiale.",
+      "url": "https://data.imf.org/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "macroeconomics",
+        "finance"
+      ],
+      "source": "International Monetary Fund",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "oecd-data",
+      "title": "OECD Data Explorer",
+      "description": "Données et indicateurs comparables produits par l'Organisation de coopération et de développement économiques.",
+      "url": "https://data-explorer.oecd.org/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "international",
+        "statistics",
+        "policy"
+      ],
+      "source": "OECD",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "who-gho",
+      "title": "WHO Global Health Observatory",
+      "description": "Données et indicateurs officiels de l'Organisation mondiale de la santé sur la santé publique et les systèmes de santé.",
+      "url": "https://www.who.int/data/gho",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "health",
+        "statistics"
+      ],
+      "source": "World Health Organization",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ilo-ilostat",
+      "title": "ILOSTAT",
+      "description": "Base statistique de l'Organisation internationale du Travail sur l'emploi, les salaires, le chômage et les conditions de travail.",
+      "url": "https://ilostat.ilo.org/data/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "labour",
+        "employment"
+      ],
+      "source": "International Labour Organization",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "fao-faostat",
+      "title": "FAOSTAT",
+      "description": "Base statistique de la FAO sur agriculture, alimentation, pêche, forêts, production et commerce agricole.",
+      "url": "https://www.fao.org/faostat/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "agriculture",
+        "food-security"
+      ],
+      "source": "Food and Agriculture Organization",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "wto-data",
+      "title": "WTO Data Portal",
+      "description": "Portail de données de l'Organisation mondiale du commerce sur les échanges, tarifs, mesures commerciales et politiques liées au commerce.",
+      "url": "https://data.wto.org/",
+      "domain": "osint",
+      "category": "FININT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "trade",
+        "tariffs"
+      ],
+      "source": "World Trade Organization",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "itu-data",
+      "title": "ITU DataHub",
+      "description": "Statistiques et indicateurs officiels sur les télécommunications, les réseaux, l'accès numérique et les technologies de l'information.",
+      "url": "https://datahub.itu.int/",
+      "domain": "osint",
+      "category": "NETINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "telecommunications",
+        "connectivity"
+      ],
+      "source": "International Telecommunication Union",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "wipo-ip-portal",
+      "title": "WIPO IP Portal",
+      "description": "Accès aux bases et services de l'Organisation mondiale de la propriété intellectuelle sur les brevets, marques et autres droits de propriété intellectuelle.",
+      "url": "https://www.wipo.int/en/web/ip-portal",
+      "domain": "osint",
+      "category": "CORPINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "intellectual-property",
+        "patents"
+      ],
+      "source": "World Intellectual Property Organization",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "unhcr-data",
+      "title": "UNHCR Refugee Data Finder",
+      "description": "Statistiques et données publiées par le Haut-Commissariat des Nations Unies pour les réfugiés sur les déplacements forcés et les populations déplacées.",
+      "url": "https://www.unhcr.org/refugee-statistics/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "migration",
+        "humanitarian"
+      ],
+      "source": "UNHCR",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "hdx",
+      "title": "Humanitarian Data Exchange (HDX)",
+      "description": "Plateforme humanitaire de partage de jeux de données géographiques et opérationnels, notamment ceux publiés par les acteurs humanitaires.",
+      "url": "https://data.humdata.org/",
+      "domain": "osint",
+      "category": "GOVINT",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "international",
+        "humanitarian",
+        "geospatial"
+      ],
+      "source": "UN OCHA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     }
   ]
 }
