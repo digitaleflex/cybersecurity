@@ -13,7 +13,7 @@
 - [MITRE ATT&CK](https://attack.mitre.org/) — base de connaissances des techniques adverses.
 - [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) — guide de test de sécurité Web.
 - [Awesome Pentest](https://github.com/enaqx/awesome-pentest) — catalogue de ressources.
-- [Awesome Red Teaming](https://github.com/yeyintminthuhtut/Awesome-Red-Team).
+- [Awesome Red Teaming](https://github.com/yeyintminthuhtut/Awesome-Red-Teaming).
 
 ## Outils
 - [Nmap](https://nmap.org/) — découverte réseau et audit de services.

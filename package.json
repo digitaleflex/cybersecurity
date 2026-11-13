@@ -1,0 +1,9 @@
+{
+  "name": "hashcode-cyber-library",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:catalog": "node scripts/validate-catalog.mjs"
+  }
+}
