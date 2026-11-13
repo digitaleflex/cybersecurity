@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090c10">
+  <meta name="description" content="Documentation HashCode Cyber Library — lecteur Markdown sécurisé et accessible.">
+  <title>Documentation — HashCode Cyber Library</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="docs.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script defer src="docs.js"></script>
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#documentContent">Aller au document</a>
+  <header class="topbar docs-topbar">
+    <a class="brand" href="index.html" aria-label="HashCode Cyber Library, accueil">
+      <img src="assets/mark.svg" alt="" width="36" height="36">
+      <span>HASHCODE<span class="brand-accent">LIBRARY</span><small>DOCUMENTATION CENTER</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="index.html#explore">Catalogue</a><a href="index.html#domains">Domaines</a><a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+    <a class="nav-cta" href="index.html">← Retour à la bibliothèque</a>
+  </header>
+
+  <main class="docs-shell">
+    <aside class="docs-sidebar" aria-label="Navigation documentaire">
+      <div class="docs-sidebar-head"><span class="eyebrow"><i></i> KNOWLEDGE BASE</span><h2>Documentation</h2><p>Guides, référentiels et règles de contribution.</p></div>
+      <label class="docs-search"><span aria-hidden="true">⌕</span><input id="docsSearch" type="search" placeholder="Rechercher un document…" autocomplete="off"></label>
+      <nav id="docsNav" class="docs-nav" aria-label="Documents"></nav>
+      <div class="docs-sidebar-foot">HASHCODE · CYBER LIBRARY</div>
+    </aside>
+
+    <section class="docs-main">
+      <div class="docs-toolbar">
+        <div class="docs-breadcrumb"><a href="index.html">Bibliothèque</a><span>/</span><span id="breadcrumbTitle">Documentation</span></div>
+        <a id="sourceLink" class="docs-source-link" href="#" target="_blank" rel="noopener noreferrer">Voir la source ↗</a>
+      </div>
+      <div id="docsStatus" class="docs-status" role="status" aria-live="polite">Chargement du document…</div>
+      <article id="documentContent" class="markdown-body" tabindex="-1"></article>
+      <nav id="documentToc" class="docs-mobile-toc" aria-label="Sommaire du document" hidden></nav>
+      <footer class="docs-footer"><span>HASHCODE CYBER LIBRARY</span><a href="index.html">Retour à l'accueil ↗</a></footer>
+    </section>
+
+    <aside class="docs-toc-panel" aria-label="Sommaire">
+      <div class="docs-toc-title">SUR CETTE PAGE</div>
+      <nav id="docsToc"></nav>
+    </aside>
+  </main>
+</body>
+</html>
