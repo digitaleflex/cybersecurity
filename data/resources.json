@@ -119,9 +119,10 @@
         "tools"
       ],
       "source": "OSINT Framework",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-osint",
@@ -142,9 +143,10 @@
         "awesome-list"
       ],
       "source": "jivoi",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-osint-list",
@@ -165,9 +167,10 @@
         "directory"
       ],
       "source": "Astrosp",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "bellingcat-toolkit",
@@ -189,9 +192,10 @@
         "investigation"
       ],
       "source": "Bellingcat",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "maigret",
@@ -213,9 +217,10 @@
         "osint"
       ],
       "source": "Soxoj",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "whatsmyname",
@@ -236,9 +241,10 @@
         "osint"
       ],
       "source": "WebBreacher",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "exiftool",
@@ -259,9 +265,10 @@
         "forensics"
       ],
       "source": "Phil Harvey",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "google-search-operators",
@@ -283,9 +290,10 @@
         "dorking"
       ],
       "source": "Google",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "openstreetmap",
@@ -306,9 +314,10 @@
         "geospatial"
       ],
       "source": "OpenStreetMap Foundation",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "nasa-worldview",
@@ -328,9 +337,10 @@
         "satellite"
       ],
       "source": "NASA",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "linux-journey",
@@ -350,9 +360,10 @@
         "fundamentals"
       ],
       "source": "Linux Journey",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "missing-semester",
@@ -372,9 +383,10 @@
         "tools"
       ],
       "source": "MIT",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "overthewire-bandit",
@@ -394,9 +406,10 @@
         "wargame"
       ],
       "source": "OverTheWire",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "wireshark-docs",
@@ -416,9 +429,10 @@
         "pcap"
       ],
       "source": "Wireshark Foundation",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "nist-cybersecurity",
@@ -438,9 +452,10 @@
         "framework"
       ],
       "source": "NIST",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "cis-controls",
@@ -460,9 +475,10 @@
         "controls"
       ],
       "source": "Center for Internet Security",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-pentest",
@@ -482,9 +498,10 @@
         "github"
       ],
       "source": "enaqx",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-red-teaming",
@@ -504,9 +521,10 @@
         "adversary-emulation"
       ],
       "source": "yeyintminthuhtut",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-wstg",
@@ -526,9 +544,10 @@
         "web"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "portswigger-academy",
@@ -548,9 +567,10 @@
         "labs"
       ],
       "source": "PortSwigger",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "hacktricks",
@@ -570,9 +590,10 @@
         "knowledge-base"
       ],
       "source": "HackTricks",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "metasploit",
@@ -592,9 +613,10 @@
         "framework"
       ],
       "source": "Rapid7",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "mitre-attack",
@@ -614,9 +636,10 @@
         "threat-intelligence"
       ],
       "source": "MITRE",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "sigma",
@@ -636,9 +659,10 @@
         "siem"
       ],
       "source": "SigmaHQ",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "wazuh",
@@ -658,9 +682,10 @@
         "monitoring"
       ],
       "source": "Wazuh",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "awesome-blue-team",
@@ -680,9 +705,10 @@
         "defense"
       ],
       "source": "fabacab",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "volatility3",
@@ -702,9 +728,10 @@
         "memory-forensics"
       ],
       "source": "Volatility Foundation",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "velociraptor",
@@ -724,9 +751,10 @@
         "endpoint"
       ],
       "source": "Velocidex",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "ghidra",
@@ -746,9 +774,10 @@
         "binary-analysis"
       ],
       "source": "National Security Agency",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "remnux",
@@ -768,9 +797,10 @@
         "sandbox"
       ],
       "source": "REMnux",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "yara",
@@ -790,9 +820,10 @@
         "malware"
       ],
       "source": "VirusTotal",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "aws-security-docs",
@@ -813,9 +844,10 @@
         "iam"
       ],
       "source": "Amazon Web Services",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "kubernetes-security",
@@ -835,9 +867,10 @@
         "containers"
       ],
       "source": "Kubernetes",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-cheatsheets",
@@ -857,9 +890,10 @@
         "appsec"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-api-security",
@@ -879,9 +913,10 @@
         "owasp"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "juice-shop",
@@ -902,9 +937,10 @@
         "owasp"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "picoctf",
@@ -924,9 +960,10 @@
         "learning"
       ],
       "source": "Carnegie Mellon University",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "tryhackme",
@@ -946,9 +983,10 @@
         "labs"
       ],
       "source": "TryHackMe",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "hackthebox",
@@ -968,9 +1006,10 @@
         "labs"
       ],
       "source": "Hack The Box",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "cisco-skillsforall",
@@ -990,9 +1029,10 @@
         "networking"
       ],
       "source": "Cisco",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "sans-reading-room",
@@ -1012,9 +1052,10 @@
         "research"
       ],
       "source": "SANS Institute",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "owasp-chapters",
@@ -1034,9 +1075,10 @@
         "owasp"
       ],
       "source": "OWASP",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "defcon-groups",
@@ -1057,9 +1099,10 @@
         "events"
       ],
       "source": "DEF CON",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "cisa-advisories",
@@ -1079,9 +1122,10 @@
         "threat-intelligence"
       ],
       "source": "CISA",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": true
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
     },
     {
       "id": "enisa-publications",
@@ -1101,9 +1145,10 @@
         "policy"
       ],
       "source": "ENISA",
-      "verified": "2026-11-13",
-      "status": "verified",
-      "featured": false
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
     },
     {
       "id": "spiderfoot",
