@@ -3090,7 +3090,7 @@
     {
       "id": "inspire-geoportal",
       "title": "INSPIRE Geoportal",
-      "description": "Point d'accès européen aux données géographiques produites par les autorités publiques selon la directive INSPIRE.",
+      "description": "Point d'accès européen aux données géographiques produites par les autorités publiques selon la directive INSPIRE. Service arrêté le 1er juillet 2026 : utiliser data.europa.eu (déjà au catalogue).",
       "url": "https://inspire-geoportal.ec.europa.eu/",
       "domain": "osint",
       "category": "GEOINT",
@@ -3107,7 +3107,7 @@
       ],
       "source": "Commission européenne",
       "verified": null,
-      "status": "needs-review",
+      "status": "archived",
       "featured": false,
       "added": "2026-11-13"
     },
@@ -3668,7 +3668,7 @@
       "id": "wipo-ip-portal",
       "title": "WIPO IP Portal",
       "description": "Accès aux bases et services de l'Organisation mondiale de la propriété intellectuelle sur les brevets, marques et autres droits de propriété intellectuelle.",
-      "url": "https://www.wipo.int/en/web/ip-portal",
+      "url": "https://ipportal.wipo.int/",
       "domain": "osint",
       "category": "CORPINT",
       "type": "platform",
