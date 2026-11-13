@@ -7,6 +7,7 @@ const state = {
   visible: PAGE_SIZE,
   query: "",
   domain: "",
+  category: "",
   type: "",
   level: "",
   status: "",
@@ -55,6 +56,7 @@ function getDomain(domainId) {
 function populateFilters() {
   const domainFilter = $("#domainFilter");
   state.domains.forEach((domain) => domainFilter.add(new Option(domain.title, domain.id)));
+  populateCategoryFilter();
 
   [...new Set(state.resources.map((resource) => resource.type))]
     .sort()
@@ -67,6 +69,20 @@ function populateFilters() {
   Object.entries(STATUS_LABELS).forEach(([value, label]) => {
     $("#statusFilter").add(new Option(label, value));
   });
+}
+
+function populateCategoryFilter() {
+  const filter = $("#categoryFilter");
+  if (!filter) return;
+  const current = state.category;
+  filter.replaceChildren(new Option("Toutes les catégories", ""));
+  const categories = [...new Set(state.resources
+    .filter((resource) => !state.domain || resource.domain === state.domain)
+    .map((resource) => resource.category)
+    .filter(Boolean))].sort((a, b) => a.localeCompare(b, "fr"));
+  categories.forEach((category) => filter.add(new Option(category, category)));
+  filter.value = categories.includes(current) ? current : "";
+  state.category = filter.value;
 }
 
 function updateStats() {
@@ -90,7 +106,9 @@ function renderDomains() {
   grid.querySelectorAll("[data-domain]").forEach((button) => {
     button.addEventListener("click", () => {
       state.domain = button.dataset.domain;
+      state.category = "";
       $("#domainFilter").value = state.domain;
+      populateCategoryFilter();
       state.visible = PAGE_SIZE;
       renderResources();
       $("#explore").scrollIntoView({ behavior: "smooth" });
@@ -103,6 +121,7 @@ function getFilteredResources() {
   const resources = state.resources.filter((resource) => {
     if (["archived", "removed"].includes(resource.status)) return false;
     if (state.domain && resource.domain !== state.domain) return false;
+    if (state.category && resource.category !== state.category) return false;
     if (state.type && resource.type !== state.type) return false;
     if (state.level && resource.level !== state.level) return false;
     if (state.status && resource.status !== state.status) return false;
@@ -165,9 +184,10 @@ function renderResources() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", domain: "", type: "", level: "", status: "", sort: "featured", visible: PAGE_SIZE });
+  Object.assign(state, { query: "", domain: "", category: "", type: "", level: "", status: "", sort: "featured", visible: PAGE_SIZE });
   $("#searchInput").value = "";
   $("#domainFilter").value = "";
+  populateCategoryFilter();
   $("#typeFilter").value = "";
   $("#levelFilter").value = "";
   $("#statusFilter").value = "";
@@ -183,7 +203,7 @@ function bindEvents() {
   });
 
   const filters = [
-    ["#domainFilter", "domain"], ["#typeFilter", "type"],
+    ["#domainFilter", "domain"], ["#categoryFilter", "category"], ["#typeFilter", "type"],
     ["#levelFilter", "level"], ["#statusFilter", "status"],
     ["#sortFilter", "sort"]
   ];
@@ -191,6 +211,10 @@ function bindEvents() {
   filters.forEach(([selector, key]) => {
     $(selector).addEventListener("change", (event) => {
       state[key] = event.target.value;
+      if (key === "domain") {
+        state.category = "";
+        populateCategoryFilter();
+      }
       state.visible = PAGE_SIZE;
       renderResources();
     });
