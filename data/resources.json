@@ -2125,7 +2125,7 @@
       "url": "https://commoncrawl.org/",
       "domain": "osint",
       "category": "Web Archives",
-      "type": "dataset",
+      "type": "platform",
       "level": "advanced",
       "access": "free",
       "language": [
@@ -2173,7 +2173,7 @@
       "url": "https://openalex.org/",
       "domain": "osint",
       "category": "ACADINT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2197,7 +2197,7 @@
       "url": "https://www.crossref.org/",
       "domain": "osint",
       "category": "ACADINT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2462,7 +2462,7 @@
       "url": "https://opencorporates.com/",
       "domain": "osint",
       "category": "CORPINT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2486,7 +2486,7 @@
       "url": "https://www.opensanctions.org/",
       "domain": "osint",
       "category": "SANCINT",
-      "type": "database",
+      "type": "platform",
       "level": "advanced",
       "access": "free",
       "language": [
@@ -2510,7 +2510,7 @@
       "url": "https://www.sec.gov/edgar/search/",
       "domain": "osint",
       "category": "FININT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2630,7 +2630,7 @@
       "url": "https://www.journalofficiel.gouv.bj/",
       "domain": "osint",
       "category": "LEGINT",
-      "type": "database",
+      "type": "platform",
       "level": "beginner",
       "access": "free",
       "language": [
@@ -2678,7 +2678,7 @@
       "url": "https://benin.opendataforafrica.org/",
       "domain": "osint",
       "category": "GOVINT",
-      "type": "database",
+      "type": "platform",
       "level": "beginner",
       "access": "free",
       "language": [
@@ -2703,7 +2703,7 @@
       "url": "https://nada.instad.bj/",
       "domain": "osint",
       "category": "GOVINT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2728,7 +2728,7 @@
       "url": "https://databudgetbenin.finances.bj/",
       "domain": "osint",
       "category": "FININT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
@@ -2752,7 +2752,7 @@
       "url": "https://sygjmap.finances.bj/",
       "domain": "osint",
       "category": "GOVINT",
-      "type": "database",
+      "type": "platform",
       "level": "intermediate",
       "access": "free",
       "language": [
