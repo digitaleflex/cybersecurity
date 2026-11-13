@@ -6,7 +6,7 @@
 
 HashCode Cyber Library brings together documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
 
-**Initial catalog: 82 entries across 12 domains.** The 37 newly added entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. The website visibly labels these entries.
+**Initial catalog: 84 entries across 12 domains.** The 39 newly added entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. The website visibly labels these entries.
 
 ## Explore
 - [Central catalog](CATALOG.md)
