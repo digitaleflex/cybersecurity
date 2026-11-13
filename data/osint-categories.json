@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "description": "Référentiel des 36 catégories principales de la taxonomie OSINT HashCode. Les 11 axes complémentaires restent documentés séparément dans OSINT-TAXONOMY.md.",
+  "categories": [
+    {
+      "code": "WEBINT",
+      "family": "Recherche web et contenus publics",
+      "description": "moteurs généralistes, moteurs spécialisés, recherche avancée, opérateurs, sites web, blogs, forums, wikis, newsletters, pages publiques, web profond légalement accessible, archives web, caches et crawls."
+    },
+    {
+      "code": "NEWSINT",
+      "family": "Recherche web et contenus publics",
+      "description": "presse nationale et locale, médias audiovisuels, fils RSS, dépêches, médias spécialisés, communiqués, conférences de presse, chronologies et veille événementielle."
+    },
+    {
+      "code": "ACADINT",
+      "family": "Recherche web et contenus publics",
+      "description": "articles scientifiques, thèses, prépublications, citations, profils de chercheurs, laboratoires, conférences, brevets et jeux de données scientifiques."
+    },
+    {
+      "code": "DOCINT",
+      "family": "Recherche web et contenus publics",
+      "description": "rapports, PDF, documents administratifs, appels d'offres, présentations, fichiers bureautiques, OCR, métadonnées et archives documentaires."
+    },
+    {
+      "code": "SOCMINT",
+      "family": "Identités, personnes et communautés",
+      "description": "contenus publics des réseaux sociaux, profils, publications, hashtags, commentaires, pages, groupes publics, relations visibles, chronologie et communautés."
+    },
+    {
+      "code": "IDINT",
+      "family": "Identités, personnes et communautés",
+      "description": "pseudonymes, présence numérique publique, profils professionnels, identifiants publics, homonymie, résolution d'entités et corrélation d'alias."
+    },
+    {
+      "code": "EMAILINT",
+      "family": "Identités, personnes et communautés",
+      "description": "adresses professionnelles publiées, domaines associés, formats de contact publics, validation syntaxique et exposition déclarée par des services légitimes."
+    },
+    {
+      "code": "TELINT",
+      "family": "Identités, personnes et communautés",
+      "description": "numérotation, indicatifs, opérateurs, préfixes, annuaires publics et présence volontairement publiée."
+    },
+    {
+      "code": "HUMINT-OSINT",
+      "family": "Identités, personnes et communautés",
+      "description": "interviews publiées, interventions publiques, conférences, témoignages consentis, experts, publications et déclarations attribuées. Ce volet ne couvre pas l'usurpation ni l'obtention clandestine d'informations."
+    },
+    {
+      "code": "GEOINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "géocodage, cartographie, adresses et lieux publics, limites administratives, relief, routes, bâtiments, infrastructures et analyse spatiale."
+    },
+    {
+      "code": "IMINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "imagerie satellitaire, aérienne et drone publiée, comparaison temporelle, résolution, ombres, repères visuels et analyse d'images."
+    },
+    {
+      "code": "VIDINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "vérification de vidéos, extraction de keyframes, chronologie, provenance, analyse de scènes et recoupement audiovisuel."
+    },
+    {
+      "code": "AUDIOINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "enregistrements publics, transcription, langue, contexte acoustique et authentification prudente. Éviter l'identification biométrique de personnes privées."
+    },
+    {
+      "code": "ENVINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "météorologie, climat, hydrologie, feux, pollution, biodiversité, déforestation, risques naturels et données environnementales."
+    },
+    {
+      "code": "SPACEINT",
+      "family": "Géographie, imagerie et médias",
+      "description": "satellites, objets orbitaux, lancements, données astronomiques, météo spatiale et imagerie accessible."
+    },
+    {
+      "code": "DOMINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "RDAP/WHOIS, DNS, historiques de domaines, sous-domaines issus de sources passives, certificats TLS et Certificate Transparency."
+    },
+    {
+      "code": "NETINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "adresses IP, ASN, BGP, routage, géolocalisation IP approximative, hébergeurs et métadonnées réseau publiques."
+    },
+    {
+      "code": "CYBINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "rapports de menaces, acteurs, campagnes, TTP, indicateurs publiés, advisories, vulnérabilités, phishing et surface d'attaque observable."
+    },
+    {
+      "code": "MALINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "analyses publiées de logiciels malveillants, familles, hashes, comportements, sandbox reports et dépôts de recherche contrôlés."
+    },
+    {
+      "code": "CODEINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "dépôts publics, historique de commits, dépendances, paquets, documentation, mainteneurs et provenance logicielle. Ne pas rechercher ni republier des secrets exposés."
+    },
+    {
+      "code": "IOTINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "documentation publique des appareils, empreintes de produits, avis de sécurité et informations d'exposition publiées. Toute interaction active doit être autorisée."
+    },
+    {
+      "code": "CRYPTINT",
+      "family": "Infrastructure numérique et cyber",
+      "description": "explorateurs blockchain, transactions publiques, contrats, tokens, étiquetage d'adresses et rapports d'analyse. Une adresse ne prouve pas l'identité de son détenteur."
+    },
+    {
+      "code": "CORPINT",
+      "family": "Entreprises, économie et droit",
+      "description": "registres d'entreprises, RCCM, dirigeants publiés, filiales, actionnariat, bénéficiaires effectifs légalement accessibles et rapports annuels."
+    },
+    {
+      "code": "FININT",
+      "family": "Entreprises, économie et droit",
+      "description": "états financiers publiés, marchés, cours, rapports réglementaires, budgets, dette, statistiques économiques et données bancaires de référence."
+    },
+    {
+      "code": "SANCINT",
+      "family": "Entreprises, économie et droit",
+      "description": "listes officielles de sanctions, décisions administratives, mesures restrictives et listes de personnes politiquement exposées provenant de sources légitimes."
+    },
+    {
+      "code": "LEGINT",
+      "family": "Entreprises, économie et droit",
+      "description": "textes de loi, journaux officiels, décisions de justice publiées, jurisprudence, actes administratifs et registres juridiques accessibles."
+    },
+    {
+      "code": "GOVINT",
+      "family": "Entreprises, économie et droit",
+      "description": "portails institutionnels, budgets, dépenses publiques, statistiques, marchés publics, appels d'offres, rapports d'audit et jeux de données ouverts."
+    },
+    {
+      "code": "ELECTINT",
+      "family": "Entreprises, économie et droit",
+      "description": "autorités électorales, résultats, listes et données publiées légalement, financement politique divulgué, observateurs et contentieux électoraux."
+    },
+    {
+      "code": "SUPPLYINT",
+      "family": "Entreprises, économie et droit",
+      "description": "commerce international, douanes, tarifs, import-export, transport, logistique, chaînes d'approvisionnement et données de marchés."
+    },
+    {
+      "code": "RISKINT",
+      "family": "Entreprises, économie et droit",
+      "description": "indices de gouvernance, risques pays, corruption, conformité, adverse media et évaluations de risques documentées."
+    },
+    {
+      "code": "AVINT",
+      "family": "Mobilité, événements et société",
+      "description": "aviation civile, immatriculations, aéroports, horaires publiés, NOTAM accessibles et suivi de vols selon les conditions des fournisseurs."
+    },
+    {
+      "code": "MARINT",
+      "family": "Mobilité, événements et société",
+      "description": "navires, immatriculations, ports, routes, AIS public, pêche et données maritimes."
+    },
+    {
+      "code": "EVENTINT",
+      "family": "Mobilité, événements et société",
+      "description": "événements publics, manifestations, incidents, conflits, catastrophes, alertes et bases de données événementielles."
+    },
+    {
+      "code": "MEDINT-OSINT",
+      "family": "Mobilité, événements et société",
+      "description": "statistiques sanitaires publiques, publications biomédicales, alertes épidémiologiques et données de santé agrégées. Pas de dossiers médicaux individuels."
+    },
+    {
+      "code": "BIOINT",
+      "family": "Mobilité, événements et société",
+      "description": "observations d'espèces, biodiversité, ressources naturelles, agriculture et données biologiques ouvertes."
+    },
+    {
+      "code": "DISINFOINT",
+      "family": "Mobilité, événements et société",
+      "description": "vérification des faits, narratifs, réseaux de diffusion publics, contenus synthétiques, manipulation et provenance des médias."
+    }
+  ]
+}
