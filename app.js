@@ -44,7 +44,11 @@ function safeExternalURL(value) {
   }
 }
 
-function normalizeText(value) {\n  return String(value ?? "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLocaleLowerCase("fr");\n}\n\nfunction getDomain(domainId) {
+function normalizeText(value) {
+  return String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr");
+}
+
+function getDomain(domainId) {
   return state.domains.find((domain) => domain.id === domainId);
 }
 
@@ -108,9 +112,10 @@ function getFilteredResources() {
       resource.title, resource.description, resource.category, resource.source,
       resource.domain, domain?.title, resource.access,
       ...(resource.tags || []), ...(resource.language || [])
-    ].join(" ").toLocaleLowerCase("fr");
+    ].join(" ");
+    const normalizedSearchable = normalizeText(searchable);
 
-    return !query || searchable.includes(query);
+    return !query || normalizedSearchable.includes(query);
   });
 
   resources.sort((a, b) => {
