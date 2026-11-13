@@ -62,6 +62,24 @@ Une ressource peut appartenir à plusieurs familles. La bibliothèque utilise un
 - **BIOINT** — observations d'espèces, biodiversité, ressources naturelles, agriculture et données biologiques ouvertes.
 - **DISINFOINT** — vérification des faits, narratifs, réseaux de diffusion publics, contenus synthétiques, manipulation et provenance des médias.
 
+## 2 bis. Axes complémentaires pour les sources institutionnelles
+
+Les acronymes ci-dessous sont des **étiquettes pédagogiques complémentaires** utilisées par HashCode pour faciliter le filtrage. Ils ne constituent pas une nomenclature internationale normalisée et peuvent se recouper avec les familles précédentes.
+
+- **DATAINT** — portails open data, catalogues de jeux de données, API publiques, métadonnées et données à forte valeur.
+- **ECONINT** — indicateurs macroéconomiques, comptes nationaux, inflation, dette, croissance et conjoncture.
+- **TRADEINT** — statistiques douanières, importations, exportations, tarifs, accords commerciaux et chaînes d'approvisionnement.
+- **DEMOINT** — recensements, population, ménages, migrations, urbanisation et indicateurs démographiques agrégés.
+- **POLINT** — institutions politiques, transparence, lobbying déclaré, financement électoral publié et activité parlementaire.
+- **HEALTHINT** — indicateurs sanitaires agrégés, systèmes de santé, alertes épidémiologiques et statistiques hospitalières publiques.
+- **HUMANINT** — données humanitaires agrégées, déplacements forcés, besoins, réponse et coordination d'urgence.
+- **MIGINT** — statistiques migratoires, mobilité internationale et déplacements de population publiés par des organismes compétents.
+- **FUNDINT** — financements publics, subventions, programmes de recherche, aides et bénéficiaires institutionnels.
+- **TECHINT** — brevets, marques, normes, publications techniques, transferts technologiques et innovation.
+- **REGINT** — décisions et publications des autorités de régulation : télécommunications, énergie, finance, transport et concurrence.
+
+Une même source peut relever de plusieurs axes. Le catalogue conserve une catégorie principale et utilise les tags pour les relations transversales.
+
 ## 3. Méthodes transversales
 
 1. **Planification** : question de recherche, périmètre, période, zone, langues, hypothèses et critères d'arrêt.
