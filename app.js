@@ -84,17 +84,21 @@ function populateCategoryFilter() {
   const showOsintTaxonomy = !state.domain || state.domain === "osint";
 
   if (showOsintTaxonomy && state.osintCategories.length) {
-    const taxonomyGroup = document.createElement("optgroup");
-    taxonomyGroup.label = `Taxonomie OSINT — ${state.osintCategories.length} catégories`;
-    state.osintCategories.forEach((category) => {
-      const count = activeResources.filter((resource) =>
-        resource.domain === "osint" && (resource.osintCategories || []).includes(category.code)
-      ).length;
-      const option = new Option(`${category.code} — ${count} ressource(s)`, category.code);
-      option.title = category.description || category.family;
-      taxonomyGroup.append(option);
+    const families = [...new Set(state.osintCategories.map((category) => category.family))];
+    families.forEach((family) => {
+      const familyCategories = state.osintCategories.filter((category) => category.family === family);
+      const familyGroup = document.createElement("optgroup");
+      familyGroup.label = family;
+      familyCategories.forEach((category) => {
+        const count = activeResources.filter((resource) =>
+          resource.domain === "osint" && (resource.osintCategories || []).includes(category.code)
+        ).length;
+        const option = new Option(`${category.code} — ${count} ressource(s)`, category.code);
+        option.title = category.description || category.family;
+        familyGroup.append(option);
+      });
+      filter.add(familyGroup);
     });
-    filter.add(taxonomyGroup);
   }
 
   const otherResources = activeResources.filter((resource) =>
