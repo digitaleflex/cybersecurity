@@ -31,5 +31,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Run catalog tests
+        run: npm test
       - name: Validate JSON catalog
         run: npm run validate:catalog

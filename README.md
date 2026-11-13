@@ -35,6 +35,25 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 
 Run `npm run validate:catalog` with Node.js 22 or later to check required fields, domains, types, levels, statuses, dates and duplicate IDs/URLs. The same validation runs automatically on relevant pull requests.
 
+## Local development
+
+Requirements: Node.js 22 or later. No package installation is required.
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:4173`. The local server uses Node.js built-ins only.
+
+## Quality checks
+
+```bash
+npm test
+npm run validate:catalog
+```
+
+Both checks also run in GitHub Actions when the catalog or application files change.
+
 ## Website deployment on Vercel
 This is a static HTML/CSS/JavaScript website; no framework build is required.
 - Import this repository in Vercel.
