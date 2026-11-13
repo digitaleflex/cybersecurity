@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.webp" alt="HashCode Cyber Library" width="560"></p>
+
 # HashCode Cyber Library
 
 > A curated, community-maintained library for cybersecurity, OSINT, security engineering and digital investigations.
