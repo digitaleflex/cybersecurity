@@ -1,5 +1,6 @@
 // Contrôle de disponibilité des URL du catalogue.
-// Usage : node scripts/check-links.mjs [--featured] [--domain=osint] [--limit=20] [--markdown] [--json=chemin]
+// Usage : node scripts/check-links.mjs [--featured] [--domain=osint] [--limit=20] [--markdown] [--json=chemin] [--no-fail]
+// --no-fail : rapporte les liens cassés sans faire échouer la commande (utilisé sur les pull requests).
 // Ne modifie jamais data/resources.json : la validation (licence, accès, métadonnées) reste humaine.
 import { readFileSync, writeFileSync } from "node:fs";
 
@@ -77,4 +78,4 @@ if (flag("markdown")) {
   for (const r of problems) console.log(`${r.level === "broken" ? "✖" : "!"} ${r.id} — ${r.detail} — ${r.url}`);
 }
 if (option("json")) writeFileSync(option("json"), JSON.stringify({ checked: new Date().toISOString(), summary, results }, null, 2));
-process.exit(count("broken") > 0 ? 1 : 0);
+process.exit(count("broken") > 0 && !flag("no-fail") ? 1 : 0);

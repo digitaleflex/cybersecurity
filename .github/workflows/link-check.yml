@@ -21,10 +21,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check URLs (report only broken links as failures)
+      - name: Check URLs
+        # Sur une PR, on vérifie seulement que le script fonctionne : l'état de sites externes ne doit pas bloquer une PR.
+        # Les exécutions planifiées et manuelles échouent s'il existe des liens cassés.
+        env:
+          EXTRA_FLAGS: ${{ github.event_name == 'pull_request' && '--no-fail' || '' }}
         run: |
           set +e
-          node scripts/check-links.mjs --markdown --json=link-report.json > "$GITHUB_STEP_SUMMARY"
+          node scripts/check-links.mjs --markdown --json=link-report.json $EXTRA_FLAGS > "$GITHUB_STEP_SUMMARY"
           code=$?
           cat "$GITHUB_STEP_SUMMARY"
           exit $code
