@@ -11,7 +11,7 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 ## Explore
 - [Central catalog](CATALOG.md)
 - [Learning paths](LEARNING-PATHS.md)
-- [Communities & platforms](COMMUNITIES.md)
+- [Communities & platforms](library/11-COMMUNITIES/README.md)
 - [Contribution guide](CONTRIBUTING.md)
 - [Quality & safety policy](QUALITY.md)
 - [Resource data](data/resources.json)

@@ -3,6 +3,8 @@
 Référencer uniquement des formations et ouvrages légalement accessibles. Ne pas héberger ou partager de copies piratées.
 
 - [Cisco Skills for All](https://skillsforall.com/) — cours d'introduction réseau et cybersécurité.
+- [OpenSecurityTraining2](https://ost2.fyi/) — cours techniques approfondis.
+- [Microsoft Learn — Security](https://learn.microsoft.com/training/browse/?products=security) — parcours officiels sécurité et cloud.
 - [OpenLearn](https://www.open.edu/openlearn/) — cours ouverts.
 - [Coursera](https://www.coursera.org/) — formations en ligne, conditions variables.
 - [edX](https://www.edx.org/) — cours universitaires, conditions variables.
