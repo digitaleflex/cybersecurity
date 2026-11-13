@@ -122,7 +122,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": true,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "awesome-osint",
@@ -146,7 +149,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": true,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "awesome-osint-list",
@@ -170,7 +176,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "bellingcat-toolkit",
@@ -195,7 +204,11 @@
       "verified": null,
       "status": "needs-review",
       "featured": true,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT",
+        "WEBINT"
+      ]
     },
     {
       "id": "maigret",
@@ -220,7 +233,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": true,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "SOCMINT"
+      ]
     },
     {
       "id": "whatsmyname",
@@ -244,7 +260,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "SOCMINT"
+      ]
     },
     {
       "id": "exiftool",
@@ -268,7 +287,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "google-search-operators",
@@ -293,7 +315,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "openstreetmap",
@@ -317,7 +342,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "nasa-worldview",
@@ -340,7 +368,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "linux-journey",
@@ -1172,7 +1203,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "theharvester",
@@ -1196,7 +1230,12 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "DOMINT",
+        "NETINT",
+        "EMAILINT"
+      ]
     },
     {
       "id": "sherlock",
@@ -1220,7 +1259,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "SOCMINT"
+      ]
     },
     {
       "id": "ghdb",
@@ -1244,7 +1286,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "inteltechniques",
@@ -1268,7 +1313,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "osintshifu-awesome-osint-repos",
@@ -1292,7 +1340,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "nmap",
@@ -2116,7 +2167,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "common-crawl",
@@ -2140,7 +2194,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "WEBINT"
+      ]
     },
     {
       "id": "gdelt-project",
@@ -2164,7 +2221,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "NEWSINT"
+      ]
     },
     {
       "id": "openalex",
@@ -2188,7 +2248,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ACADINT"
+      ]
     },
     {
       "id": "crossref",
@@ -2212,7 +2275,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ACADINT"
+      ]
     },
     {
       "id": "invid-weverify",
@@ -2237,7 +2303,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "VIDINT"
+      ]
     },
     {
       "id": "tineye",
@@ -2261,7 +2330,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "IMINT"
+      ]
     },
     {
       "id": "copernicus-browser",
@@ -2285,7 +2357,11 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "IMINT",
+        "GEOINT"
+      ]
     },
     {
       "id": "usgs-earthexplorer",
@@ -2309,7 +2385,11 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "IMINT",
+        "GEOINT"
+      ]
     },
     {
       "id": "suncalc",
@@ -2333,7 +2413,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "mapillary",
@@ -2357,7 +2440,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "icann-lookup",
@@ -2381,7 +2467,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "DOMINT"
+      ]
     },
     {
       "id": "crt-sh",
@@ -2405,7 +2494,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "DOMINT"
+      ]
     },
     {
       "id": "urlscan",
@@ -2429,7 +2521,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "NETINT"
+      ]
     },
     {
       "id": "censys-search",
@@ -2453,7 +2548,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "NETINT"
+      ]
     },
     {
       "id": "opencorporates",
@@ -2477,7 +2575,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "opensanctions",
@@ -2501,7 +2602,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "SANCINT"
+      ]
     },
     {
       "id": "sec-edgar",
@@ -2525,7 +2629,11 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT",
+        "CORPINT"
+      ]
     },
     {
       "id": "openstreetmap-wiki",
@@ -2549,7 +2657,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "nasa-firms",
@@ -2573,7 +2684,11 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ENVINT",
+        "IMINT"
+      ]
     },
     {
       "id": "flightradar24",
@@ -2597,7 +2712,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "AVINT"
+      ]
     },
     {
       "id": "marinetraffic",
@@ -2621,7 +2739,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "MARINT"
+      ]
     },
     {
       "id": "benin-journal-officiel",
@@ -2645,7 +2766,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "LEGINT"
+      ]
     },
     {
       "id": "benin-instad",
@@ -2669,7 +2793,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-open-data",
@@ -2694,7 +2821,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-nada",
@@ -2719,7 +2849,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-budget-data",
@@ -2743,7 +2876,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT"
+      ]
     },
     {
       "id": "benin-procurement-journal",
@@ -2767,7 +2903,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-dnc",
@@ -2791,7 +2930,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-government-portal",
@@ -2815,7 +2957,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "benin-apiex",
@@ -2839,7 +2984,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "benin-public-services",
@@ -2863,7 +3011,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "eu-data-portal",
@@ -2888,7 +3039,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "eur-lex",
@@ -2913,7 +3067,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "LEGINT"
+      ]
     },
     {
       "id": "ted-europa",
@@ -2938,7 +3095,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "eu-transparency-register",
@@ -2963,7 +3123,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "european-e-justice",
@@ -2988,7 +3151,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "eu-sanctions-map",
@@ -3012,7 +3178,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "SANCINT"
+      ]
     },
     {
       "id": "eurostat",
@@ -3037,7 +3206,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "cordis",
@@ -3061,7 +3233,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ACADINT"
+      ]
     },
     {
       "id": "copernicus-data",
@@ -3085,7 +3260,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "IMINT"
+      ]
     },
     {
       "id": "inspire-geoportal",
@@ -3109,7 +3287,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GEOINT"
+      ]
     },
     {
       "id": "euipo",
@@ -3133,7 +3314,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "epo-espacenet",
@@ -3157,7 +3341,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ACADINT"
+      ]
     },
     {
       "id": "europa-public-registers",
@@ -3181,7 +3368,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "us-data-gov",
@@ -3205,7 +3395,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "usaspending",
@@ -3229,7 +3422,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT"
+      ]
     },
     {
       "id": "sam-gov",
@@ -3253,7 +3449,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "fec-data",
@@ -3277,7 +3476,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "govinfo",
@@ -3301,7 +3503,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "LEGINT"
+      ]
     },
     {
       "id": "uspto-search",
@@ -3325,7 +3530,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "usgs-earthquake",
@@ -3349,7 +3557,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ENVINT"
+      ]
     },
     {
       "id": "noaa-data",
@@ -3373,7 +3584,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "ENVINT"
+      ]
     },
     {
       "id": "nasa-earthdata",
@@ -3397,7 +3611,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "IMINT"
+      ]
     },
     {
       "id": "census-data",
@@ -3421,7 +3638,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "un-data",
@@ -3445,7 +3665,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "un-comtrade",
@@ -3469,7 +3692,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT"
+      ]
     },
     {
       "id": "world-bank-data",
@@ -3493,7 +3719,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "imf-data",
@@ -3517,7 +3746,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT"
+      ]
     },
     {
       "id": "oecd-data",
@@ -3542,7 +3774,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "who-gho",
@@ -3566,7 +3801,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "ilo-ilostat",
@@ -3590,7 +3828,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "fao-faostat",
@@ -3614,7 +3855,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "wto-data",
@@ -3638,7 +3882,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "FININT"
+      ]
     },
     {
       "id": "itu-data",
@@ -3662,7 +3909,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "NETINT"
+      ]
     },
     {
       "id": "wipo-ip-portal",
@@ -3686,7 +3936,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "CORPINT"
+      ]
     },
     {
       "id": "unhcr-data",
@@ -3710,7 +3963,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     },
     {
       "id": "hdx",
@@ -3734,7 +3990,10 @@
       "verified": null,
       "status": "needs-review",
       "featured": false,
-      "added": "2026-11-13"
+      "added": "2026-11-13",
+      "osintCategories": [
+        "GOVINT"
+      ]
     }
   ]
 }
