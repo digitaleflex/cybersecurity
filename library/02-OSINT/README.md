@@ -4,7 +4,7 @@ Collecte, vérification, préservation et analyse responsable d'informations iss
 
 ## Taxonomie
 
-La taxonomie détaillée est maintenue dans [OSINT-TAXONOMY.md](../../OSINT-TAXONOMY.md). Elle distingue familles de renseignement, catégories de collecte, types de sources et outils.
+La taxonomie détaillée est maintenue dans [OSINT-TAXONOMY.md](../../OSINT-TAXONOMY.md). Le répertoire de sources par famille est disponible dans [OSINT-SOURCES.md](../../OSINT-SOURCES.md). Ces documents distinguent familles de renseignement, catégories de collecte, sources primaires, agrégateurs et outils.
 
 ### Grandes familles couvertes
 - **Web & contenus** : WEBINT, NEWSINT, ACADINT, DOCINT.
