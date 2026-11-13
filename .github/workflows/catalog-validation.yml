@@ -3,7 +3,7 @@ name: Catalog validation
 on:
   pull_request:
     paths:
-      - "index.html"\n      - "app.js"\n      - "styles.css"\n      - "tests/**"\n      - "site.webmanifest"\n      - "robots.txt"\n      - "404.html"\n      - "index.html"
+      - "index.html"
       - "app.js"
       - "styles.css"
       - "tests/**"
