@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 const file = new URL("../data/resources.json", import.meta.url);
 const data = JSON.parse(readFileSync(file, "utf8"));
 const domainIds = new Set((data.domains ?? []).map((domain) => domain.id));
-const allowedTypes = new Set(["tool", "course", "lab", "documentation", "repository", "framework", "platform", "community", "report", "library", "directory"]);
+const allowedTypes = new Set(["tool", "course", "lab", "documentation", "repository", "framework", "platform", "community", "report", "library", "directory", "database"]);
 const allowedLevels = new Set(["beginner", "intermediate", "advanced", "professional"]);
 const allowedStatuses = new Set(["verified", "needs-review", "archived", "removed"]);
 const required = ["id", "title", "description", "url", "domain", "category", "type", "level", "access", "language", "tags", "source", "status", "featured"];
