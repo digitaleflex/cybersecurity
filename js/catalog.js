@@ -5,6 +5,7 @@ import {
   loadCatalog, activeResources, getDomain, categoriesOf, normalizeText, favorites, recents, showLoadError
 } from "./data.js";
 import { resourceCard, bindCards } from "./cards.js";
+import { docURL } from "./docs-index.js";
 import { parseFilters, serializeFilters, sameFilters, DEFAULT_FILTERS } from "./url-state.js";
 
 const PAGE_SIZE = 9;
@@ -107,7 +108,11 @@ function render() {
   $("#loadMore").hidden = visible >= list.length || list.length === 0;
   $("#resetFilters").hidden = sameFilters(filters, DEFAULT_FILTERS);
   renderChips();
-  const domain = filters.domain && getDomain(catalog, filters.domain)?.title;
+  const domainInfo = filters.domain ? getDomain(catalog, filters.domain) : null;
+  const guide = $("#domainGuide");
+  guide.hidden = !domainInfo?.path;
+  if (domainInfo?.path) { guide.href = docURL(domainInfo.path); $("#domainGuideLabel").textContent = `Guide ${domainInfo.title}`; }
+  const domain = domainInfo?.title;
   document.title = domain ? `${domain} · ${BASE_TITLE}` : BASE_TITLE;
 }
 

@@ -1,21 +1,15 @@
+import { DOCUMENTS, docTitle, docURL } from "./js/docs-index.js";
+
 (() => {
   "use strict";
 
-  const DOCUMENTS = [
-    { path: "README.md", title: "Présentation", group: "Général" },
-    { path: "CATALOG.md", title: "Catalogue", group: "Général" },
-    { path: "LEARNING-PATHS.md", title: "Parcours d'apprentissage", group: "Apprentissage" },
-    { path: "OSINT-SOURCES.md", title: "Répertoire des sources OSINT", group: "OSINT" },
-    { path: "OSINT-TAXONOMY.md", title: "Taxonomie OSINT", group: "OSINT" },
-    { path: "QUALITY.md", title: "Qualité & éthique", group: "Gouvernance" },
-    { path: "CONTRIBUTING.md", title: "Contribuer au projet", group: "Gouvernance" },
-    { path: "data/schema.md", title: "Schéma des ressources", group: "Technique" }
-  ];
 
   const $ = (selector) => document.querySelector(selector);
   const params = new URLSearchParams(window.location.search);
   const requestedPath = params.get("doc") || "README.md";
-  const current = DOCUMENTS.find((item) => item.path === requestedPath) || DOCUMENTS[0];
+  const known = DOCUMENTS.find((item) => item.path === requestedPath);
+  const current = known || DOCUMENTS[0];
+  const esc = (value) => String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
   const slugify = (value) => String(value)
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -28,9 +22,11 @@
     const groups = [...new Set(visible.map((item) => item.group))];
     nav.innerHTML = groups.map((group) => {
       const items = visible.filter((item) => item.group === group);
-      return `<div class="docs-nav-group"><div class="docs-nav-label">${group}</div>${items.map((item) =>
-        `<a class="docs-nav-link ${item.path === current.path ? "is-active" : ""}" href="docs.html?doc=${encodeURIComponent(item.path)}" ${item.path === current.path ? 'aria-current="page"' : ""}>${item.title}</a>`
-      ).join("")}</div>`;
+      const compact = window.matchMedia("(max-width: 860px)").matches; // mobile : seul le groupe courant est déplié
+      const open = Boolean(query) || items.some((item) => item.path === current.path) || (!compact && !/^\d\d ·/.test(group));
+      return `<details class="docs-nav-group"${open ? " open" : ""}><summary class="docs-nav-label">${esc(group)} <span class="docs-nav-n">${items.length}</span></summary>${items.map((item) =>
+        `<a class="docs-nav-link ${item.path === current.path ? "is-active" : ""}" href="${docURL(item.path)}" ${item.path === current.path ? 'aria-current="page"' : ""}>${esc(item.title)}</a>`
+      ).join("")}</details>`;
     }).join("") || '<p class="docs-nav-empty">Aucun document correspondant.</p>';
   }
 
@@ -77,24 +73,29 @@
   }
 
   function rewriteDocumentLinks(root) {
+    const siteBase = new URL(".", window.location.href).pathname;
     root.querySelectorAll('a[href]').forEach((link) => {
       const href = link.getAttribute("href") || "";
-      if (!href || href.startsWith("#") || /^(https?:|mailto:|tel:|data:)/i.test(href)) return;
+      if (!href || href.startsWith("#") || /^(https?:|mailto:|tel:|data:|javascript:)/i.test(href)) return;
       const [rawPath, rawHash = ""] = href.split("#");
       if (!rawPath) return;
-      let resolved;
+      const hash = rawHash ? `#${rawHash}` : "";
+      let relative;
       try {
-        resolved = new URL(rawPath, new URL(current.path, window.location.href)).pathname;
+        const resolved = new URL(rawPath, new URL(current.path, window.location.href)).pathname;
+        relative = decodeURIComponent(resolved.startsWith(siteBase) ? resolved.slice(siteBase.length) : resolved).replace(/^\/+/, "");
       } catch {
         return;
       }
-      const relative = decodeURIComponent(resolved.replace(new URL(".", window.location.href).pathname, "")).replace(/^\//, "");
-      const target = DOCUMENTS.find((item) => item.path === relative);
-      if (target && /\.md$/i.test(relative)) {
-        link.href = `docs.html?doc=${encodeURIComponent(target.path)}${rawHash ? `#${rawHash}` : ""}`;
-      } else if (/\.md(?:#.*)?$/i.test(href)) {
+      const asFolder = `${relative.replace(/\/+$/, "")}/README.md`;
+      const target = DOCUMENTS.find((item) => item.path === relative || item.path === asFolder);
+      if (target) {
+        link.href = docURL(target.path, hash);
+      } else if (/\.md$/i.test(relative)) {
         link.classList.add("docs-link-unavailable");
-        link.title = "Ce document n'est pas encore intégré au lecteur.";
+        link.title = "Ce document n'est pas disponible dans le lecteur.";
+      } else if (!relative.startsWith("..")) {
+        link.href = `${relative}${hash}`; // fichier du site (index.html, data/resources.json…) résolu depuis la racine
       }
     });
   }
@@ -136,10 +137,18 @@
   async function loadDocument() {
     const status = $("#docsStatus");
     const content = $("#documentContent");
-    $("#breadcrumbTitle").textContent = current.title;
+    $("#breadcrumbTitle").textContent = known ? docTitle(current) : "Document introuvable";
     $("#sourceLink").href = `https://github.com/digitaleflex/cybersecurity/blob/main/${current.path}`;
-    document.title = `${current.title} — HashCode Cyber Library`;
+    document.title = `${known ? docTitle(current) : "Document introuvable"} — HashCode Cyber Library`;
     buildNavigation();
+    if (!known) {
+      status.hidden = false;
+      status.className = "docs-status is-error";
+      status.textContent = `Le document « ${requestedPath.slice(0, 80)} » n'existe pas dans la documentation. Choisis un document dans la liste.`;
+      content.innerHTML = "";
+      $("#documentToc").hidden = true;
+      return;
+    }
 
     try {
       const [response, parser] = await Promise.all([
@@ -161,7 +170,9 @@
       addCodeTools(content);
       buildToc(content);
       status.hidden = true;
-      content.focus({ preventScroll: true });
+      const anchor = window.location.hash && document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+      if (anchor) anchor.scrollIntoView({ block: "start" });
+      else content.focus({ preventScroll: true });
     } catch (error) {
       console.error(error);
       status.hidden = false;

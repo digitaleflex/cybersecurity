@@ -391,3 +391,7 @@ select:focus-visible{border-color:var(--accent)}
   .page-head{padding-top:26px}
   .featured-section .catalog-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 }
+
+.chip-guide{border-color:var(--accent-line);color:var(--accent-text);display:inline-flex;align-items:center;gap:6px}
+.chip-guide .ico{width:14px;height:14px}
+.link-btn[hidden]{display:none}

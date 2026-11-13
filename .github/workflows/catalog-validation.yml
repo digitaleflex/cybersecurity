@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "*.html"
+      - "*.md"
+      - "library/**"
       - "js/**"
       - "ui.css"
       - "docs.css"
@@ -21,6 +23,8 @@ on:
     branches: [main]
     paths:
       - "*.html"
+      - "*.md"
+      - "library/**"
       - "js/**"
       - "ui.css"
       - "docs.css"

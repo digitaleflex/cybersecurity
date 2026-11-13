@@ -1,5 +1,6 @@
 // Page Domaines : les 12 disciplines, leurs catégories et leurs effectifs.
 import "./shell.js";
+import { docURL } from "./docs-index.js";
 import { $, escapeHTML, plural, pad, icon, DOMAIN_ICONS, loadCatalog, domainCount, categoriesOf, catalogueURL, showLoadError } from "./data.js";
 
 try {
@@ -15,8 +16,8 @@ try {
         <p>${escapeHTML(d.description)}</p>
         <span class="domain-page-count">${plural(domainCount(catalog, d.id), "ressource")} ${icon("arrow")}</span>
       </a>
-      ${shown.length ? `<ul class="cat-chips" aria-label="Catégories de ${escapeHTML(d.title)}">${shown.map(([name, n]) =>
-        `<li><a class="chip" href="${escapeHTML(catalogueURL({ domain: d.id, category: name }))}">${escapeHTML(name)} <small>${n}</small></a></li>`).join("")}${more > 0 ? `<li><a class="chip chip-more" href="${escapeHTML(catalogueURL({ domain: d.id }))}">+${more}</a></li>` : ""}</ul>` : ""}
+      <ul class="cat-chips" aria-label="Catégories et guide de ${escapeHTML(d.title)}">${d.path ? `<li><a class="chip chip-guide" href="${escapeHTML(docURL(d.path))}">${icon("doc")} Lire le guide</a></li>` : ""}${shown.map(([name, n]) =>
+        `<li><a class="chip" href="${escapeHTML(catalogueURL({ domain: d.id, category: name }))}">${escapeHTML(name)} <small>${n}</small></a></li>`).join("")}${more > 0 ? `<li><a class="chip chip-more" href="${escapeHTML(catalogueURL({ domain: d.id }))}">+${more}</a></li>` : ""}</ul>
     </article>`;
   }).join("");
 } catch (error) {
