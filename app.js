@@ -283,7 +283,12 @@ function bindEvents() {
     if (event.key === "Escape") $("#searchInput").blur();
   });
 
-  document.querySelectorAll("[data-query]").forEach((button) => button.addEventListener("click", () => {\n    $("#searchInput").value = button.dataset.query; state.query = button.dataset.query; state.visible = PAGE_SIZE; renderResources(); $("#explore").scrollIntoView({ behavior: "smooth" });\n  }));\n  const focusSearch = $("#focusSearch"); if (focusSearch) focusSearch.addEventListener("click", () => { $("#searchInput").focus(); $("#explore").scrollIntoView({ behavior: "smooth" }); });\n\n  $("#menuToggle").addEventListener("click", () => {
+  document.querySelectorAll("[data-query]").forEach((button) => button.addEventListener("click", () => {
+    $("#searchInput").value = button.dataset.query; state.query = button.dataset.query; state.visible = PAGE_SIZE; renderResources(); $("#explore").scrollIntoView({ behavior: "smooth" });
+  }));
+  const focusSearch = $("#focusSearch"); if (focusSearch) focusSearch.addEventListener("click", () => { $("#searchInput").focus(); $("#explore").scrollIntoView({ behavior: "smooth" }); });
+
+  $("#menuToggle").addEventListener("click", () => {
     const nav = $("#primaryNav");
     const isOpen = nav.classList.toggle("open");
     $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
