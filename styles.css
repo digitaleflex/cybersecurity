@@ -17,3 +17,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 .resource-tags{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 15px}.resource-tags span{font:8px var(--mono);color:#82958b;background:#14221d;border:1px solid #243d31;padding:4px 6px;border-radius:2px}.card-domain small{display:block;color:#65757b;font:8px var(--mono);margin-top:6px;letter-spacing:.06em}.card-open{display:grid;place-items:center;min-width:29px;min-height:29px;border:1px solid #355444;border-radius:50%;transition:.2s}.card-open:hover{background:var(--accent);color:#07130d}
+
+/* Category-aware discovery: when OSINT is selected, the category selector narrows to OSINT families only. */
+.filters select#categoryFilter{border-color:#355747;color:#b9d9c8}.filters select#categoryFilter:focus{border-color:var(--accent)}
+@media(max-width:650px){.filters select#categoryFilter{grid-column:span 2}}
