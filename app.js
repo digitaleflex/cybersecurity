@@ -127,8 +127,10 @@ function updateStats() {
   const sideCount = $("#sideResourceCount"); if (sideCount) sideCount.textContent = state.resources.length.toString();
   const categoryStat = $("#statCategories"); if (categoryStat) categoryStat.textContent = state.osintCategories.length.toString();
   $("#statDomains").textContent = state.domains.length.toString().padStart(2, "0");
-  const typesStat = $("#statTypes");\n  if (typesStat) typesStat.textContent = new Set(state.resources.map((resource) => resource.type)).size.toString();
-  const pendingStat = $("#statPending");\n  if (pendingStat) pendingStat.textContent = state.resources.filter((resource) => resource.status === "needs-review").length.toString();
+  const typesStat = $("#statTypes");
+  if (typesStat) typesStat.textContent = new Set(state.resources.map((resource) => resource.type)).size.toString();
+  const pendingStat = $("#statPending");
+  if (pendingStat) pendingStat.textContent = state.resources.filter((resource) => resource.status === "needs-review").length.toString();
 }
 
 function renderDomains() {
