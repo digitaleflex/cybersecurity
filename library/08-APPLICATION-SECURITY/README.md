@@ -4,7 +4,7 @@
 - [OWASP](https://owasp.org/)
 - [OWASP Cheat Sheet Series](https://github.com/OWASP/CheatSheetSeries)
 - [OWASP API Security](https://owasp.org/www-project-api-security/)
-- [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
+- [OWASP ASVS](https://asvs.owasp.org/)
 - [OWASP MASVS](https://mas.owasp.org/MASVS/)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 

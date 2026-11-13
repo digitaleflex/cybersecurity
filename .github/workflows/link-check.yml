@@ -1,0 +1,40 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: "17 5 * * 1" # chaque lundi
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/check-links.mjs"
+      - ".github/workflows/link-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Check catalog URLs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check URLs
+        # Sur une PR, on vérifie seulement que le script fonctionne : l'état de sites externes ne doit pas bloquer une PR.
+        # Les exécutions planifiées et manuelles échouent s'il existe des liens cassés.
+        env:
+          EXTRA_FLAGS: ${{ github.event_name == 'pull_request' && '--no-fail' || '' }}
+        run: |
+          set +e
+          node scripts/check-links.mjs --markdown --json=link-report.json $EXTRA_FLAGS > "$GITHUB_STEP_SUMMARY"
+          code=$?
+          cat "$GITHUB_STEP_SUMMARY"
+          exit $code
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.json

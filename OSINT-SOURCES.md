@@ -124,7 +124,6 @@ Cette section privilégie les portails des institutions et agences de l'Union eu
 | [Eurostat](https://ec.europa.eu/eurostat/) | DATAINT / ECONINT | Population, économie, commerce, transport, agriculture, environnement | Données harmonisées, avec définitions et révisions |
 | [CORDIS](https://cordis.europa.eu/) | ACADINT / FUNDINT | Projets, bénéficiaires et résultats de recherche financés par l'UE | Un projet financé n'est pas une validation de ses résultats |
 | [Copernicus Data Space](https://dataspace.copernicus.eu/) | IMINT / GEOINT / ENVINT | Imagerie et données d'observation de la Terre Sentinel | Résolution, revisite et couverture selon le capteur |
-| [INSPIRE Geoportal](https://inspire-geoportal.ec.europa.eu/) | GEOINT | Données géographiques des autorités publiques européennes | Disponibilité et granularité nationales variables |
 | [EUIPO eSearch](https://euipo.europa.eu/eSearch/) | CORPINT | Marques de l'Union européenne et dessins ou modèles | Compléter avec les offices nationaux et WIPO |
 | [Espacenet — OEB](https://worldwide.espacenet.com/) | ACADINT / TECHINT | Documents de brevets, familles et informations techniques | Les statuts juridiques doivent être vérifiés auprès des offices compétents |
 | [Registres publics et accès aux documents de l'UE](https://european-union.europa.eu/principles-countries-history/principles-and-values/access-information_en) | GOVINT / LEGINT | Registres documentaires, agendas, procès-verbaux et demandes d'accès | Certains documents sont soumis à exceptions légales |
@@ -165,7 +164,7 @@ Le portail Data.gov se présente comme le catalogue officiel des données ouvert
 | [FAOSTAT](https://www.fao.org/faostat/) | ENVINT / ECONINT | Agriculture, alimentation, pêche, forêts et production | Données déclarées et estimées selon les séries |
 | [WTO Data Portal](https://data.wto.org/) | TRADEINT / ECONINT | Commerce international, tarifs et mesures commerciales | Les bases et millésimes diffèrent selon les indicateurs |
 | [ITU DataHub](https://datahub.itu.int/) | NETINT / DATAINT | Télécommunications, connectivité et accès numérique | Indicateurs agrégés, pas données individuelles d'abonnés |
-| [WIPO IP Portal](https://www.wipo.int/en/web/ip-portal) | CORPINT / TECHINT | Brevets, marques et propriété intellectuelle internationale | Vérifier les registres nationaux pour le statut juridique final |
+| [WIPO IP Portal](https://ipportal.wipo.int/) | CORPINT / TECHINT | Brevets, marques et propriété intellectuelle internationale | Vérifier les registres nationaux pour le statut juridique final |
 | [UNHCR Refugee Data Finder](https://www.unhcr.org/refugee-statistics/) | MIGINT / HUMANINT | Statistiques de déplacements forcés, réfugiés et apatridie | Données statistiques ; prudence avec les petits effectifs et la réidentification |
 | [Humanitarian Data Exchange](https://data.humdata.org/) | HUMANINT / GEOINT | Jeux de données humanitaires et géographiques partagés par les acteurs | Vérifier producteur, date, licence et qualité de chaque jeu |
 

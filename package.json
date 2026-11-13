@@ -8,6 +8,7 @@
     "start": "node scripts/serve.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "test": "node --test",
-    "check": "node --check app.js && node --check scripts/serve.mjs && node --check scripts/validate-catalog.mjs"
+    "check": "node --check app.js && node --check shell.js && node --check docs.js && node --check scripts/serve.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/check-links.mjs",
+    "check:links": "node scripts/check-links.mjs"
   }
 }
