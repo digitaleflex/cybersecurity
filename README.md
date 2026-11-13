@@ -31,6 +31,10 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 11. [Communities](library/11-COMMUNITIES/README.md).
 12. [Research & Reports](library/12-RESEARCH-AND-REPORTS/README.md).
 
+## Catalog validation
+
+Run `npm run validate:catalog` with Node.js 22 or later to check required fields, domains, types, levels, statuses, dates and duplicate IDs/URLs. The same validation runs automatically on relevant pull requests.
+
 ## Website deployment on Vercel
 This is a static HTML/CSS/JavaScript website; no framework build is required.
 - Import this repository in Vercel.

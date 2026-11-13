@@ -1957,6 +1957,58 @@
       "verified": "2026-11-13",
       "status": "needs-review",
       "featured": false
+    },
+    {
+      "id": "security-reference-guide",
+      "title": "Security Reference Guide",
+      "description": "Guide de référence multi-domaines réunissant des ressources de Blue Team, Red Team, DFIR, OSINT, AppSec, cloud et formation.",
+      "url": "https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide/",
+      "domain": "courses-books",
+      "category": "Cross-domain Resource Index",
+      "type": "directory",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cybersecurity",
+        "blue-team",
+        "red-team",
+        "dfir",
+        "osint",
+        "appsec",
+        "cloud"
+      ],
+      "source": "s0cm0nkey",
+      "verified": "2026-11-13",
+      "status": "needs-review",
+      "featured": true
+    },
+    {
+      "id": "awesome-cybersecurity-learning-resources",
+      "title": "Awesome Cybersecurity Learning Resources",
+      "description": "Collection de ressources d'apprentissage : cours, livres, vidéos, dépôts, laboratoires et articles couvrant plusieurs spécialités cyber.",
+      "url": "https://github.com/jassics/awesome-cybersecurity-learning-resources",
+      "domain": "courses-books",
+      "category": "Cross-domain Learning Index",
+      "type": "repository",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "learning",
+        "courses",
+        "books",
+        "labs",
+        "cybersecurity"
+      ],
+      "source": "jassics",
+      "verified": "2026-11-13",
+      "status": "needs-review",
+      "featured": false
     }
   ]
 }
