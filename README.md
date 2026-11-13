@@ -1,54 +1,43 @@
 # HashCode Cyber Library
 
-> Une bibliothèque communautaire de ressources pour apprendre, pratiquer, rechercher et approfondir la cybersécurité.
+> A curated, community-maintained library for cybersecurity, OSINT, security engineering and digital investigations.
 
-**Projet HashCode** · Maintenu par [Digital E-Flex](https://github.com/digitaleflex) · [Catalogue en ligne](https://github.com/digitaleflex/cybersecurity)
+**HashCode project** · Maintained by [Digital E-Flex](https://github.com/digitaleflex).
 
-HashCode Cyber Library centralise des ressources sélectionnées : documentation, outils, formations, livres, laboratoires pratiques, communautés et rapports de recherche. Le dépôt référence les ressources originales ; il ne redistribue pas les contenus tiers.
+HashCode Cyber Library brings together official documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
 
-## Explorer la bibliothèque
+## Explore
+- [Central catalog](CATALOG.md)
+- [Learning paths](LEARNING-PATHS.md)
+- [Communities & platforms](COMMUNITIES.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Quality & safety policy](QUALITY.md)
+- [Resource data](data/resources.json)
+- [Website](index.html)
 
-- [Catalogue principal](CATALOG.md)
-- [Parcours d'apprentissage](LEARNING-PATHS.md)
-- [Canaux, communautés et plateformes](COMMUNITIES.md)
-- [Guide de contribution](CONTRIBUTING.md)
-- [Politique de qualité et de sécurité](QUALITY.md)
-- [Site statique](index.html)
+## Twelve domains
+1. [Fundamentals](library/01-FUNDAMENTALS/README.md) — Linux, networking, security basics.
+2. [OSINT](library/02-OSINT/README.md) — SOCMINT, GEOINT, Google Dorking, digital identity, investigations.
+3. [Red Team](library/03-RED-TEAM/README.md) — reconnaissance, pentesting, Web, Active Directory, exploitation.
+4. [Blue Team](library/04-BLUE-TEAM/README.md) — SOC, SIEM, DFIR, threat hunting, incident response.
+5. [Reverse Engineering](library/05-REVERSE-ENGINEERING/README.md).
+6. [Malware Analysis](library/06-MALWARE-ANALYSIS/README.md).
+7. [Cloud Security](library/07-CLOUD-SECURITY/README.md).
+8. [Application Security](library/08-APPLICATION-SECURITY/README.md).
+9. [CTF & Labs](library/09-CTF-AND-LABS/README.md).
+10. [Courses & Books](library/10-COURSES-AND-BOOKS/README.md).
+11. [Communities](library/11-COMMUNITIES/README.md).
+12. [Research & Reports](library/12-RESEARCH-AND-REPORTS/README.md).
 
-## Architecture
+## Website deployment on Vercel
+This is a static HTML/CSS/JavaScript website; no framework build is required.
+- Import this repository in Vercel.
+- Framework Preset: **Other**.
+- Build Command: empty.
+- Output Directory: `.`.
+- Deploy branch: `main` after merging the library pull request.
 
-```text
-library/
-├── 01-FUNDAMENTALS/
-├── 02-OSINT/
-├── 03-RED-TEAM/
-├── 04-BLUE-TEAM/
-├── 05-REVERSE-ENGINEERING/
-├── 06-MALWARE-ANALYSIS/
-├── 07-CLOUD-SECURITY/
-├── 08-APPLICATION-SECURITY/
-├── 09-CTF-AND-LABS/
-├── 10-COURSES-AND-BOOKS/
-├── 11-COMMUNITIES/
-└── 12-RESEARCH-AND-REPORTS/
-```
+## Curation principles
+Every resource should have a canonical URL, clear scope, resource type, skill level, access model, language and verification date. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Les ressources structurées alimentent le site via `data/resources.json`. Chaque fiche doit pointer vers sa source officielle et inclure son domaine, son type, son niveau, sa langue, son modèle d'accès et sa date de vérification.
-
-## Déploiement
-
-Le site est un projet statique HTML/CSS/JavaScript, sans build obligatoire.
-
-1. Importer ce dépôt dans [Vercel](https://vercel.com/new).
-2. Framework Preset : **Other**.
-3. Build Command : laisser vide.
-4. Output Directory : `.`.
-5. Déployer la branche `main`.
-
-Voir [vercel.json](vercel.json) pour les réglages de déploiement.
-
-## Contribuer
-
-Les contributions sont ouvertes via Pull Request. Vérifier les liens, les licences, les conditions d'utilisation et les risques avant de proposer une ressource. Consulter [CONTRIBUTING.md](CONTRIBUTING.md).
-
-**Qualité avant quantité.** Une ressource publique n'est pas automatiquement fiable, sûre, légale à réutiliser ou adaptée à tous les publics.
+Use tools and labs only within authorized scope. Respect privacy, platform terms, licenses and applicable laws. Quality before quantity.
