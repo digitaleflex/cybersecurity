@@ -4,6 +4,7 @@ const PAGE_SIZE = 9;
 const state = {
   resources: [],
   domains: [],
+  osintCategories: [],
   visible: PAGE_SIZE,
   query: "",
   domain: "",
@@ -76,12 +77,43 @@ function populateCategoryFilter() {
   if (!filter) return;
   const current = state.category;
   filter.replaceChildren(new Option("Toutes les catégories", ""));
-  const categories = [...new Set(state.resources
-    .filter((resource) => !state.domain || resource.domain === state.domain)
-    .map((resource) => resource.category)
-    .filter(Boolean))].sort((a, b) => a.localeCompare(b, "fr"));
-  categories.forEach((category) => filter.add(new Option(category, category)));
-  filter.value = categories.includes(current) ? current : "";
+
+  const activeResources = state.resources.filter((resource) =>
+    !["archived", "removed"].includes(resource.status)
+  );
+  const showOsintTaxonomy = !state.domain || state.domain === "osint";
+
+  if (showOsintTaxonomy && state.osintCategories.length) {
+    const taxonomyGroup = document.createElement("optgroup");
+    taxonomyGroup.label = `Taxonomie OSINT — ${state.osintCategories.length} catégories`;
+    state.osintCategories.forEach((category) => {
+      const count = activeResources.filter((resource) =>
+        resource.domain === "osint" && (resource.osintCategories || []).includes(category.code)
+      ).length;
+      const option = new Option(`${category.code} — ${count} ressource(s)`, category.code);
+      option.title = category.description || category.family;
+      taxonomyGroup.append(option);
+    });
+    filter.add(taxonomyGroup);
+  }
+
+  const otherResources = activeResources.filter((resource) =>
+    resource.domain !== "osint" && (!state.domain || resource.domain === state.domain)
+  );
+  const otherCategories = [...new Set(otherResources.map((resource) => resource.category).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, "fr"));
+  if (otherCategories.length) {
+    const otherGroup = document.createElement("optgroup");
+    otherGroup.label = "Autres domaines";
+    otherCategories.forEach((category) => {
+      const count = otherResources.filter((resource) => resource.category === category).length;
+      otherGroup.append(new Option(`${category} — ${count}`, category));
+    });
+    filter.add(otherGroup);
+  }
+
+  const validValues = [...state.osintCategories.map((category) => category.code), ...otherCategories];
+  filter.value = validValues.includes(current) ? current : "";
   state.category = filter.value;
 }
 
@@ -121,7 +153,12 @@ function getFilteredResources() {
   const resources = state.resources.filter((resource) => {
     if (["archived", "removed"].includes(resource.status)) return false;
     if (state.domain && resource.domain !== state.domain) return false;
-    if (state.category && resource.category !== state.category) return false;
+    if (state.category) {
+      const matchesOsintCategory = resource.domain === "osint" &&
+        (resource.osintCategories || []).includes(state.category);
+      const matchesOtherCategory = resource.domain !== "osint" && resource.category === state.category;
+      if (!matchesOsintCategory && !matchesOtherCategory) return false;
+    }
     if (state.type && resource.type !== state.type) return false;
     if (state.level && resource.level !== state.level) return false;
     if (state.status && resource.status !== state.status) return false;
@@ -130,7 +167,7 @@ function getFilteredResources() {
     const searchable = [
       resource.title, resource.description, resource.category, resource.source,
       resource.domain, domain?.title, resource.access,
-      ...(resource.tags || []), ...(resource.language || [])
+      ...(resource.tags || []), ...(resource.osintCategories || []), ...(resource.language || [])
     ].join(" ");
     const normalizedSearchable = normalizeText(searchable);
 
@@ -155,6 +192,8 @@ function resourceCard(resource) {
   const status = STATUS_LABELS[resource.status] || "Statut inconnu";
   const access = resource.access === "free" ? "Gratuit" : resource.access === "paid" ? "Payant" : resource.access === "freemium" ? "Freemium" : resource.access;
   const languages = (resource.language || []).slice(0, 2).map((language) => language.toUpperCase()).join(" · ");
+  const categoryLabel = resource.domain === "osint" && resource.osintCategories?.length
+    ? resource.osintCategories.join(" · ") : resource.category;
   const tags = (resource.tags || []).slice(0, 3);
 
   return `<article class="resource-card">
@@ -167,7 +206,7 @@ function resourceCard(resource) {
     <p>${escapeHTML(resource.description)}</p>
     <div class="resource-tags">${tags.map((tag) => `<span>#${escapeHTML(tag)}</span>`).join("")}</div>
     <div class="card-footer">
-      <span class="card-domain">${escapeHTML(domain?.title || resource.domain)} · ${escapeHTML(resource.category)}<small>${escapeHTML([access, languages].filter(Boolean).join(" / "))}</small></span>
+      <span class="card-domain">${escapeHTML(domain?.title || resource.domain)} · ${escapeHTML(categoryLabel)}<small>${escapeHTML([access, languages].filter(Boolean).join(" / "))}</small></span>
       ${url ? `<a class="card-open" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir ${escapeHTML(resource.title)} dans un nouvel onglet">↗</a>` : '<span class="card-open card-unavailable" title="URL invalide">—</span>'}
     </div>
   </article>`;
@@ -258,16 +297,21 @@ async function init() {
   $("#currentYear").textContent = new Date().getFullYear();
 
   try {
-    const response = await fetch(DATA_URL, { headers: { Accept: "application/json" } });
+    const [response, taxonomyResponse] = await Promise.all([
+      fetch(DATA_URL, { headers: { Accept: "application/json" } }),
+      fetch("./data/osint-categories.json", { headers: { Accept: "application/json" } })
+    ]);
     if (!response.ok) throw new Error(`Chargement du catalogue impossible (HTTP ${response.status})`);
+    if (!taxonomyResponse.ok) throw new Error(`Chargement de la taxonomie OSINT impossible (HTTP ${taxonomyResponse.status})`);
 
-    const data = await response.json();
-    if (!Array.isArray(data.resources) || !Array.isArray(data.domains)) {
+    const [data, taxonomy] = await Promise.all([response.json(), taxonomyResponse.json()]);
+    if (!Array.isArray(data.resources) || !Array.isArray(data.domains) || !Array.isArray(taxonomy.categories)) {
       throw new Error("Le format de data/resources.json est invalide.");
     }
 
     state.resources = data.resources;
     state.domains = data.domains;
+    state.osintCategories = taxonomy.categories;
     updateStats();
     populateFilters();
     renderDomains();
