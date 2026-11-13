@@ -30,7 +30,7 @@ for (const [index, resource] of (data.resources ?? []).entries()) {
   if (!allowedTypes.has(resource.type)) errors.push(`${label}: unsupported type ${resource.type}`);
   if (!allowedLevels.has(resource.level)) errors.push(`${label}: unsupported level ${resource.level}`);
   if (!allowedStatuses.has(resource.status)) errors.push(`${label}: unsupported status ${resource.status}`);
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(resource.verified)) errors.push(`${label}: verified must use YYYY-MM-DD`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(resource.verified)) errors.push(`${label}: verified must use YYYY-MM-DD`);
   if (!Array.isArray(resource.language) || !Array.isArray(resource.tags)) errors.push(`${label}: language and tags must be arrays`);
 }
 
