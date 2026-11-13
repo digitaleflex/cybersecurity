@@ -22,8 +22,7 @@ const TYPE_LABELS = {
   report: "Rapport", library: "Bibliothèque", directory: "Annuaire"
 };
 const STATUS_LABELS = {
-  verified: "Vérifié", "needs-review": "À vérifier",
-  archived: "Archivé", removed: "Retiré"
+  verified: "Vérifié", "needs-review": "À vérifier"
 };
 const LEVEL_LABELS = {
   beginner: "Débutant", intermediate: "Intermédiaire",
@@ -45,7 +44,7 @@ function safeExternalURL(value) {
   }
 }
 
-function getDomain(domainId) {
+function normalizeText(value) {\n  return String(value ?? "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLocaleLowerCase("fr");\n}\n\nfunction getDomain(domainId) {
   return state.domains.find((domain) => domain.id === domainId);
 }
 
@@ -96,7 +95,7 @@ function renderDomains() {
 }
 
 function getFilteredResources() {
-  const query = state.query.trim().toLocaleLowerCase("fr");
+  const query = normalizeText(state.query.trim());
   const resources = state.resources.filter((resource) => {
     if (["archived", "removed"].includes(resource.status)) return false;
     if (state.domain && resource.domain !== state.domain) return false;

@@ -3,7 +3,7 @@ name: Catalog validation
 on:
   pull_request:
     paths:
-      - "data/resources.json"
+      - "index.html"\n      - "app.js"\n      - "styles.css"\n      - "tests/**"\n      - "site.webmanifest"\n      - "robots.txt"\n      - "404.html"\n      - "data/resources.json"
       - "data/schema.md"
       - "scripts/**"
       - "package.json"
