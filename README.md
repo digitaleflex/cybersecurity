@@ -6,11 +6,13 @@
 
 HashCode Cyber Library brings together documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
 
-**Initial catalog: 84 entries across 12 domains.** All 84 entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. No resource is presented as verified before that review. The website visibly labels pending entries.
+**Initial catalog: 152 entries across 12 domains, including 84 OSINT resources.** All 84 entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. No resource is presented as verified before that review. The website visibly labels pending entries.
 
 ## Explore
 - [Central catalog](CATALOG.md)
 - [Learning paths](LEARNING-PATHS.md)
+- [OSINT taxonomy](OSINT-TAXONOMY.md)
+- [OSINT source directory](OSINT-SOURCES.md)
 - [Communities & platforms](library/11-COMMUNITIES/README.md)
 - [Contribution guide](CONTRIBUTING.md)
 - [Quality & safety policy](QUALITY.md)
@@ -19,7 +21,7 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 
 ## Twelve domains
 1. [Fundamentals](library/01-FUNDAMENTALS/README.md) — Linux, networking, security basics.
-2. [OSINT](library/02-OSINT/README.md) — SOCMINT, GEOINT, Google Dorking, digital identity, investigations.
+2. [OSINT](library/02-OSINT/README.md) — 48 resources across social, geospatial, media, web, infrastructure, corporate, legal and public-data research.
 3. [Red Team](library/03-RED-TEAM/README.md) — reconnaissance, pentesting, Web, Active Directory, exploitation.
 4. [Blue Team](library/04-BLUE-TEAM/README.md) — SOC, SIEM, DFIR, threat hunting, incident response.
 5. [Reverse Engineering](library/05-REVERSE-ENGINEERING/README.md).

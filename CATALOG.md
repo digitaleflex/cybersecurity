@@ -5,7 +5,7 @@ Le catalogue exploitable par le site est stocké dans [data/resources.json](data
 | Dossier | Domaine | Contenu |
 |---|---|---|
 | [01-FUNDAMENTALS](library/01-FUNDAMENTALS/README.md) | Fondamentaux | Linux, réseaux, bases de sécurité |
-| [02-OSINT](library/02-OSINT/README.md) | OSINT | SOCMINT, GEOINT, Google Dorking, identité numérique, investigation |
+| [02-OSINT](library/02-OSINT/README.md) | OSINT | 84 ressources : SOCMINT, GEOINT, IMINT, VIDINT, WEBINT, DOMINT, CORPINT, GOVINT, sources institutionnelles UE/USA/ONU, etc. |
 | [03-RED-TEAM](library/03-RED-TEAM/README.md) | Red Team | Reconnaissance, pentest, sécurité Web, Active Directory, exploitation en lab |
 | [04-BLUE-TEAM](library/04-BLUE-TEAM/README.md) | Blue Team | SOC, SIEM, DFIR, Threat Hunting, réponse aux incidents |
 | [05-REVERSE-ENGINEERING](library/05-REVERSE-ENGINEERING/README.md) | Reverse Engineering | Analyse statique/dynamique, désassemblage, débogage |
@@ -16,6 +16,11 @@ Le catalogue exploitable par le site est stocké dans [data/resources.json](data
 | [10-COURSES-AND-BOOKS](library/10-COURSES-AND-BOOKS/README.md) | Cours & Livres | Formations, manuels, livres, MOOC |
 | [11-COMMUNITIES](library/11-COMMUNITIES/README.md) | Communautés | Groupes, forums, conférences, réseaux professionnels |
 | [12-RESEARCH-AND-REPORTS](library/12-RESEARCH-AND-REPORTS/README.md) | Recherche & Rapports | Publications, rapports, threat intelligence |
+
+## Référentiel OSINT
+
+- [Taxonomie des familles et catégories](OSINT-TAXONOMY.md)
+- [Répertoire des sources et plateformes](OSINT-SOURCES.md)
 
 ## État du catalogue
 

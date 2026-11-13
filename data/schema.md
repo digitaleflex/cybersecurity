@@ -9,7 +9,7 @@ The static website reads `data/resources.json`.
 `fundamentals`, `osint`, `red-team`, `blue-team`, `reverse-engineering`, `malware-analysis`, `cloud-security`, `application-security`, `ctf-labs`, `courses-books`, `communities`, `research-reports`.
 
 ## Resource types
-`tool`, `course`, `lab`, `documentation`, `repository`, `framework`, `platform`, `community`, `report`, `library`, `directory`.
+`tool`, `course`, `lab`, `documentation`, `repository`, `framework`, `platform`, `community`, `report`, `library`, `directory`, `database`.
 
 ## Skill levels
 `beginner`, `intermediate`, `advanced`, `professional`.
