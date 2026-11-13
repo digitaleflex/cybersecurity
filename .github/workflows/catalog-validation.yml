@@ -1,0 +1,53 @@
+name: Catalog validation
+
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "app.js"
+      - "styles.css"
+      - "tests/**"
+      - "site.webmanifest"
+      - "robots.txt"
+      - "404.html"
+      - "data/resources.json"
+      - "data/schema.md"
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/catalog-validation.yml"
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "app.js"
+      - "styles.css"
+      - "tests/**"
+      - "site.webmanifest"
+      - "robots.txt"
+      - "404.html"
+      - "data/resources.json"
+      - "data/schema.md"
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/catalog-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate resource catalog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: npm run check
+      - name: Run catalog tests
+        run: npm test
+      - name: Validate JSON catalog
+        run: npm run validate:catalog

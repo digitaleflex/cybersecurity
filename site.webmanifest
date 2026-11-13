@@ -1,0 +1,17 @@
+{
+  "name": "HashCode Cyber Library",
+  "short_name": "HashCode Library",
+  "description": "Open cybersecurity knowledge base by HashCode.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080b10",
+  "theme_color": "#080b10",
+  "icons": [
+    {
+      "src": "/assets/mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

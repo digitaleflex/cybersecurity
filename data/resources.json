@@ -1,0 +1,2098 @@
+{
+  "version": 1,
+  "updated": "2026-11-13",
+  "domains": [
+    {
+      "id": "fundamentals",
+      "title": "Fundamentals",
+      "number": "01",
+      "description": "Linux, réseaux, scripting et principes essentiels de sécurité.",
+      "icon": "⌘",
+      "path": "library/01-FUNDAMENTALS/README.md"
+    },
+    {
+      "id": "osint",
+      "title": "OSINT",
+      "number": "02",
+      "description": "Renseignement en sources ouvertes, SOCMINT, GEOINT et investigation.",
+      "icon": "◎",
+      "path": "library/02-OSINT/README.md"
+    },
+    {
+      "id": "red-team",
+      "title": "Red Team",
+      "number": "03",
+      "description": "Reconnaissance, pentest et simulation d'adversaire autorisée.",
+      "icon": "⌁",
+      "path": "library/03-RED-TEAM/README.md"
+    },
+    {
+      "id": "blue-team",
+      "title": "Blue Team",
+      "number": "04",
+      "description": "SOC, SIEM, détection, Threat Hunting et réponse aux incidents.",
+      "icon": "◈",
+      "path": "library/04-BLUE-TEAM/README.md"
+    },
+    {
+      "id": "reverse-engineering",
+      "title": "Reverse Engineering",
+      "number": "05",
+      "description": "Analyse de binaires, désassemblage et débogage.",
+      "icon": "⌬",
+      "path": "library/05-REVERSE-ENGINEERING/README.md"
+    },
+    {
+      "id": "malware-analysis",
+      "title": "Malware Analysis",
+      "number": "06",
+      "description": "Analyse défensive de malwares et recherche de comportements.",
+      "icon": "⌖",
+      "path": "library/06-MALWARE-ANALYSIS/README.md"
+    },
+    {
+      "id": "cloud-security",
+      "title": "Cloud Security",
+      "number": "07",
+      "description": "AWS, Azure, GCP, Kubernetes, IAM et sécurité cloud-native.",
+      "icon": "☁",
+      "path": "library/07-CLOUD-SECURITY/README.md"
+    },
+    {
+      "id": "application-security",
+      "title": "Application Security",
+      "number": "08",
+      "description": "Sécurité Web, API, mobile et cycle de développement logiciel.",
+      "icon": "▣",
+      "path": "library/08-APPLICATION-SECURITY/README.md"
+    },
+    {
+      "id": "ctf-labs",
+      "title": "CTF & Labs",
+      "number": "09",
+      "description": "Wargames, cyber ranges et environnements pratiques légaux.",
+      "icon": "⌘",
+      "path": "library/09-CTF-AND-LABS/README.md"
+    },
+    {
+      "id": "courses-books",
+      "title": "Courses & Books",
+      "number": "10",
+      "description": "Formations, livres, cours en ligne et documentation pédagogique.",
+      "icon": "▤",
+      "path": "library/10-COURSES-AND-BOOKS/README.md"
+    },
+    {
+      "id": "communities",
+      "title": "Communities",
+      "number": "11",
+      "description": "Communautés, groupes, conférences et réseaux professionnels.",
+      "icon": "◉",
+      "path": "library/11-COMMUNITIES/README.md"
+    },
+    {
+      "id": "research-reports",
+      "title": "Research & Reports",
+      "number": "12",
+      "description": "Publications, rapports techniques et threat intelligence.",
+      "icon": "⌕",
+      "path": "library/12-RESEARCH-AND-REPORTS/README.md"
+    }
+  ],
+  "resources": [
+    {
+      "id": "osint-framework",
+      "title": "OSINT Framework",
+      "description": "Répertoire de ressources et outils OSINT classés par catégories.",
+      "url": "https://osintframework.com/",
+      "domain": "osint",
+      "category": "Investigation",
+      "type": "directory",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "directory",
+        "tools"
+      ],
+      "source": "OSINT Framework",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-osint",
+      "title": "Awesome OSINT — jivoi",
+      "description": "Collection de liens vers outils, méthodes et ressources de renseignement en sources ouvertes.",
+      "url": "https://github.com/jivoi/awesome-osint",
+      "domain": "osint",
+      "category": "Resource catalog",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "github",
+        "awesome-list"
+      ],
+      "source": "jivoi",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-osint-list",
+      "title": "Awesome OSINT List",
+      "description": "Catalogue communautaire d'outils et de ressources OSINT.",
+      "url": "https://github.com/Astrosp/Awesome-OSINT-List",
+      "domain": "osint",
+      "category": "Resource catalog",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "github",
+        "directory"
+      ],
+      "source": "Astrosp",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "bellingcat-toolkit",
+      "title": "Bellingcat Online Investigation Toolkit",
+      "description": "Boîte à outils et méthodes pour les investigations en sources ouvertes et la vérification.",
+      "url": "https://bellingcat.gitbook.io/toolkit",
+      "domain": "osint",
+      "category": "Investigation",
+      "type": "documentation",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "verification",
+        "geoint",
+        "investigation"
+      ],
+      "source": "Bellingcat",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "maigret",
+      "title": "Maigret",
+      "description": "Outil de recherche de profils publics associés à un pseudonyme sur de nombreux services.",
+      "url": "https://github.com/soxoj/maigret",
+      "domain": "osint",
+      "category": "SOCMINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "username",
+        "socmint",
+        "python",
+        "osint"
+      ],
+      "source": "Soxoj",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "whatsmyname",
+      "title": "WhatsMyName",
+      "description": "Projet de recherche de présence publique de noms d'utilisateur ; les résultats doivent être validés.",
+      "url": "https://github.com/WebBreacher/WhatsMyName",
+      "domain": "osint",
+      "category": "SOCMINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "username",
+        "socmint",
+        "osint"
+      ],
+      "source": "WebBreacher",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "exiftool",
+      "title": "ExifTool",
+      "description": "Outil de lecture et d'écriture de métadonnées pour de nombreux formats de fichiers et médias.",
+      "url": "https://exiftool.org/",
+      "domain": "osint",
+      "category": "Investigation",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "metadata",
+        "images",
+        "forensics"
+      ],
+      "source": "Phil Harvey",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "google-search-operators",
+      "title": "Google Search Operators",
+      "description": "Documentation officielle pour affiner les recherches avec les opérateurs Google.",
+      "url": "https://support.google.com/websearch/answer/2466433",
+      "domain": "osint",
+      "category": "Google Dorking",
+      "type": "documentation",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en",
+        "fr"
+      ],
+      "tags": [
+        "google",
+        "search",
+        "dorking"
+      ],
+      "source": "Google",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "openstreetmap",
+      "title": "OpenStreetMap",
+      "description": "Données cartographiques collaboratives utiles à la recherche géographique.",
+      "url": "https://www.openstreetmap.org/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "multi"
+      ],
+      "tags": [
+        "geoint",
+        "maps",
+        "geospatial"
+      ],
+      "source": "OpenStreetMap Foundation",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nasa-worldview",
+      "title": "NASA Worldview",
+      "description": "Exploration de données d'observation de la Terre et d'imagerie scientifique.",
+      "url": "https://worldview.earthdata.nasa.gov/",
+      "domain": "osint",
+      "category": "GEOINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "geoint",
+        "satellite"
+      ],
+      "source": "NASA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "linux-journey",
+      "title": "Linux Journey",
+      "description": "Parcours progressif pour apprendre Linux et ses principaux concepts.",
+      "url": "https://linuxjourney.com/",
+      "domain": "fundamentals",
+      "category": "Linux",
+      "type": "course",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "linux",
+        "fundamentals"
+      ],
+      "source": "Linux Journey",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "missing-semester",
+      "title": "The Missing Semester",
+      "description": "Cours sur les outils de développement, le terminal, Git et l'automatisation.",
+      "url": "https://missing.csail.mit.edu/",
+      "domain": "fundamentals",
+      "category": "Linux",
+      "type": "course",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "command-line",
+        "tools"
+      ],
+      "source": "MIT",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "overthewire-bandit",
+      "title": "OverTheWire: Bandit",
+      "description": "Wargame progressif pour apprendre la ligne de commande et les fondamentaux Linux.",
+      "url": "https://overthewire.org/wargames/bandit/",
+      "domain": "fundamentals",
+      "category": "Linux",
+      "type": "lab",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "linux",
+        "wargame"
+      ],
+      "source": "OverTheWire",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "wireshark-docs",
+      "title": "Wireshark Documentation",
+      "description": "Documentation officielle pour l'analyse de protocoles et de captures réseau.",
+      "url": "https://www.wireshark.org/docs/",
+      "domain": "fundamentals",
+      "category": "Networking",
+      "type": "documentation",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "networking",
+        "pcap"
+      ],
+      "source": "Wireshark Foundation",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nist-cybersecurity",
+      "title": "NIST Cybersecurity",
+      "description": "Guides, cadres et publications de référence en cybersécurité.",
+      "url": "https://www.nist.gov/cybersecurity",
+      "domain": "fundamentals",
+      "category": "Security Basics",
+      "type": "documentation",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "nist",
+        "framework"
+      ],
+      "source": "NIST",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cis-controls",
+      "title": "CIS Critical Security Controls",
+      "description": "Mesures de sécurité priorisées pour réduire les risques cyber.",
+      "url": "https://www.cisecurity.org/controls",
+      "domain": "fundamentals",
+      "category": "Security Basics",
+      "type": "framework",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cis",
+        "controls"
+      ],
+      "source": "Center for Internet Security",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-pentest",
+      "title": "Awesome Pentest",
+      "description": "Catalogue communautaire d'outils et de références pour les tests d'intrusion.",
+      "url": "https://github.com/enaqx/awesome-pentest",
+      "domain": "red-team",
+      "category": "Pentesting",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "pentest",
+        "github"
+      ],
+      "source": "enaqx",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-red-teaming",
+      "title": "Awesome Red Teaming",
+      "description": "Ressources liées aux opérations Red Team et à la simulation d'adversaire.",
+      "url": "https://github.com/yeyintminthuhtut/Awesome-Red-Teaming",
+      "domain": "red-team",
+      "category": "Red Team",
+      "type": "repository",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "red-team",
+        "adversary-emulation"
+      ],
+      "source": "yeyintminthuhtut",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-wstg",
+      "title": "OWASP Web Security Testing Guide",
+      "description": "Guide de référence pour structurer les tests de sécurité des applications Web.",
+      "url": "https://owasp.org/www-project-web-security-testing-guide/",
+      "domain": "red-team",
+      "category": "Web Security",
+      "type": "documentation",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "owasp",
+        "web"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "portswigger-academy",
+      "title": "PortSwigger Web Security Academy",
+      "description": "Cours gratuits et laboratoires interactifs sur la sécurité des applications Web.",
+      "url": "https://portswigger.net/web-security",
+      "domain": "red-team",
+      "category": "Web Security",
+      "type": "course",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "web-security",
+        "labs"
+      ],
+      "source": "PortSwigger",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "hacktricks",
+      "title": "HackTricks",
+      "description": "Base de connaissances technique sur la sécurité offensive et défensive.",
+      "url": "https://book.hacktricks.xyz/",
+      "domain": "red-team",
+      "category": "Pentesting",
+      "type": "documentation",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "pentest",
+        "knowledge-base"
+      ],
+      "source": "HackTricks",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "metasploit",
+      "title": "Metasploit Framework",
+      "description": "Framework de validation et de recherche de sécurité à utiliser en environnement autorisé.",
+      "url": "https://github.com/rapid7/metasploit-framework",
+      "domain": "red-team",
+      "category": "Pentesting",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "pentest",
+        "framework"
+      ],
+      "source": "Rapid7",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "mitre-attack",
+      "title": "MITRE ATT&CK",
+      "description": "Base de connaissances structurée sur les tactiques et techniques adverses.",
+      "url": "https://attack.mitre.org/",
+      "domain": "blue-team",
+      "category": "Threat Intelligence",
+      "type": "framework",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "mitre",
+        "threat-intelligence"
+      ],
+      "source": "MITRE",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "sigma",
+      "title": "Sigma",
+      "description": "Format ouvert pour décrire des règles de détection de manière générique.",
+      "url": "https://github.com/SigmaHQ/sigma",
+      "domain": "blue-team",
+      "category": "SIEM",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "sigma",
+        "siem"
+      ],
+      "source": "SigmaHQ",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "wazuh",
+      "title": "Wazuh",
+      "description": "Plateforme open source de sécurité pour supervision, détection et réponse.",
+      "url": "https://github.com/wazuh/wazuh",
+      "domain": "blue-team",
+      "category": "SIEM",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "siem",
+        "monitoring"
+      ],
+      "source": "Wazuh",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-blue-team",
+      "title": "Awesome Cybersecurity Blue Team",
+      "description": "Répertoire de logiciels, outils et ressources dédiés à la défense informatique.",
+      "url": "https://github.com/fabacab/awesome-cybersecurity-blueteam",
+      "domain": "blue-team",
+      "category": "Blue Team",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "blue-team",
+        "defense"
+      ],
+      "source": "fabacab",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "volatility3",
+      "title": "Volatility 3",
+      "description": "Framework open source d'analyse forensique de la mémoire vive.",
+      "url": "https://github.com/volatilityfoundation/volatility3",
+      "domain": "blue-team",
+      "category": "DFIR",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "dfir",
+        "memory-forensics"
+      ],
+      "source": "Volatility Foundation",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "velociraptor",
+      "title": "Velociraptor",
+      "description": "Plateforme de collecte endpoint, d'investigation numérique et de réponse aux incidents.",
+      "url": "https://github.com/Velocidex/velociraptor",
+      "domain": "blue-team",
+      "category": "DFIR",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "dfir",
+        "endpoint"
+      ],
+      "source": "Velocidex",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ghidra",
+      "title": "Ghidra",
+      "description": "Framework de reverse engineering développé par la NSA et publié en open source.",
+      "url": "https://github.com/NationalSecurityAgency/ghidra",
+      "domain": "reverse-engineering",
+      "category": "Reverse Engineering",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "ghidra",
+        "binary-analysis"
+      ],
+      "source": "National Security Agency",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "remnux",
+      "title": "REMnux",
+      "description": "Distribution Linux et environnement d'outils pour l'analyse de logiciels malveillants.",
+      "url": "https://remnux.org/",
+      "domain": "malware-analysis",
+      "category": "Malware Analysis",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "malware",
+        "sandbox"
+      ],
+      "source": "REMnux",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "yara",
+      "title": "YARA",
+      "description": "Outil et langage de règles pour identifier des motifs dans des fichiers.",
+      "url": "https://github.com/VirusTotal/yara",
+      "domain": "malware-analysis",
+      "category": "Detection",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "yara",
+        "malware"
+      ],
+      "source": "VirusTotal",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "aws-security-docs",
+      "title": "AWS Security Documentation",
+      "description": "Documentation officielle sur les services, contrôles et bonnes pratiques de sécurité AWS.",
+      "url": "https://docs.aws.amazon.com/security/",
+      "domain": "cloud-security",
+      "category": "AWS",
+      "type": "documentation",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "aws",
+        "cloud",
+        "iam"
+      ],
+      "source": "Amazon Web Services",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "kubernetes-security",
+      "title": "Kubernetes Security",
+      "description": "Documentation officielle sur les mécanismes de sécurité de Kubernetes.",
+      "url": "https://kubernetes.io/docs/concepts/security/",
+      "domain": "cloud-security",
+      "category": "Kubernetes",
+      "type": "documentation",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "kubernetes",
+        "containers"
+      ],
+      "source": "Kubernetes",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-cheatsheets",
+      "title": "OWASP Cheat Sheet Series",
+      "description": "Guides concis et recommandations pratiques pour sécuriser les applications.",
+      "url": "https://github.com/OWASP/CheatSheetSeries",
+      "domain": "application-security",
+      "category": "Secure Development",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "owasp",
+        "appsec"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-api-security",
+      "title": "OWASP API Security Project",
+      "description": "Risques majeurs et recommandations de sécurité pour les API.",
+      "url": "https://owasp.org/www-project-api-security/",
+      "domain": "application-security",
+      "category": "API Security",
+      "type": "documentation",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "api",
+        "owasp"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "juice-shop",
+      "title": "OWASP Juice Shop",
+      "description": "Application volontairement vulnérable pour apprendre en environnement contrôlé.",
+      "url": "https://github.com/juice-shop/juice-shop",
+      "domain": "ctf-labs",
+      "category": "Web Labs",
+      "type": "lab",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "ctf",
+        "web",
+        "owasp"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "picoctf",
+      "title": "picoCTF",
+      "description": "Plateforme éducative de challenges de cybersécurité.",
+      "url": "https://picoctf.org/",
+      "domain": "ctf-labs",
+      "category": "CTF",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "ctf",
+        "learning"
+      ],
+      "source": "Carnegie Mellon University",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "tryhackme",
+      "title": "TryHackMe",
+      "description": "Plateforme de parcours guidés et de laboratoires pratiques en cybersécurité.",
+      "url": "https://tryhackme.com/",
+      "domain": "ctf-labs",
+      "category": "Training Platform",
+      "type": "platform",
+      "level": "beginner",
+      "access": "freemium",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "training",
+        "labs"
+      ],
+      "source": "TryHackMe",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "hackthebox",
+      "title": "Hack The Box",
+      "description": "Plateforme d'entraînement pratique avec machines, challenges et parcours sécurité.",
+      "url": "https://www.hackthebox.com/",
+      "domain": "ctf-labs",
+      "category": "Training Platform",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "freemium",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "pentest",
+        "labs"
+      ],
+      "source": "Hack The Box",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cisco-skillsforall",
+      "title": "Cisco Skills for All",
+      "description": "Formations en ligne sur les réseaux, la cybersécurité et les compétences numériques.",
+      "url": "https://skillsforall.com/",
+      "domain": "courses-books",
+      "category": "Online Courses",
+      "type": "course",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "course",
+        "networking"
+      ],
+      "source": "Cisco",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "sans-reading-room",
+      "title": "SANS Reading Room",
+      "description": "Bibliothèque de white papers et publications techniques en sécurité informatique.",
+      "url": "https://www.sans.org/white-papers/",
+      "domain": "courses-books",
+      "category": "Books & Papers",
+      "type": "library",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "whitepaper",
+        "research"
+      ],
+      "source": "SANS Institute",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-chapters",
+      "title": "OWASP Chapters",
+      "description": "Annuaire des communautés et chapitres locaux de l'OWASP.",
+      "url": "https://owasp.org/chapters/",
+      "domain": "communities",
+      "category": "Professional Communities",
+      "type": "community",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "multi"
+      ],
+      "tags": [
+        "community",
+        "owasp"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "defcon-groups",
+      "title": "DEF CON Groups",
+      "description": "Annuaire de groupes locaux liés à la communauté DEF CON.",
+      "url": "https://defcongroups.org/",
+      "domain": "communities",
+      "category": "Professional Communities",
+      "type": "community",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en",
+        "multi"
+      ],
+      "tags": [
+        "community",
+        "events"
+      ],
+      "source": "DEF CON",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cisa-advisories",
+      "title": "CISA Cybersecurity Advisories",
+      "description": "Avis officiels de cybersécurité et analyses de menaces publiés par la CISA.",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      "domain": "research-reports",
+      "category": "Threat Reports",
+      "type": "report",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "advisory",
+        "threat-intelligence"
+      ],
+      "source": "CISA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "enisa-publications",
+      "title": "ENISA Publications",
+      "description": "Rapports et publications de l'Agence de l'Union européenne pour la cybersécurité.",
+      "url": "https://www.enisa.europa.eu/publications",
+      "domain": "research-reports",
+      "category": "Research",
+      "type": "report",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "research",
+        "policy"
+      ],
+      "source": "ENISA",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "spiderfoot",
+      "title": "SpiderFoot",
+      "description": "Automatise la collecte OSINT multi-sources et la cartographie d'empreintes numériques. À utiliser sur des cibles autorisées ou des cas de recherche légitimes.",
+      "url": "https://github.com/smicallef/spiderfoot",
+      "domain": "osint",
+      "category": "Automated OSINT",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "automation",
+        "recon"
+      ],
+      "source": "SpiderFoot",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "theharvester",
+      "title": "theHarvester",
+      "description": "Collecte des noms, adresses e-mail, sous-domaines et hôtes à partir de sources publiques.",
+      "url": "https://github.com/laramies/theHarvester",
+      "domain": "osint",
+      "category": "Infrastructure OSINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "email",
+        "domains"
+      ],
+      "source": "theHarvester",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "sherlock",
+      "title": "Sherlock",
+      "description": "Recherche des pseudonymes sur de nombreux services et plateformes publics. Les résultats doivent être recoupés, jamais considérés comme une preuve d'identité.",
+      "url": "https://github.com/sherlock-project/sherlock",
+      "domain": "osint",
+      "category": "SOCMINT",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "socmint",
+        "username"
+      ],
+      "source": "Sherlock Project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ghdb",
+      "title": "Google Hacking Database",
+      "description": "Base de requêtes de recherche avancées publiée par Exploit-DB pour l'étude des expositions indexées. Utiliser uniquement pour auditer ses propres actifs.",
+      "url": "https://www.exploit-db.com/google-hacking-database",
+      "domain": "osint",
+      "category": "Google Dorking",
+      "type": "directory",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "google-dorking",
+        "search"
+      ],
+      "source": "Exploit-DB",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "inteltechniques",
+      "title": "IntelTechniques",
+      "description": "Ressources, outils et méthodes de recherche en sources ouvertes, notamment pour l'investigation numérique.",
+      "url": "https://inteltechniques.com/",
+      "domain": "osint",
+      "category": "Investigation",
+      "type": "library",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "investigation",
+        "training"
+      ],
+      "source": "IntelTechniques",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "osintshifu-awesome-osint-repos",
+      "title": "Awesome OSINT Repos",
+      "description": "Index communautaire de dépôts OSINT open source, avec outils, intégrations et projets de recherche. Vérifier chaque projet avant usage.",
+      "url": "https://github.com/osintshifu/awesome-osint-repos",
+      "domain": "osint",
+      "category": "Resource catalog",
+      "type": "repository",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "osint",
+        "github",
+        "catalog"
+      ],
+      "source": "osintshifu",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nmap",
+      "title": "Nmap",
+      "description": "Outil de découverte réseau et d'audit de services. Documentation officielle et code source disponibles.",
+      "url": "https://nmap.org/",
+      "domain": "red-team",
+      "category": "Network Reconnaissance",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "network",
+        "recon",
+        "nmap"
+      ],
+      "source": "Nmap Project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nuclei",
+      "title": "Nuclei",
+      "description": "Moteur de scan basé sur des templates pour détecter des configurations et vulnérabilités connues dans un périmètre autorisé.",
+      "url": "https://github.com/projectdiscovery/nuclei",
+      "domain": "red-team",
+      "category": "Security Testing",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "pentest",
+        "templates",
+        "vulnerability"
+      ],
+      "source": "ProjectDiscovery",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "subfinder",
+      "title": "Subfinder",
+      "description": "Outil de découverte passive de sous-domaines à partir de sources publiques.",
+      "url": "https://github.com/projectdiscovery/subfinder",
+      "domain": "red-team",
+      "category": "Reconnaissance",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "recon",
+        "subdomains",
+        "passive"
+      ],
+      "source": "ProjectDiscovery",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "bloodhound",
+      "title": "BloodHound Community Edition",
+      "description": "Plateforme d'analyse des relations d'identité et des chemins de privilèges dans Active Directory et environnements associés. À utiliser sur des environnements autorisés.",
+      "url": "https://github.com/SpecterOps/BloodHound",
+      "domain": "red-team",
+      "category": "Active Directory",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "active-directory",
+        "identity",
+        "graph"
+      ],
+      "source": "SpecterOps",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ffuf",
+      "title": "ffuf",
+      "description": "Fuzzer Web rapide pour tester des routes et paramètres dans des applications de laboratoire ou explicitement autorisées.",
+      "url": "https://github.com/ffuf/ffuf",
+      "domain": "red-team",
+      "category": "Web Security",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "web",
+        "fuzzing",
+        "pentest"
+      ],
+      "source": "ffuf project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "zeek",
+      "title": "Zeek",
+      "description": "Plateforme d'analyse réseau qui transforme le trafic en journaux structurés utiles à la détection et à l'investigation.",
+      "url": "https://zeek.org/",
+      "domain": "blue-team",
+      "category": "Network Monitoring",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "network-monitoring",
+        "detection",
+        "logs"
+      ],
+      "source": "Zeek Project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "suricata",
+      "title": "Suricata",
+      "description": "Moteur open source de détection réseau, IDS/IPS et analyse de trafic pour les opérations défensives.",
+      "url": "https://suricata.io/",
+      "domain": "blue-team",
+      "category": "IDS / IPS",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "ids",
+        "ips",
+        "network-security"
+      ],
+      "source": "OISF",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "security-onion",
+      "title": "Security Onion",
+      "description": "Distribution et plateforme de supervision de sécurité intégrant visibilité réseau, détection, journaux et gestion de cas.",
+      "url": "https://securityonion.net/",
+      "domain": "blue-team",
+      "category": "SOC Platform",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "soc",
+        "siem",
+        "network-monitoring"
+      ],
+      "source": "Security Onion Solutions",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "thehive",
+      "title": "TheHive",
+      "description": "Plateforme open source de gestion des incidents et de collaboration pour les équipes de réponse à incident.",
+      "url": "https://github.com/TheHive-Project/TheHive",
+      "domain": "blue-team",
+      "category": "Incident Response",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "incident-response",
+        "case-management",
+        "soc"
+      ],
+      "source": "TheHive Project",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "openccti",
+      "title": "OpenCTI",
+      "description": "Plateforme open source de gestion et de structuration de cyber threat intelligence.",
+      "url": "https://github.com/OpenCTI-Platform/opencti",
+      "domain": "blue-team",
+      "category": "Threat Intelligence",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cti",
+        "threat-intelligence",
+        "knowledge-graph"
+      ],
+      "source": "OpenCTI",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cutter",
+      "title": "Cutter",
+      "description": "Interface graphique de reverse engineering basée sur Rizin, pour l'analyse et le débogage de binaires.",
+      "url": "https://github.com/rizinorg/cutter",
+      "domain": "reverse-engineering",
+      "category": "Disassembly & Debugging",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "reverse-engineering",
+        "disassembler",
+        "debugger"
+      ],
+      "source": "Rizin / Cutter",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "radare2",
+      "title": "radare2",
+      "description": "Framework open source pour l'analyse, le désassemblage et le débogage de binaires.",
+      "url": "https://github.com/radareorg/radare2",
+      "domain": "reverse-engineering",
+      "category": "Binary Analysis",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "reverse-engineering",
+        "binary",
+        "debugging"
+      ],
+      "source": "radare2",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "capa",
+      "title": "capa",
+      "description": "Outil qui identifie des capacités potentielles dans des exécutables et rapports d'analyse, utile pour l'analyse défensive de logiciels suspects.",
+      "url": "https://github.com/mandiant/capa",
+      "domain": "malware-analysis",
+      "category": "Capability Analysis",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "malware-analysis",
+        "static-analysis",
+        "yara"
+      ],
+      "source": "Mandiant",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cape-sandbox",
+      "title": "CAPE Sandbox",
+      "description": "Sandbox open source pour l'analyse dynamique et l'extraction d'artefacts de fichiers suspects, à déployer dans un environnement isolé.",
+      "url": "https://github.com/kevoreilly/CAPEv2",
+      "domain": "malware-analysis",
+      "category": "Sandboxing",
+      "type": "tool",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "sandbox",
+        "malware-analysis",
+        "dynamic-analysis"
+      ],
+      "source": "CAPE Sandbox",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "prowler",
+      "title": "Prowler",
+      "description": "Outil d'audit de posture de sécurité cloud couvrant notamment AWS, Azure, Google Cloud et Kubernetes.",
+      "url": "https://github.com/prowler-cloud/prowler",
+      "domain": "cloud-security",
+      "category": "Cloud Posture Management",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cloud",
+        "cspm",
+        "compliance"
+      ],
+      "source": "Prowler",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "scoutsuite",
+      "title": "ScoutSuite",
+      "description": "Outil d'audit de configuration de sécurité multi-cloud pour identifier des écarts de configuration.",
+      "url": "https://github.com/nccgroup/ScoutSuite",
+      "domain": "cloud-security",
+      "category": "Cloud Auditing",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cloud",
+        "audit",
+        "aws",
+        "azure",
+        "gcp"
+      ],
+      "source": "NCC Group",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "kube-bench",
+      "title": "kube-bench",
+      "description": "Vérifie les configurations Kubernetes par rapport aux recommandations CIS Kubernetes Benchmark.",
+      "url": "https://github.com/aquasecurity/kube-bench",
+      "domain": "cloud-security",
+      "category": "Kubernetes Security",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "kubernetes",
+        "cis",
+        "containers"
+      ],
+      "source": "Aqua Security",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-zap",
+      "title": "OWASP ZAP",
+      "description": "Scanner et proxy d'analyse de sécurité Web open source, adapté à l'apprentissage et aux tests autorisés.",
+      "url": "https://www.zaproxy.org/",
+      "domain": "application-security",
+      "category": "Web Application Testing",
+      "type": "tool",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "appsec",
+        "web",
+        "dast"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-asvs",
+      "title": "OWASP Application Security Verification Standard",
+      "description": "Référentiel de contrôles et exigences pour vérifier la sécurité des applications Web.",
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "domain": "application-security",
+      "category": "Security Standards",
+      "type": "framework",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "appsec",
+        "standard",
+        "verification"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "owasp-masvs",
+      "title": "OWASP Mobile Application Security Verification Standard",
+      "description": "Référentiel de sécurité pour l'évaluation des applications mobiles et de leurs contrôles.",
+      "url": "https://mas.owasp.org/MASVS/",
+      "domain": "application-security",
+      "category": "Mobile Security",
+      "type": "framework",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "mobile",
+        "appsec",
+        "standard"
+      ],
+      "source": "OWASP",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "semgrep",
+      "title": "Semgrep",
+      "description": "Moteur d'analyse statique et de détection de motifs de sécurité dans le code source.",
+      "url": "https://github.com/semgrep/semgrep",
+      "domain": "application-security",
+      "category": "SAST",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "sast",
+        "code-analysis",
+        "devsecops"
+      ],
+      "source": "Semgrep",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "trivy",
+      "title": "Trivy",
+      "description": "Scanner de vulnérabilités, secrets, dépendances, images de conteneurs et configurations IaC.",
+      "url": "https://github.com/aquasecurity/trivy",
+      "domain": "application-security",
+      "category": "Supply Chain Security",
+      "type": "tool",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "containers",
+        "supply-chain",
+        "iac"
+      ],
+      "source": "Aqua Security",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "cyberdefenders",
+      "title": "CyberDefenders",
+      "description": "Plateforme de laboratoires pratiques orientés Blue Team, SOC, DFIR, Threat Hunting et analyse de malwares.",
+      "url": "https://cyberdefenders.org/blue-team-labs/",
+      "domain": "ctf-labs",
+      "category": "Blue Team Labs",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "blue-team",
+        "dfir",
+        "labs"
+      ],
+      "source": "CyberDefenders",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "rootme",
+      "title": "Root-Me",
+      "description": "Plateforme communautaire de challenges de cybersécurité couvrant plusieurs domaines techniques.",
+      "url": "https://www.root-me.org/",
+      "domain": "ctf-labs",
+      "category": "Cybersecurity Challenges",
+      "type": "platform",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "ctf",
+        "challenges",
+        "learning"
+      ],
+      "source": "Root-Me",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "blueteamlabs",
+      "title": "Blue Team Labs Online",
+      "description": "Plateforme d'exercices d'investigation et de défense couvrant logs, réseau, phishing et forensic.",
+      "url": "https://blueteamlabs.online/",
+      "domain": "ctf-labs",
+      "category": "Blue Team Labs",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "blue-team",
+        "dfir",
+        "soc"
+      ],
+      "source": "Blue Team Labs Online",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "opensecuritytraining",
+      "title": "OpenSecurityTraining2",
+      "description": "Cours techniques approfondis sur l'architecture, les systèmes, le reverse engineering et la sécurité.",
+      "url": "https://ost2.fyi/",
+      "domain": "courses-books",
+      "category": "Technical Training",
+      "type": "course",
+      "level": "advanced",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "training",
+        "reverse-engineering",
+        "systems"
+      ],
+      "source": "OpenSecurityTraining2",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "microsoft-learn-security",
+      "title": "Microsoft Learn — Security",
+      "description": "Parcours officiels de formation sur l'identité, la sécurité Microsoft, Azure et les opérations de défense.",
+      "url": "https://learn.microsoft.com/training/browse/?products=security",
+      "domain": "courses-books",
+      "category": "Cloud & Security Training",
+      "type": "course",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "training",
+        "microsoft",
+        "cloud-security"
+      ],
+      "source": "Microsoft Learn",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "nvd",
+      "title": "National Vulnerability Database",
+      "description": "Base de données de référence du NIST pour les vulnérabilités, CVE, scores CVSS et informations associées.",
+      "url": "https://nvd.nist.gov/",
+      "domain": "research-reports",
+      "category": "Vulnerability Intelligence",
+      "type": "directory",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cve",
+        "vulnerability",
+        "nist"
+      ],
+      "source": "NIST",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "first-epss",
+      "title": "FIRST EPSS",
+      "description": "Modèle et données publics estimant la probabilité d'exploitation de vulnérabilités connues.",
+      "url": "https://www.first.org/epss/",
+      "domain": "research-reports",
+      "category": "Vulnerability Prioritization",
+      "type": "framework",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "epss",
+        "risk",
+        "vulnerability"
+      ],
+      "source": "FIRST",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "urlhaus",
+      "title": "URLhaus",
+      "description": "Projet de partage de données sur les URL utilisées pour distribuer des malwares, à des fins de recherche et de défense.",
+      "url": "https://urlhaus.abuse.ch/",
+      "domain": "research-reports",
+      "category": "Threat Intelligence",
+      "type": "platform",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "threat-intelligence",
+        "malware",
+        "ioc"
+      ],
+      "source": "abuse.ch",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "first",
+      "title": "FIRST",
+      "description": "Organisation internationale réunissant des équipes de réponse aux incidents et des professionnels de la sécurité.",
+      "url": "https://www.first.org/",
+      "domain": "communities",
+      "category": "Incident Response Community",
+      "type": "community",
+      "level": "professional",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "community",
+        "csirt",
+        "incident-response"
+      ],
+      "source": "FIRST",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "security-reference-guide",
+      "title": "Security Reference Guide",
+      "description": "Guide de référence multi-domaines réunissant des ressources de Blue Team, Red Team, DFIR, OSINT, AppSec, cloud et formation.",
+      "url": "https://s0cm0nkey.gitbook.io/s0cm0nkeys-security-reference-guide/",
+      "domain": "courses-books",
+      "category": "Cross-domain Resource Index",
+      "type": "directory",
+      "level": "intermediate",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "cybersecurity",
+        "blue-team",
+        "red-team",
+        "dfir",
+        "osint",
+        "appsec",
+        "cloud"
+      ],
+      "source": "s0cm0nkey",
+      "verified": null,
+      "status": "needs-review",
+      "featured": true,
+      "added": "2026-11-13"
+    },
+    {
+      "id": "awesome-cybersecurity-learning-resources",
+      "title": "Awesome Cybersecurity Learning Resources",
+      "description": "Collection de ressources d'apprentissage : cours, livres, vidéos, dépôts, laboratoires et articles couvrant plusieurs spécialités cyber.",
+      "url": "https://github.com/jassics/awesome-cybersecurity-learning-resources",
+      "domain": "courses-books",
+      "category": "Cross-domain Learning Index",
+      "type": "repository",
+      "level": "beginner",
+      "access": "free",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "learning",
+        "courses",
+        "books",
+        "labs",
+        "cybersecurity"
+      ],
+      "source": "jassics",
+      "verified": null,
+      "status": "needs-review",
+      "featured": false,
+      "added": "2026-11-13"
+    }
+  ]
+}

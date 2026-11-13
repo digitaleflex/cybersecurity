@@ -1,0 +1,95 @@
+name: Resource suggestion
+description: Propose a resource for HashCode Cyber Library.
+title: "[Resource] "
+labels: ["resource-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de proposer une ressource. Les liens doivent pointer vers l'éditeur, l'auteur ou le dépôt original. Les ressources offensives doivent être destinées à des tests autorisés ou à des environnements de formation contrôlés.
+  - type: input
+    id: title
+    attributes:
+      label: Resource title
+      placeholder: Official project or resource name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - Fundamentals
+        - OSINT
+        - Red Team
+        - Blue Team
+        - Reverse Engineering
+        - Malware Analysis
+        - Cloud Security
+        - Application Security
+        - CTF & Labs
+        - Courses & Books
+        - Communities
+        - Research & Reports
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Resource type
+      options:
+        - Tool
+        - Course
+        - Lab
+        - Documentation
+        - Repository
+        - Framework
+        - Platform
+        - Community
+        - Report
+        - Library
+        - Directory
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What does it provide?
+      description: Explain the educational or operational value in 1–3 sentences.
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License / access model
+      placeholder: Open source license, free, freemium, paid, unknown
+    validations:
+      required: false
+  - type: input
+    id: language
+    attributes:
+      label: Content language
+      placeholder: English, French, multilingual, unknown
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Why should it be included?
+      description: Share official documentation, maintenance evidence, or a useful example.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Responsible use
+      options:
+        - label: I checked that this resource does not promote unauthorized access, doxxing, credential theft, or distribution of stolen data.
+          required: true

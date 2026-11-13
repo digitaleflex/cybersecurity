@@ -1,6 +1,6 @@
 # HashCode Cyber Library — Catalogue
 
-Ce document est l'index éditorial de la bibliothèque. Le catalogue exploitable par le site est stocké dans [data/resources.json](data/resources.json).
+Le catalogue exploitable par le site est stocké dans [data/resources.json](data/resources.json). Les ressources sont des liens vers leurs éditeurs ou mainteneurs d'origine.
 
 | Dossier | Domaine | Contenu |
 |---|---|---|
@@ -14,25 +14,18 @@ Ce document est l'index éditorial de la bibliothèque. Le catalogue exploitable
 | [08-APPLICATION-SECURITY](library/08-APPLICATION-SECURITY/README.md) | Application Security | Web, API, mobile, SDLC, AppSec |
 | [09-CTF-AND-LABS](library/09-CTF-AND-LABS/README.md) | CTF & Labs | Wargames, cyber ranges, exercices |
 | [10-COURSES-AND-BOOKS](library/10-COURSES-AND-BOOKS/README.md) | Cours & Livres | Formations, manuels, livres, MOOC |
-| [11-COMMUNITIES](library/11-COMMUNITIES/README.md) | Communautés | Telegram, Discord, forums, groupes, conférences |
+| [11-COMMUNITIES](library/11-COMMUNITIES/README.md) | Communautés | Groupes, forums, conférences, réseaux professionnels |
 | [12-RESEARCH-AND-REPORTS](library/12-RESEARCH-AND-REPORTS/README.md) | Recherche & Rapports | Publications, rapports, threat intelligence |
 
-## Types de ressources
+## État du catalogue
 
-- **Tool** : logiciel ou service technique.
-- **Documentation** : documentation officielle, standards ou guides.
-- **Course** : cours, parcours et formation.
-- **Book** : livre ou ouvrage légalement accessible.
-- **Lab** : environnement d'exercice autorisé.
-- **Community** : groupe, forum, canal ou réseau professionnel.
-- **Report** : étude, rapport ou publication de recherche.
-- **Dataset** : jeu de données public à usage pédagogique ou scientifique.
+Le JSON contient les ressources et leurs métadonnées structurées. Les entrées `needs-review` sont des propositions à contrôler par un mainteneur ; elles ne doivent pas être confondues avec des ressources entièrement vérifiées.
+
+## Types
+Tool, documentation, course, lab, repository, framework, platform, community, report, library, directory.
 
 ## Niveaux
+Beginner, intermediate, advanced, professional.
 
-- **Beginner** : découverte et bases.
-- **Intermediate** : pratique autonome et connaissances intermédiaires.
-- **Advanced** : expertise technique ou recherche approfondie.
-- **Professional** : usage métier, opérationnel ou spécialisé.
-
-Le statut de vérification, le modèle d'accès, la langue et la date de contrôle sont précisés dans les fiches JSON.
+## Règles de curation
+Privilégier les sources officielles, éviter les doublons, vérifier les licences et les conditions d'accès, conserver la provenance et documenter les risques. Voir [QUALITY.md](QUALITY.md) et [CONTRIBUTING.md](CONTRIBUTING.md).

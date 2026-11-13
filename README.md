@@ -2,14 +2,16 @@
 
 > A curated, community-maintained library for cybersecurity, OSINT, security engineering and digital investigations.
 
-**HashCode project** · Maintained by [Digital E-Flex](https://github.com/digitaleflex).
+**HashCode project** · Maintained by [HashCode](https://github.com/digitaleflex) and [Digital E-Flex](https://github.com/digitaleflex).
 
-HashCode Cyber Library brings together official documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
+HashCode Cyber Library brings together documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
+
+**Initial catalog: 84 entries across 12 domains.** All 84 entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. No resource is presented as verified before that review. The website visibly labels pending entries.
 
 ## Explore
 - [Central catalog](CATALOG.md)
 - [Learning paths](LEARNING-PATHS.md)
-- [Communities & platforms](COMMUNITIES.md)
+- [Communities & platforms](library/11-COMMUNITIES/README.md)
 - [Contribution guide](CONTRIBUTING.md)
 - [Quality & safety policy](QUALITY.md)
 - [Resource data](data/resources.json)
@@ -28,6 +30,29 @@ HashCode Cyber Library brings together official documentation, tools, courses, b
 10. [Courses & Books](library/10-COURSES-AND-BOOKS/README.md).
 11. [Communities](library/11-COMMUNITIES/README.md).
 12. [Research & Reports](library/12-RESEARCH-AND-REPORTS/README.md).
+
+## Catalog validation
+
+Run `npm run validate:catalog` with Node.js 22 or later to check required fields, domains, types, levels, statuses, dates and duplicate IDs/URLs. The same validation runs automatically on relevant pull requests.
+
+## Local development
+
+Requirements: Node.js 22 or later. No package installation is required.
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:4173`. The local server uses Node.js built-ins only.
+
+## Quality checks
+
+```bash
+npm test
+npm run validate:catalog
+```
+
+Both checks also run in GitHub Actions when the catalog or application files change.
 
 ## Website deployment on Vercel
 This is a static HTML/CSS/JavaScript website; no framework build is required.
