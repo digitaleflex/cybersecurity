@@ -1,33 +1,120 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b10">
-<meta name="description" content="HashCode Cyber Library — bibliothèque communautaire de ressources en cybersécurité, OSINT et investigation numérique.">
-<title>HashCode Cyber Library</title><link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css"><script defer src="app.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <meta name="description" content="HashCode Cyber Library : une bibliothèque communautaire de ressources pour apprendre, pratiquer et approfondir la cybersécurité, l'OSINT, le Red Team et le Blue Team.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HashCode Cyber Library — Explore. Learn. Secure.">
+  <meta property="og:description" content="Outils, documentations, formations, laboratoires et communautés cyber réunis dans une bibliothèque ouverte.">
+  <meta name="twitter:card" content="summary">
+  <title>HashCode Cyber Library — Explore. Learn. Secure.</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
 </head>
 <body>
-<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
-<header class="topbar"><a class="brand" href="#" aria-label="HashCode Cyber Library accueil"><img src="assets/mark.svg" alt="" width="36" height="36"><span>HASHCODE<span class="brand-accent">LIBRARY</span><small>CYBERSECURITY KNOWLEDGE BASE</small></span></a>
-<nav class="nav-links" aria-label="Navigation principale"><a href="#explore">Explorer</a><a href="#domains">Domaines</a><a href="#learning">Parcours</a><a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
-<a class="nav-cta" href="https://github.com/digitaleflex/cybersecurity/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">Contribuer <span>↗</span></a><button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></header>
-<main>
-<section class="hero"><div class="hero-copy"><div class="eyebrow"><i></i> HASHCODE · OPEN KNOWLEDGE INITIATIVE</div><h1>Explore.<br>Learn. <span>Secure.</span></h1>
-<p class="hero-lead">Une bibliothèque organisée de ressources pour apprendre, pratiquer et approfondir la cybersécurité.</p>
-<div class="hero-actions"><a class="button button-primary" href="#explore">Explorer la bibliothèque <span>↘</span></a><a class="button button-ghost" href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noreferrer">Voir le dépôt ↗</a></div>
-<div class="hero-meta"><span><b class="pulse"></b> CATALOGUE COMMUNAUTAIRE</span><span>FR / EN</span><span>OPEN RESOURCES</span></div></div>
-<div class="hero-art"><div class="art-grid"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="core"><div class="core-ring"></div><div class="core-lock">⌑</div><span>KNOWLEDGE<br>IS SECURITY</span></div><div class="float-card card-top"><span class="tiny-dot"></span> HASHCODE KNOWLEDGE BASE <b>01 / 12</b></div><div class="float-card card-bottom"><span>↗</span> RESEARCH / PRACTICE / DEFENSE</div><div class="art-coordinate">HASHCODE · CYBER LIBRARY</div></div></section>
-<section class="stats-strip"><div><strong id="statResources">—</strong><span>RESSOURCES</span></div><div><strong id="statDomains">12</strong><span>DOMAINES</span></div><div><strong id="statTypes">—</strong><span>FORMATS</span></div><div><strong>OPEN</strong><span>CONTRIBUTIONS</span></div></section>
-<section class="section explore-section" id="explore"><div class="section-heading"><div><div class="eyebrow">THE RESOURCE INDEX</div><h2>La connaissance,<br><span>bien organisée.</span></h2></div><p>Outils, documentations, formations, laboratoires et communautés classés par spécialité.</p></div>
-<div class="toolbar"><label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Rechercher un outil, une formation, un sujet..." autocomplete="off"><kbd>/</kbd></label><div class="filters"><select id="domainFilter" aria-label="Filtrer par domaine"><option value="">Tous les domaines</option></select><select id="typeFilter" aria-label="Filtrer par type"><option value="">Tous les formats</option></select><select id="levelFilter" aria-label="Filtrer par niveau"><option value="">Tous les niveaux</option></select></div></div>
-<div class="results-line"><span id="resultsCount">Chargement du catalogue…</span><button id="resetFilters" class="text-button">Réinitialiser les filtres ↺</button></div><div id="resourceGrid" class="resource-grid" aria-live="polite"></div>
-<div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>Aucune ressource trouvée</h3><p>Essaie un autre terme ou modifie les filtres.</p><button class="button button-ghost" id="emptyReset">Effacer les filtres</button></div>
-<div class="load-more-wrap"><button id="loadMore" class="button button-ghost" hidden>Afficher plus de ressources <span>↓</span></button></div></section>
-<section class="section domains-section" id="domains"><div class="section-heading compact"><div><div class="eyebrow">EXPLORE BY DISCIPLINE</div><h2>12 domaines.<br><span>Un seul point de départ.</span></h2></div><p>Des fondamentaux à la recherche avancée : navigue par spécialité et construis ton parcours.</p></div><div class="domain-grid" id="domainGrid"></div></section>
-<section class="learning-band" id="learning"><div class="learning-copy"><div class="eyebrow">LEARN WITH INTENTION</div><h2>Ne collectionne pas les outils. <span>Construis tes compétences.</span></h2><p>Des chemins d'apprentissage progressifs pour transformer les ressources en pratique concrète.</p><a class="button button-primary" href="LEARNING-PATHS.md" target="_blank">Découvrir les parcours ↗</a></div>
-<div class="path-list"><a href="LEARNING-PATHS.md"><span>01</span><div><b>Cybersecurity Foundations</b><small>Linux · Réseaux · Sécurité</small></div><i>↗</i></a><a href="LEARNING-PATHS.md"><span>02</span><div><b>OSINT & Digital Investigation</b><small>Collecte · Vérification · Analyse</small></div><i>↗</i></a><a href="LEARNING-PATHS.md"><span>03</span><div><b>Red Team & Pentest</b><small>Évaluation autorisée · Méthodologie</small></div><i>↗</i></a><a href="LEARNING-PATHS.md"><span>04</span><div><b>Blue Team, SOC & DFIR</b><small>Détection · Investigation · Réponse</small></div><i>↗</i></a></div></section>
-<section class="contribute-section"><div class="contribute-icon">＋</div><div><div class="eyebrow">BUILD THE KNOWLEDGE BASE</div><h2>Une ressource utile ? <span>Partage-la.</span></h2><p>La bibliothèque grandit grâce aux contributions vérifiées de la communauté.</p></div><a class="button button-ghost" href="https://github.com/digitaleflex/cybersecurity/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">Lire le guide ↗</a></section>
-</main><footer class="footer"><a class="brand footer-brand" href="#"><img src="assets/mark.svg" alt="" width="30" height="30"><span>HASHCODE<span class="brand-accent">LIBRARY</span><small>BY HASHCODE</small></span></a><p>Une initiative de partage de connaissances cyber.</p><div><a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noreferrer">GitHub ↗</a><a href="QUALITY.md">Qualité & éthique</a></div><small class="copyright">© HashCode · Digital E-Flex</small></footer>
-</body></html>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="HashCode Cyber Library, accueil">
+      <img src="assets/mark.svg" alt="" width="36" height="36">
+      <span>HASHCODE<span class="brand-accent">LIBRARY</span><small>CYBERSECURITY KNOWLEDGE BASE</small></span>
+    </a>
+    <nav class="nav-links" id="primaryNav" aria-label="Navigation principale">
+      <a href="#explore">Explorer</a><a href="#domains">Domaines</a><a href="#learning">Parcours</a>
+      <a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+    <a class="nav-cta" href="https://github.com/digitaleflex/cybersecurity/issues/new/choose" target="_blank" rel="noopener noreferrer">Proposer une ressource <span>↗</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu" aria-controls="primaryNav" aria-expanded="false">☰</button>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> HASHCODE · OPEN KNOWLEDGE INITIATIVE</div>
+        <h1>Explore.<br>Learn. <span>Secure.</span></h1>
+        <p class="hero-lead">Une bibliothèque organisée de ressources pour apprendre, pratiquer et approfondir la cybersécurité.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#explore">Explorer la bibliothèque <span>↘</span></a>
+          <a class="button button-ghost" href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">Voir le dépôt ↗</a>
+        </div>
+        <div class="hero-meta"><span><b class="pulse"></b> CATALOGUE COMMUNAUTAIRE</span><span>FR / EN</span><span>OPEN RESOURCES</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-grid"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="core"><div class="core-ring"></div><div class="core-lock">⌑</div><span>KNOWLEDGE<br>IS SECURITY</span></div>
+        <div class="float-card card-top"><span class="tiny-dot"></span> HASHCODE KNOWLEDGE BASE <b>01 / 12</b></div>
+        <div class="float-card card-bottom"><span>↗</span> RESEARCH / PRACTICE / DEFENSE</div>
+        <div class="art-coordinate">HASHCODE · CYBER LIBRARY</div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Statistiques du catalogue">
+      <div><strong id="statResources">—</strong><span>RESSOURCES</span></div>
+      <div><strong id="statDomains">—</strong><span>DOMAINES</span></div>
+      <div><strong id="statTypes">—</strong><span>FORMATS</span></div>
+      <div><strong id="statPending">—</strong><span>À VÉRIFIER</span></div>
+    </section>
+
+    <section class="section explore-section" id="explore">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE RESOURCE INDEX</div><h2>La connaissance,<br><span>bien organisée.</span></h2></div>
+        <p>Outils, documentations, formations, laboratoires et communautés classés par spécialité.</p>
+      </div>
+      <div class="toolbar">
+        <label class="searchbox" for="searchInput"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Rechercher un outil, une formation, un sujet..." autocomplete="off"><kbd>/</kbd></label>
+        <div class="filters">
+          <select id="domainFilter" aria-label="Filtrer par domaine"><option value="">Tous les domaines</option></select>
+          <select id="typeFilter" aria-label="Filtrer par format"><option value="">Tous les formats</option></select>
+          <select id="levelFilter" aria-label="Filtrer par niveau"><option value="">Tous les niveaux</option></select>
+          <select id="statusFilter" aria-label="Filtrer par statut"><option value="">Tous les statuts</option></select>
+        </div>
+      </div>
+      <div class="toolbar-bottom">
+        <div class="results-line"><span id="resultsCount" role="status" aria-live="polite">Chargement du catalogue…</span><button id="resetFilters" class="text-button" type="button">Réinitialiser ↺</button></div>
+        <label class="sort-control">Trier par <select id="sortFilter" aria-label="Ordre de tri"><option value="featured">Sélection HashCode</option><option value="az">Nom A → Z</option><option value="za">Nom Z → A</option><option value="newest">Ajouts récents</option></select></label>
+      </div>
+      <div id="resourceGrid" class="resource-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>Aucune ressource trouvée</h3><p>Essaie un autre terme ou modifie les filtres.</p><button class="button button-ghost" id="emptyReset" type="button">Effacer les filtres</button></div>
+      <div class="load-more-wrap"><button id="loadMore" class="button button-ghost" type="button" hidden>Afficher plus de ressources <span>↓</span></button></div>
+      <p class="catalog-note">Les ressources marquées « À vérifier » sont en attente de validation par un mainteneur.</p>
+    </section>
+
+    <section class="section domains-section" id="domains">
+      <div class="section-heading compact"><div><div class="eyebrow">EXPLORE BY DISCIPLINE</div><h2>12 domaines.<br><span>Un seul point de départ.</span></h2></div><p>Des fondamentaux à la recherche avancée : navigue par spécialité et construis ton parcours.</p></div>
+      <div class="domain-grid" id="domainGrid"></div>
+    </section>
+
+    <section class="learning-band" id="learning">
+      <div class="learning-copy"><div class="eyebrow">LEARN WITH INTENTION</div><h2>Ne collectionne pas les outils. <span>Construis tes compétences.</span></h2><p>Des chemins d'apprentissage progressifs pour transformer les ressources en pratique concrète.</p><a class="button button-primary" href="LEARNING-PATHS.md">Découvrir les parcours ↗</a></div>
+      <div class="path-list">
+        <a href="LEARNING-PATHS.md"><span>01</span><div><b>Cybersecurity Foundations</b><small>Linux · Réseaux · Sécurité</small></div><i>↗</i></a>
+        <a href="LEARNING-PATHS.md"><span>02</span><div><b>OSINT & Digital Investigation</b><small>Collecte · Vérification · Analyse</small></div><i>↗</i></a>
+        <a href="LEARNING-PATHS.md"><span>03</span><div><b>Red Team & Pentest</b><small>Évaluation autorisée · Méthodologie</small></div><i>↗</i></a>
+        <a href="LEARNING-PATHS.md"><span>04</span><div><b>Blue Team, SOC & DFIR</b><small>Détection · Investigation · Réponse</small></div><i>↗</i></a>
+      </div>
+    </section>
+
+    <section class="contribute-section">
+      <div class="contribute-icon" aria-hidden="true">＋</div>
+      <div><div class="eyebrow">BUILD THE KNOWLEDGE BASE</div><h2>Une ressource utile ? <span>Partage-la.</span></h2><p>La bibliothèque grandit grâce aux contributions vérifiées de la communauté.</p></div>
+      <a class="button button-ghost" href="https://github.com/digitaleflex/cybersecurity/issues/new/choose" target="_blank" rel="noopener noreferrer">Proposer une ressource ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><img src="assets/mark.svg" alt="" width="30" height="30"><span>HASHCODE<span class="brand-accent">LIBRARY</span><small>BY HASHCODE</small></span></a>
+    <p>Une initiative de partage de connaissances cyber.</p>
+    <div><a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="QUALITY.md">Qualité & éthique</a><a href="CONTRIBUTING.md">Contribuer</a></div>
+    <small class="copyright">© <span id="currentYear">2026</span> HashCode · Digital E-Flex</small>
+  </footer>
+</body>
+</html>

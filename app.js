@@ -1,23 +1,251 @@
-const DATA_URL="./data/resources.json";
-const state={resources:[],domains:[],visible:9,query:"",domain:"",type:"",level:""};
-const $=s=>document.querySelector(s);
-const typeLabels={tool:"Outil",course:"Formation",lab:"Laboratoire",documentation:"Documentation",repository:"Dépôt GitHub",framework:"Framework",platform:"Plateforme",community:"Communauté",report:"Rapport",library:"Bibliothèque",directory:"Annuaire"};
-const statusLabels={"verified":"Vérifié","needs-review":"À vérifier","archived":"Archivé"};
-const levelLabels={beginner:"Débutant",intermediate:"Intermédiaire",advanced:"Avancé",professional:"Professionnel"};
-const safe=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function renderDomains(){const g=$("#domainGrid");g.innerHTML=state.domains.map(d=>`<button class="domain-card" data-domain="${safe(d.id)}"><span class="domain-number">${safe(d.number)} / 12</span><h3>${safe(d.title)}</h3><p>${safe(d.description)}</p></button>`).join("");g.querySelectorAll("[data-domain]").forEach(b=>b.addEventListener("click",()=>{state.domain=b.dataset.domain;$("#domainFilter").value=state.domain;state.visible=9;renderResources();$("#explore").scrollIntoView({behavior:"smooth"});}))}
-function fillFilters(){const domains=$("#domainFilter");state.domains.forEach(d=>domains.add(new Option(d.title,d.id)));const types=[...new Set(state.resources.map(r=>r.type))].sort();types.forEach(t=>$("#typeFilter").add(new Option(typeLabels[t]||t,t)));Object.entries(levelLabels).forEach(([k,v])=>$("#levelFilter").add(new Option(v,k)));}
-function filtered(){const q=state.query.toLocaleLowerCase("fr");return state.resources.filter(r=>{const hay=[r.title,r.description,r.category,r.source,...(r.tags||[])].join(" ").toLocaleLowerCase("fr");return(!q||hay.includes(q))&&(!state.domain||r.domain===state.domain)&&(!state.type||r.type===state.type)&&(!state.level||r.level===state.level)&&r.status!=="archived";}).sort((a,b)=>(Number(b.featured)-Number(a.featured))||a.title.localeCompare(b.title,"fr"))}
-function renderResources(){const all=filtered(),shown=all.slice(0,state.visible);$("#resultsCount").textContent=`${all.length} ressource${all.length>1?"s":""} trouvée${all.length>1?"s":""}`;$("#resourceGrid").innerHTML=shown.map(r=>{const d=state.domains.find(x=>x.id===r.domain);return `<article class="resource-card"><div class="card-topline"><span class="resource-type">${safe(typeLabels[r.type]||r.type)}</span><span class="resource-level">${safe(levelLabels[r.level]||r.level)}</span>${r.status&&statusLabels[r.status]?`<span class="resource-status status-${safe(r.status)}">${safe(statusLabels[r.status])}</span>`:""}</div><h3>${safe(r.title)} ${r.featured?'<span class="featured-mark">✦</span>':""}</h3><p>${safe(r.description)}</p><div class="card-footer"><span class="card-domain">${safe(d?.title||r.domain)} · ${safe(r.category)}</span><a class="card-open" href="${safe(r.url)}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir ${safe(r.title)}">↗</a></div></article>`}).join("");$("#emptyState").hidden=all.length!==0;$("#loadMore").hidden=state.visible>=all.length||all.length===0;}
-function reset(){state.query=state.domain=state.type=state.level="";state.visible=9;$("#searchInput").value="";$("#domainFilter").value="";$("#typeFilter").value="";$("#levelFilter").value="";renderResources()}
-async function init(){try{const res=await fetch(DATA_URL);if(!res.ok)throw new Error("HTTP "+res.status);const data=await res.json();state.resources=data.resources||[];state.domains=data.domains||[];$("#statResources").textContent=state.resources.length.toString().padStart(2,"0");$("#statDomains").textContent=state.domains.length.toString().padStart(2,"0");$("#statTypes").textContent=new Set(state.resources.map(r=>r.type)).size.toString().padStart(2,"0");fillFilters();renderDomains();renderResources();}catch(e){$("#resultsCount").textContent="Impossible de charger data/resources.json";$("#resourceGrid").innerHTML='<p class="noscript">Le catalogue n’a pas pu être chargé. Vérifie le fichier data/resources.json et recharge la page.</p>';console.error(e)}}
-$("#searchInput").addEventListener("input",e=>{state.query=e.target.value;state.visible=9;renderResources()});
-$("#domainFilter").addEventListener("change",e=>{state.domain=e.target.value;state.visible=9;renderResources()});
-$("#typeFilter").addEventListener("change",e=>{state.type=e.target.value;state.visible=9;renderResources()});
-$("#levelFilter").addEventListener("change",e=>{state.level=e.target.value;state.visible=9;renderResources()});
-$("#resetFilters").addEventListener("click",reset);$("#emptyReset").addEventListener("click",reset);
-$("#loadMore").addEventListener("click",()=>{state.visible+=9;renderResources()});
-document.addEventListener("keydown",e=>{if(e.key==="/"&&!["INPUT","TEXTAREA"].includes(document.activeElement.tagName)){e.preventDefault();$("#searchInput").focus()}if(e.key==="Escape")$("#searchInput").blur()});
-$("#menuToggle").addEventListener("click",()=>{const nav=$(".nav-links"),open=nav.classList.toggle("open");$("#menuToggle").setAttribute("aria-expanded",String(open))});
-$(".nav-links").querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>$(".nav-links").classList.remove("open")));
-init();
+const DATA_URL = "./data/resources.json";
+const PAGE_SIZE = 9;
+
+const state = {
+  resources: [],
+  domains: [],
+  visible: PAGE_SIZE,
+  query: "",
+  domain: "",
+  type: "",
+  level: "",
+  status: "",
+  sort: "featured"
+};
+
+const $ = (selector) => document.querySelector(selector);
+
+const TYPE_LABELS = {
+  tool: "Outil", course: "Formation", lab: "Laboratoire",
+  documentation: "Documentation", repository: "Dépôt GitHub",
+  framework: "Framework", platform: "Plateforme", community: "Communauté",
+  report: "Rapport", library: "Bibliothèque", directory: "Annuaire"
+};
+const STATUS_LABELS = {
+  verified: "Vérifié", "needs-review": "À vérifier",
+  archived: "Archivé", removed: "Retiré"
+};
+const LEVEL_LABELS = {
+  beginner: "Débutant", intermediate: "Intermédiaire",
+  advanced: "Avancé", professional: "Professionnel"
+};
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+}
+
+function safeExternalURL(value) {
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function getDomain(domainId) {
+  return state.domains.find((domain) => domain.id === domainId);
+}
+
+function populateFilters() {
+  const domainFilter = $("#domainFilter");
+  state.domains.forEach((domain) => domainFilter.add(new Option(domain.title, domain.id)));
+
+  [...new Set(state.resources.map((resource) => resource.type))]
+    .sort()
+    .forEach((type) => $("#typeFilter").add(new Option(TYPE_LABELS[type] || type, type)));
+
+  Object.entries(LEVEL_LABELS).forEach(([value, label]) => {
+    $("#levelFilter").add(new Option(label, value));
+  });
+
+  Object.entries(STATUS_LABELS).forEach(([value, label]) => {
+    $("#statusFilter").add(new Option(label, value));
+  });
+}
+
+function updateStats() {
+  $("#statResources").textContent = state.resources.length.toString().padStart(2, "0");
+  $("#statDomains").textContent = state.domains.length.toString().padStart(2, "0");
+  $("#statTypes").textContent = new Set(state.resources.map((resource) => resource.type)).size.toString().padStart(2, "0");
+  $("#statPending").textContent = state.resources.filter((resource) => resource.status === "needs-review").length.toString().padStart(2, "0");
+}
+
+function renderDomains() {
+  const grid = $("#domainGrid");
+  grid.innerHTML = state.domains.map((domain) => {
+    const count = state.resources.filter((resource) => resource.domain === domain.id && resource.status !== "archived" && resource.status !== "removed").length;
+    return `<button class="domain-card" type="button" data-domain="${escapeHTML(domain.id)}">
+      <span class="domain-number">${escapeHTML(domain.number || String(state.domains.indexOf(domain) + 1).padStart(2, "0"))} / 12</span>
+      <h3>${escapeHTML(domain.title)}</h3><p>${escapeHTML(domain.description)}</p>
+      <span class="domain-count">${count} ressource${count > 1 ? "s" : ""}</span>
+    </button>`;
+  }).join("");
+
+  grid.querySelectorAll("[data-domain]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.domain = button.dataset.domain;
+      $("#domainFilter").value = state.domain;
+      state.visible = PAGE_SIZE;
+      renderResources();
+      $("#explore").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+function getFilteredResources() {
+  const query = state.query.trim().toLocaleLowerCase("fr");
+  const resources = state.resources.filter((resource) => {
+    if (["archived", "removed"].includes(resource.status)) return false;
+    if (state.domain && resource.domain !== state.domain) return false;
+    if (state.type && resource.type !== state.type) return false;
+    if (state.level && resource.level !== state.level) return false;
+    if (state.status && resource.status !== state.status) return false;
+
+    const domain = getDomain(resource.domain);
+    const searchable = [
+      resource.title, resource.description, resource.category, resource.source,
+      resource.domain, domain?.title, resource.access,
+      ...(resource.tags || []), ...(resource.language || [])
+    ].join(" ").toLocaleLowerCase("fr");
+
+    return !query || searchable.includes(query);
+  });
+
+  resources.sort((a, b) => {
+    if (state.sort === "az") return a.title.localeCompare(b.title, "fr");
+    if (state.sort === "za") return b.title.localeCompare(a.title, "fr");
+    if (state.sort === "newest") return String(b.added || b.verified || "").localeCompare(String(a.added || a.verified || ""));
+    return Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.title.localeCompare(b.title, "fr");
+  });
+
+  return resources;
+}
+
+function resourceCard(resource) {
+  const domain = getDomain(resource.domain);
+  const url = safeExternalURL(resource.url);
+  const type = TYPE_LABELS[resource.type] || resource.type;
+  const level = LEVEL_LABELS[resource.level] || resource.level;
+  const status = STATUS_LABELS[resource.status] || "Statut inconnu";
+
+  return `<article class="resource-card">
+    <div class="card-topline">
+      <span class="resource-type">${escapeHTML(type)}</span>
+      <span class="resource-level">${escapeHTML(level)}</span>
+      <span class="resource-status status-${escapeHTML(resource.status)}">${escapeHTML(status)}</span>
+    </div>
+    <h3>${escapeHTML(resource.title)} ${resource.featured ? '<span class="featured-mark" aria-label="Sélection HashCode">✦</span>' : ""}</h3>
+    <p>${escapeHTML(resource.description)}</p>
+    <div class="card-footer">
+      <span class="card-domain">${escapeHTML(domain?.title || resource.domain)} · ${escapeHTML(resource.category)}</span>
+      ${url ? `<a class="card-open" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir ${escapeHTML(resource.title)} dans un nouvel onglet">↗</a>` : '<span class="card-open card-unavailable" title="URL invalide">—</span>'}
+    </div>
+  </article>`;
+}
+
+function renderResources() {
+  const filtered = getFilteredResources();
+  const visible = filtered.slice(0, state.visible);
+
+  $("#resultsCount").textContent = `${filtered.length} ressource${filtered.length > 1 ? "s" : ""} trouvée${filtered.length > 1 ? "s" : ""}`;
+  $("#resourceGrid").innerHTML = visible.map(resourceCard).join("");
+  $("#emptyState").hidden = filtered.length !== 0;
+  $("#loadMore").hidden = state.visible >= filtered.length || filtered.length === 0;
+}
+
+function resetFilters() {
+  Object.assign(state, { query: "", domain: "", type: "", level: "", status: "", sort: "featured", visible: PAGE_SIZE });
+  $("#searchInput").value = "";
+  $("#domainFilter").value = "";
+  $("#typeFilter").value = "";
+  $("#levelFilter").value = "";
+  $("#statusFilter").value = "";
+  $("#sortFilter").value = "featured";
+  renderResources();
+}
+
+function bindEvents() {
+  $("#searchInput").addEventListener("input", (event) => {
+    state.query = event.target.value;
+    state.visible = PAGE_SIZE;
+    renderResources();
+  });
+
+  const filters = [
+    ["#domainFilter", "domain"], ["#typeFilter", "type"],
+    ["#levelFilter", "level"], ["#statusFilter", "status"],
+    ["#sortFilter", "sort"]
+  ];
+
+  filters.forEach(([selector, key]) => {
+    $(selector).addEventListener("change", (event) => {
+      state[key] = event.target.value;
+      state.visible = PAGE_SIZE;
+      renderResources();
+    });
+  });
+
+  $("#resetFilters").addEventListener("click", resetFilters);
+  $("#emptyReset").addEventListener("click", resetFilters);
+  $("#loadMore").addEventListener("click", () => {
+    state.visible += PAGE_SIZE;
+    renderResources();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const target = document.activeElement;
+    const isTyping = target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
+    if (event.key === "/" && !isTyping && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      event.preventDefault();
+      $("#searchInput").focus();
+    }
+    if (event.key === "Escape") $("#searchInput").blur();
+  });
+
+  $("#menuToggle").addEventListener("click", () => {
+    const nav = $("#primaryNav");
+    const isOpen = nav.classList.toggle("open");
+    $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
+    $("#menuToggle").setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
+  });
+
+  $("#primaryNav").querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      $("#primaryNav").classList.remove("open");
+      $("#menuToggle").setAttribute("aria-expanded", "false");
+      $("#menuToggle").setAttribute("aria-label", "Ouvrir le menu");
+    });
+  });
+}
+
+async function init() {
+  bindEvents();
+  $("#currentYear").textContent = new Date().getFullYear();
+
+  try {
+    const response = await fetch(DATA_URL, { headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error(`Chargement du catalogue impossible (HTTP ${response.status})`);
+
+    const data = await response.json();
+    if (!Array.isArray(data.resources) || !Array.isArray(data.domains)) {
+      throw new Error("Le format de data/resources.json est invalide.");
+    }
+
+    state.resources = data.resources;
+    state.domains = data.domains;
+    updateStats();
+    populateFilters();
+    renderDomains();
+    renderResources();
+  } catch (error) {
+    console.error(error);
+    $("#resultsCount").textContent = "Catalogue indisponible";
+    $("#resourceGrid").innerHTML = '<div class="load-error"><strong>Impossible de charger les ressources.</strong><p>Vérifie le fichier data/resources.json puis recharge la page.</p></div>';
+    $("#statResources").textContent = "—";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", init);
