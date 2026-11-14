@@ -3,7 +3,7 @@ import {
   favorites, toggleFavorite, pushRecent, getDomain
 } from "./data.js";
 
-export function resourceCard(catalog, resource) {
+export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
   const domain = getDomain(catalog, resource.domain);
   const url = safeExternalURL(resource.url);
   const type = TYPE_LABELS[resource.type] || resource.type;
@@ -21,7 +21,7 @@ export function resourceCard(catalog, resource) {
       <span class="pill">${escapeHTML(level)}</span>
       <span class="pill status-${escapeHTML(resource.status)}">${escapeHTML(status)}</span>
     </div>
-    <h3>${escapeHTML(resource.title)} ${resource.featured ? '<span class="featured-mark" role="img" aria-label="Sélection HashCode">✦</span>' : ""}</h3>
+    <${heading}>${escapeHTML(resource.title)} ${resource.featured ? '<span class="featured-mark" role="img" aria-label="Sélection HashCode">✦</span>' : ""}</${heading}>
     <p>${escapeHTML(resource.description)}</p>
     <div class="resource-tags">${tags.map((tag) => `<span>#${escapeHTML(tag)}</span>`).join("")}</div>
     <div class="card-footer">

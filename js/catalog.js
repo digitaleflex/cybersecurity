@@ -9,6 +9,7 @@ import { docURL } from "./docs-index.js";
 import { parseFilters, serializeFilters, sameFilters, DEFAULT_FILTERS } from "./url-state.js";
 
 const PAGE_SIZE = 9;
+const SENSITIVE_DOMAINS = ["red-team", "malware-analysis", "reverse-engineering", "ctf-labs"];
 const BASE_TITLE = "Catalogue — HashCode Cyber Library";
 const EMPTY_TEXT = {
   favorites: "Aucun favori pour l'instant. Utilise l'étoile d'une carte pour en ajouter.",
@@ -102,7 +103,7 @@ function getFiltered() {
 function render() {
   const list = getFiltered();
   $("#resultsCount").textContent = `${plural(list.length, "ressource")} trouvée${list.length > 1 ? "s" : ""}`;
-  $("#resourceGrid").innerHTML = list.slice(0, visible).map((r) => resourceCard(catalog, r)).join("");
+  $("#resourceGrid").innerHTML = list.slice(0, visible).map((r) => resourceCard(catalog, r, { heading: "h2" })).join("");
   $("#emptyState").hidden = list.length !== 0;
   $("#emptyText").textContent = EMPTY_TEXT[filters.view] || "Essaie un autre terme ou modifie les filtres.";
   $("#loadMore").hidden = visible >= list.length || list.length === 0;
@@ -112,6 +113,7 @@ function render() {
   const guide = $("#domainGuide");
   guide.hidden = !domainInfo?.path;
   if (domainInfo?.path) { guide.href = docURL(domainInfo.path); $("#domainGuideLabel").textContent = `Guide ${domainInfo.title}`; }
+  $("#domainNotice").hidden = !SENSITIVE_DOMAINS.includes(filters.domain);
   const domain = domainInfo?.title;
   document.title = domain ? `${domain} · ${BASE_TITLE}` : BASE_TITLE;
 }

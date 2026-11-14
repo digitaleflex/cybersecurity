@@ -5,6 +5,7 @@ export const RECENT_KEY = "hc-recent";
 export const NEW_WINDOW_DAYS = 7;
 export const WHATSAPP_URL = "https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D";
 export const GITHUB_URL = "https://github.com/digitaleflex/cybersecurity";
+export const SITE_URL = "https://cybersecurity.eflex.app";
 
 export const TYPE_LABELS = {
   tool: "Outil", course: "Formation", lab: "Laboratoire",
@@ -58,7 +59,7 @@ export function catalogueURL(filters = {}) {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(filters)) if (value) params.set(key, value);
   const query = params.toString();
-  return `catalogue.html${query ? `?${query}` : ""}`;
+  return `catalogue${query ? `?${query}` : ""}`;
 }
 
 /* ---------- stockage local (favoris, récents) ---------- */

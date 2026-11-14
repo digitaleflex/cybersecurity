@@ -10,14 +10,14 @@ const PAGE = document.body.dataset.page || "";
 const THEME_KEY = "hc-theme";
 
 const NAV = [
-  { id: "home", href: "index.html", label: "Accueil", ico: "home" },
-  { id: "catalog", href: "catalogue.html", label: "Catalogue", ico: "catalog", count: "all" },
-  { id: "domains", href: "domaines.html", label: "Domaines", ico: "cube" },
+  { id: "home", href: "./", label: "Accueil", ico: "home" },
+  { id: "catalog", href: "catalogue", label: "Catalogue", ico: "catalog", count: "all" },
+  { id: "domains", href: "domaines", label: "Domaines", ico: "cube" },
   { id: "osint", href: catalogueURL({ domain: "osint" }), label: "OSINT", ico: "shield-check", count: "osint" },
-  { id: "paths", href: "docs.html?doc=LEARNING-PATHS.md", label: "Parcours", ico: "route", badge: "Nouveau" },
-  { id: "collections", href: "index.html#collections", label: "Collections", ico: "folder" },
-  { id: "docs", href: "docs.html", label: "Guides & Docs", ico: "doc" },
-  { id: "community", href: "communaute.html", label: "Communauté", ico: "users" }
+  { id: "paths", href: "docs?doc=LEARNING-PATHS.md", label: "Parcours", ico: "route", badge: "Nouveau" },
+  { id: "collections", href: "./#collections", label: "Collections", ico: "folder" },
+  { id: "docs", href: "docs", label: "Guides & Docs", ico: "doc" },
+  { id: "community", href: "communaute", label: "Communauté", ico: "users" }
 ];
 const SPACE = [
   { id: "favorites", href: catalogueURL({ view: "favorites" }), label: "Favoris", ico: "star", count: "fav" },
@@ -46,9 +46,9 @@ const navLink = (item, current) => {
 function renderSidebar() {
   const current = activeId();
   $("#sidebar").innerHTML = `
-    <a class="brand" href="index.html" aria-label="HashCode Cyber Library, accueil">
-      <img src="assets/logo-mark.webp" alt="" width="40" height="40">
-      <span class="brand-text"><b>HashCode</b><small>Cyber <span>Library</span></small></span>
+    <a class="brand" href="./">
+      <img src="assets/logo-mark-96.webp" alt="" width="40" height="40">
+      <span class="brand-text"><b>HashCode</b> <small>Cyber <span>Library</span></small></span>
     </a>
     <nav class="side-nav" aria-label="Sections">${NAV.map((i) => navLink(i, current)).join("")}</nav>
     <div class="side-label" id="mySpaceLabel">Mon espace</div>
@@ -66,21 +66,21 @@ function renderTopbar() {
   const tab = (id, href, label, extra = "") => `<a class="tab${PAGE === id ? " is-active" : ""}" href="${href}"${PAGE === id ? ' aria-current="page"' : ""}${extra}>${label}</a>`;
   $("#topbar").innerHTML = `
     <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sidebar" aria-expanded="false">${icon("menu")}</button>
-    <a class="brand brand-compact" href="index.html" aria-label="Accueil"><img src="assets/logo-mark.webp" alt="" width="32" height="32"><span class="brand-text"><b>HashCode</b></span></a>
+    <a class="brand brand-compact" href="./"><img src="assets/logo-mark-96.webp" alt="" width="32" height="32"><span class="brand-text"><b>HashCode</b></span></a>
     <nav class="tabs" aria-label="Navigation principale">
-      ${tab("home", "index.html", "Explorer")}
+      ${tab("home", "./", "Explorer")}
       <div class="tab-menu">
         <button class="tab${PAGE === "domains" ? " is-active" : ""}" type="button" id="domainsMenuBtn" aria-expanded="false" aria-controls="domainsMenu" aria-haspopup="true">Domaines ${icon("chev-down")}</button>
         <div class="menu-pop" id="domainsMenu" hidden></div>
       </div>
-      <a class="tab${activeId() === "paths" ? " is-active" : ""}" href="docs.html?doc=LEARNING-PATHS.md">Parcours</a>
-      ${tab("catalog", "catalogue.html", "Ressources")}
-      ${tab("community", "communaute.html", "Communauté")}
+      <a class="tab${activeId() === "paths" ? " is-active" : ""}" href="docs?doc=LEARNING-PATHS.md">Parcours</a>
+      ${tab("catalog", "catalogue", "Ressources")}
+      ${tab("community", "communaute", "Communauté")}
     </nav>
     <div class="top-actions">
       <button class="icon-btn" type="button" id="topSearchBtn" aria-label="Rechercher (Ctrl K)">${icon("search")}</button>
-      <a class="icon-btn has-badge" href="index.html#activity" id="bellLink" aria-label="Nouveautés du catalogue">${icon("bell")}<i class="badge-dot" id="bellBadge" hidden></i></a>
-      <a class="avatar" href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer" aria-label="Dépôt GitHub HashCode">HC</a>
+      <a class="icon-btn has-badge" href="./#activity" id="bellLink" aria-label="Nouveautés du catalogue">${icon("bell")}<i class="badge-dot" id="bellBadge" hidden></i></a>
+      <a class="avatar" href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer" aria-label="HC, dépôt GitHub HashCode">HC</a>
     </div>`;
 }
 
@@ -88,9 +88,9 @@ function renderFooter() {
   if (document.body.dataset.footer === "none") return;
   $("main").insertAdjacentHTML("beforeend", `
     <footer class="footer">
-      <a class="brand" href="index.html"><img src="assets/logo-mark.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b><small>Cyber <span>Library</span></small></span></a>
+      <a class="brand" href="./"><img src="assets/logo-mark-96.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b> <small>Cyber <span>Library</span></small></span></a>
       <p>Une initiative de partage de connaissances cyber.</p>
-      <nav aria-label="Liens utiles"><a href="communaute.html">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs.html?doc=QUALITY.md">Qualité &amp; éthique</a><a href="docs.html?doc=CONTRIBUTING.md">Contribuer</a></nav>
+      <nav aria-label="Liens utiles"><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="docs?doc=CONTRIBUTING.md">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
       <small>© ${new Date().getFullYear()} HashCode · Digital E-Flex</small>
     </footer>`);
 }
@@ -119,7 +119,7 @@ const drawerOpen = () => $("#sidebar").classList.contains("is-open");
 /* ---------- recherche rapide ---------- */
 function focusSearch() {
   const input = $("[data-search]");
-  if (!input) { location.href = "catalogue.html?focus=1"; return; }
+  if (!input) { location.href = "catalogue?focus=1"; return; }
   input.scrollIntoView({ block: "center", behavior: "auto" });
   input.focus();
   input.select();
@@ -190,14 +190,14 @@ async function hydrate() {
     const catalog = await loadCatalog();
     $$('[data-count="all"]').forEach((n) => { n.textContent = activeResources(catalog).length; });
     $$('[data-count="osint"]').forEach((n) => { n.textContent = domainCount(catalog, "osint"); });
-    $("#domainsMenu").innerHTML = `<a href="domaines.html"><strong>Tous les domaines</strong><small>${catalog.domains.length}</small></a>` +
+    $("#domainsMenu").innerHTML = `<a href="domaines"><strong>Tous les domaines</strong><small>${catalog.domains.length}</small></a>` +
       catalog.domains.map((d) => `<a href="${escapeHTML(catalogueURL({ domain: d.id }))}">${escapeHTML(d.title)}<small>${domainCount(catalog, d.id)}</small></a>`).join("");
     const news = newResourcesCount(catalog);
     $("#bellBadge").hidden = news === 0;
     if (news) $("#bellLink").setAttribute("aria-label", `Nouveautés du catalogue : ${news} nouvelle${news > 1 ? "s" : ""} ressource${news > 1 ? "s" : ""}`);
   } catch (error) {
     console.error(error);
-    $("#domainsMenu").innerHTML = '<a href="domaines.html">Tous les domaines</a>';
+    $("#domainsMenu").innerHTML = '<a href="domaines">Tous les domaines</a>';
   }
 }
 

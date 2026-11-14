@@ -6,21 +6,30 @@
   <meta name="theme-color" content="#070b0a">
   <meta name="color-scheme" content="dark light">
   <title>HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique</title>
-  <meta name="description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources vérifiées, outils, méthodes et parcours.">
+  <meta name="description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources sélectionnées, outils, méthodes, guides et parcours.">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique">
-  <meta property="og:description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources vérifiées, outils, méthodes et parcours.">
-  <meta property="og:image" content="assets/logo.webp">
+  <meta property="og:description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources sélectionnées, outils, méthodes, guides et parcours.">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HashCode Cyber Library — Cybersécurité, OSINT et investigation numérique">
+  <meta name="twitter:description" content="HashCode Cyber Library : la bibliothèque de référence en cybersécurité, OSINT et investigation numérique. Ressources sélectionnées, outils, méthodes, guides et parcours.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
   <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>try{var t=localStorage.getItem("hc-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
   <link rel="stylesheet" href="ui.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://cybersecurity.eflex.app/#website", "url": "https://cybersecurity.eflex.app/", "name": "HashCode Cyber Library", "inLanguage": "fr", "description": "Bibliothèque de référence en cybersécurité, OSINT et investigation numérique.", "publisher": {"@id": "https://cybersecurity.eflex.app/#org"}, "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://cybersecurity.eflex.app/catalogue?q={search_term_string}"}, "query-input": "required name=search_term_string"}}, {"@type": "Organization", "@id": "https://cybersecurity.eflex.app/#org", "name": "HashCode", "url": "https://cybersecurity.eflex.app/", "logo": "https://cybersecurity.eflex.app/assets/icon-512.png", "sameAs": ["https://github.com/digitaleflex/cybersecurity"]}]}</script>
 </head>
 <body class="app" data-page="home">
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -35,10 +44,10 @@
           <div class="hero-copy">
             <p class="eyebrow"><i></i> HashCode Community Project</p>
             <h1 id="heroTitle">La bibliothèque de référence en cybersécurité, OSINT et <span>investigation numérique.</span></h1>
-            <p class="hero-lead">Ressources vérifiées, outils, méthodes, guides et parcours pour apprendre, pratiquer et mener des investigations en sources ouvertes.</p>
+            <p class="hero-lead">Ressources sélectionnées, outils, méthodes, guides et parcours pour apprendre, pratiquer et mener des investigations en sources ouvertes.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="catalogue.html"><svg class="ico"><use href="#i-catalog"/></svg> Explorer le catalogue <svg class="ico"><use href="#i-arrow"/></svg></a>
-              <a class="btn btn-ghost" href="docs.html?doc=README.md"><svg class="ico"><use href="#i-play"/></svg> Voir la présentation</a>
+              <a class="btn btn-primary" href="catalogue"><svg class="ico"><use href="#i-catalog"/></svg> Explorer le catalogue <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-ghost" href="docs?doc=README.md"><svg class="ico"><use href="#i-play"/></svg> Voir la présentation</a>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -54,7 +63,7 @@
 
         <!-- RECHERCHE -->
         <section class="search-block" aria-label="Recherche rapide">
-          <form class="searchbar" role="search" id="heroSearchForm" action="catalogue.html" method="get">
+          <form class="searchbar" role="search" id="heroSearchForm" action="catalogue" method="get">
             <svg class="ico"><use href="#i-search"/></svg>
             <label class="sr-only" for="heroSearch">Rechercher une ressource, un outil, une méthode, un guide</label>
             <input id="heroSearch" data-search type="search" name="q" maxlength="100" placeholder="Rechercher une ressource, un outil, une méthode, un guide…" autocomplete="off">
@@ -62,12 +71,12 @@
           </form>
           <div class="popular" aria-label="Recherches populaires">
             <span>Recherches populaires :</span>
-            <a class="chip" href="catalogue.html?q=OSINT">OSINT</a>
-            <a class="chip" href="catalogue.html?q=Reconnaissance">Reconnaissance</a>
-            <a class="chip" href="catalogue.html?q=Analyse%20de%20donn%C3%A9es">Analyse de données</a>
-            <a class="chip" href="catalogue.html?q=Forensic">Forensic</a>
-            <a class="chip" href="catalogue.html?q=Cloud">Cloud Security</a>
-            <a class="chip" href="catalogue.html?q=Red%20Team">Red Team</a>
+            <a class="chip" href="catalogue?q=OSINT">OSINT</a>
+            <a class="chip" href="catalogue?q=Reconnaissance">Reconnaissance</a>
+            <a class="chip" href="catalogue?q=Analyse%20de%20donn%C3%A9es">Analyse de données</a>
+            <a class="chip" href="catalogue?q=Forensic">Forensic</a>
+            <a class="chip" href="catalogue?q=Cloud">Cloud Security</a>
+            <a class="chip" href="catalogue?q=Red%20Team">Red Team</a>
           </div>
         </section>
 
@@ -84,7 +93,7 @@
               <p class="kicker"><svg class="ico"><use href="#i-layers"/></svg> Collection à la une</p>
               <h2 id="collTitle">—</h2>
               <p id="collDesc"></p>
-              <a class="btn btn-primary btn-sm" href="catalogue.html" id="collCta">Explorer la collection <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-primary btn-sm" href="catalogue" id="collCta">Explorer la collection <svg class="ico"><use href="#i-arrow"/></svg></a>
             </div>
             <div class="coll-art" aria-hidden="true">
               <svg viewBox="0 0 260 170" class="coll-svg">
@@ -105,7 +114,7 @@
           <article class="card card-path" aria-labelledby="pathTitle">
             <div class="card-head"><svg class="ico ico-lg"><use href="#i-grad"/></svg><h2 id="pathTitle">Parcours d'apprentissage</h2></div>
             <p>Progressez avec des itinéraires structurés, du niveau débutant à expert.</p>
-            <a class="btn btn-primary btn-sm" href="docs.html?doc=LEARNING-PATHS.md">Voir les parcours <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-primary btn-sm" href="docs?doc=LEARNING-PATHS.md">Voir les parcours <svg class="ico"><use href="#i-arrow"/></svg></a>
           </article>
 
           <article class="card card-activity" id="activity" aria-label="Activité du catalogue">
@@ -127,7 +136,7 @@
             <svg class="ico ico-lg"><use href="#i-grid"/></svg>
             <h2 id="domainsTitle"><span data-stat="domains">12</span> domaines d'expertise</h2>
             <p>Un seul point de départ pour explorer tous les fondamentaux.</p>
-            <a class="btn btn-primary btn-sm" href="domaines.html" id="domainsCta">Explorer les domaines <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-primary btn-sm" href="domaines" id="domainsCta">Explorer les domaines <svg class="ico"><use href="#i-arrow"/></svg></a>
           </div>
           <div class="rail-wrap rail-inline">
             <div class="rail rail-domains" id="domainCards" tabindex="-1"></div>
@@ -139,7 +148,7 @@
         <section class="featured-section" aria-labelledby="featuredTitle">
           <div class="catalog-head">
             <div><p class="eyebrow"><i></i> À la une</p><h2 id="featuredTitle">Sélection HashCode</h2></div>
-            <a class="btn btn-ghost" href="catalogue.html?view=featured">Voir toute la sélection <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="catalogue?view=featured">Voir toute la sélection <svg class="ico"><use href="#i-arrow"/></svg></a>
           </div>
           <div id="featuredGrid" class="resource-grid featured-grid" aria-live="polite"></div>
         </section>

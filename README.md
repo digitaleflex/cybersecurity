@@ -8,7 +8,7 @@
 
 HashCode Cyber Library brings together documentation, tools, courses, books, labs, communities and research reports. This repository links to original publishers; it does not redistribute third-party content.
 
-**Initial catalog: 152 entries across 12 domains, including 84 OSINT resources.** All 84 entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. No resource is presented as verified before that review. The website visibly labels pending entries.
+**Initial catalog: 152 entries across 12 domains (151 active, 1 archived), including 83 active OSINT resources.** All active entries are marked `needs-review` until a maintainer validates their canonical URL, license, access model and metadata. No resource is presented as verified before that review. The website visibly labels pending entries.
 
 ## Explore
 - [Central catalog](CATALOG.md)
@@ -24,7 +24,7 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 
 ## Twelve domains
 1. [Fundamentals](library/01-FUNDAMENTALS/README.md) — Linux, networking, security basics.
-2. [OSINT](library/02-OSINT/README.md) — 48 resources across social, geospatial, media, web, infrastructure, corporate, legal and public-data research.
+2. [OSINT](library/02-OSINT/README.md) — 83 resources across social, geospatial, media, web, infrastructure, corporate, legal and public-data research.
 3. [Red Team](library/03-RED-TEAM/README.md) — reconnaissance, pentesting, Web, Active Directory, exploitation.
 4. [Blue Team](library/04-BLUE-TEAM/README.md) — SOC, SIEM, DFIR, threat hunting, incident response.
 5. [Reverse Engineering](library/05-REVERSE-ENGINEERING/README.md).
@@ -71,3 +71,8 @@ This is a static HTML/CSS/JavaScript website; no framework build is required.
 Every resource should have a canonical URL, clear scope, resource type, skill level, access model, language and verification date. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Use tools and labs only within authorized scope. Respect privacy, platform terms, licenses and applicable laws. Quality before quantity.
+
+## Community, license and legal
+- Join the community: [WhatsApp group](https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D) · [Code of conduct](CODE_OF_CONDUCT.md) · [Security policy](SECURITY.md)
+- **Code**: [MIT](LICENSE). **Catalogue data and written content**: [CC BY 4.0](LICENSE-DATA.txt) — please credit "HashCode Cyber Library".
+- Live site: <https://cybersecurity.eflex.app/> — [legal notice](https://cybersecurity.eflex.app/mentions-legales) · [privacy](https://cybersecurity.eflex.app/confidentialite) (no cookies, no tracking).

@@ -1,4 +1,5 @@
 import { DOCUMENTS, docTitle, docURL } from "./js/docs-index.js";
+import { SITE_URL } from "./js/data.js";
 
 (() => {
   "use strict";
@@ -141,6 +142,8 @@ import { DOCUMENTS, docTitle, docURL } from "./js/docs-index.js";
     $("#sourceLink").href = `https://github.com/digitaleflex/cybersecurity/blob/main/${current.path}`;
     document.title = `${known ? docTitle(current) : "Document introuvable"} — HashCode Cyber Library`;
     buildNavigation();
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && known) canonical.href = `${SITE_URL}/${docURL(current.path)}`;
     if (!known) {
       status.hidden = false;
       status.className = "docs-status is-error";

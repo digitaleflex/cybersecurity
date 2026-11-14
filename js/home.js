@@ -34,7 +34,7 @@ function renderActivity(c) {
     `<li><a href="${escapeHTML(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${icon(ico, "a-ico")}<span class="a-label">${label}</span>${badge ? `<span class="a-badge">${badge}</span>` : ""}${icon(external ? "external" : "chev-right", "a-chev")}</a></li>`;
   $("#activityList").innerHTML = [
     row(catalogueURL({ sort: "newest" }), "bolt", "Nouvelles ressources", news ? `+${news}` : ""),
-    row(catalogueURL({ status: "verified" }), "refresh", "Ressources vérifiées", verified ? String(verified) : ""),
+    ...(verified ? [row(catalogueURL({ status: "verified" }), "refresh", "Ressources vérifiées", String(verified))] : []),
     row(catalogueURL({ view: "featured" }), "flame", "Sélection HashCode"),
     row(`${GITHUB_URL}/issues/new/choose`, "calendar", "Proposer une ressource", "", true)
   ].join("");

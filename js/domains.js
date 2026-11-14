@@ -10,7 +10,7 @@ try {
     const shown = categories.slice(0, 6);
     const more = categories.length - shown.length;
     return `<article class="domain-page-card">
-      <a class="domain-page-main" href="${escapeHTML(catalogueURL({ domain: d.id }))}" aria-label="${escapeHTML(d.title)} : ${plural(domainCount(catalog, d.id), "ressource")}">
+      <a class="domain-page-main" href="${escapeHTML(catalogueURL({ domain: d.id }))}">
         <span class="domain-page-top">${icon(DOMAIN_ICONS[d.id] || "cube", "ico-lg")}<span class="num">${escapeHTML(d.number)} / ${pad(catalog.domains.length)}</span></span>
         <h2>${escapeHTML(d.title)}</h2>
         <p>${escapeHTML(d.description)}</p>

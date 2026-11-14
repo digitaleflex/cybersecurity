@@ -1,5 +1,5 @@
 // Sprite d'icônes (trait 1.8, 24×24), injecté une seule fois par js/shell.js
-export const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+export const SPRITE = `<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
     <defs>
       <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
       <symbol id="i-catalog" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>

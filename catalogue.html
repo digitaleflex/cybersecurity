@@ -8,18 +8,26 @@
   <title>Catalogue — HashCode Cyber Library</title>
   <meta name="description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/catalogue">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Catalogue — HashCode Cyber Library">
   <meta property="og:description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
-  <meta property="og:image" content="assets/logo.webp">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/catalogue">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catalogue — HashCode Cyber Library">
+  <meta name="twitter:description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
   <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>try{var t=localStorage.getItem("hc-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
   <link rel="stylesheet" href="ui.css">
 </head>
 <body class="app" data-page="catalog">
@@ -36,8 +44,10 @@
           <p class="muted">Outils, documentations, formations, laboratoires et communautés classés par spécialité. Les filtres sont conservés dans l'adresse : copie le lien pour partager ta recherche.</p>
         </section>
 
+        <aside class="notice" id="domainNotice" role="note" hidden><svg class="ico"><use href="#i-shield-check"/></svg><p><strong>Usage autorisé uniquement.</strong> Ces ressources servent à l'apprentissage, à la recherche et à la défense. Ne les utilisez que sur des systèmes que vous possédez ou pour lesquels vous avez une autorisation écrite. <a href="docs?doc=QUALITY.md">Politique de qualité et d'éthique</a></p></aside>
+
         <div class="toolbar">
-          <label class="field field-search" for="searchInput"><svg class="ico"><use href="#i-search"/></svg><span class="sr-only">Rechercher dans le catalogue</span><input id="searchInput" data-search type="search" placeholder="Rechercher un outil, une méthode, un guide…" autocomplete="off" maxlength="100"></label>
+          <label class="field field-search" for="searchInput"><svg class="ico"><use href="#i-search"/></svg><span class="sr-only">Rechercher dans le catalogue</span><input id="searchInput" data-search type="search" placeholder="Rechercher…" autocomplete="off" maxlength="100"></label>
           <div class="filters">
             <label class="sr-only" for="domainFilter">Domaine</label><select id="domainFilter"><option value="">Tous les domaines</option></select>
             <label class="sr-only" for="categoryFilter">Catégorie</label><select id="categoryFilter"><option value="">Toutes les catégories</option></select>
@@ -50,7 +60,7 @@
           <div class="results-line">
             <span id="resultsCount" role="status" aria-live="polite">Chargement du catalogue…</span>
             <div class="active-filters" id="activeFilters" aria-label="Filtres actifs" hidden></div>
-            <a id="domainGuide" class="link-btn" href="docs.html" hidden><svg class="ico"><use href="#i-doc"/></svg> <span id="domainGuideLabel">Guide</span></a>
+            <a id="domainGuide" class="link-btn" href="docs" hidden><svg class="ico"><use href="#i-doc"/></svg> <span id="domainGuideLabel">Guide</span></a>
             <button id="resetFilters" class="link-btn" type="button" hidden><svg class="ico"><use href="#i-refresh"/></svg> Réinitialiser</button>
           </div>
           <label class="sort-control">Trier par <select id="sortFilter"></select></label>
