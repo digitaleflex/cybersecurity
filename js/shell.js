@@ -2,8 +2,17 @@
 // S'initialise à l'import ; la page est identifiée par <body data-page="home|catalog|domains|community|docs">.
 import { SPRITE } from "./icons.js";
 import {
-  $, $$, icon, escapeHTML, GITHUB_URL, favorites, loadCatalog, activeResources,
-  domainCount, newResourcesCount, catalogueURL
+  $,
+  $$,
+  icon,
+  escapeHTML,
+  GITHUB_URL,
+  favorites,
+  loadCatalog,
+  activeResources,
+  domainCount,
+  newResourcesCount,
+  catalogueURL
 } from "./data.js";
 
 const PAGE = document.body.dataset.page || "";
@@ -64,7 +73,8 @@ function renderSidebar() {
 }
 
 function renderTopbar() {
-  const tab = (id, href, label, extra = "") => `<a class="tab${PAGE === id ? " is-active" : ""}" href="${href}"${PAGE === id ? ' aria-current="page"' : ""}${extra}>${label}</a>`;
+  const tab = (id, href, label, extra = "") =>
+    `<a class="tab${PAGE === id ? " is-active" : ""}" href="${href}"${PAGE === id ? ' aria-current="page"' : ""}${extra}>${label}</a>`;
   $("#topbar").innerHTML = `
     <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sidebar" aria-expanded="false">${icon("menu")}</button>
     <a class="brand brand-compact" href="./"><img src="assets/logo-mark-96.webp" alt="" width="32" height="32"><span class="brand-text"><b>HashCode</b></span></a>
@@ -87,13 +97,16 @@ function renderTopbar() {
 
 function renderFooter() {
   if (document.body.dataset.footer === "none") return;
-  $("main").insertAdjacentHTML("beforeend", `
+  $("main").insertAdjacentHTML(
+    "beforeend",
+    `
     <footer class="footer">
       <a class="brand" href="./"><img src="assets/logo-mark-96.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b> <small>Cyber <span>Library</span></small></span></a>
       <p>Une initiative de partage de connaissances cyber.</p>
       <nav aria-label="Liens utiles"><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="contribuer">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
       <small>© ${new Date().getFullYear()} HashCode · Digital E-Flex</small>
-    </footer>`);
+    </footer>`
+  );
 }
 
 /* ---------- thème ---------- */
@@ -120,7 +133,10 @@ const drawerOpen = () => $("#sidebar").classList.contains("is-open");
 /* ---------- recherche rapide ---------- */
 function focusSearch() {
   const input = $("[data-search]");
-  if (!input) { location.href = "catalogue?focus=1"; return; }
+  if (!input) {
+    location.href = "catalogue?focus=1";
+    return;
+  }
   input.scrollIntoView({ block: "center", behavior: "auto" });
   input.focus();
   input.select();
@@ -136,11 +152,17 @@ function bind() {
   $("#themeToggle").addEventListener("click", () => {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     applyTheme(next);
-    try { localStorage.setItem(THEME_KEY, next); } catch { /* ignoré */ }
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch {
+      /* ignoré */
+    }
   });
   $("#menuBtn").addEventListener("click", () => setDrawer(!drawerOpen()));
   $("#scrim").addEventListener("click", () => setDrawer(false));
-  $("#sidebar").addEventListener("click", (e) => { if (e.target.closest("a[href]")) setDrawer(false); });
+  $("#sidebar").addEventListener("click", (e) => {
+    if (e.target.closest("a[href]")) setDrawer(false);
+  });
   $("#topSearchBtn").addEventListener("click", focusSearch);
 
   $("#domainsMenuBtn").addEventListener("click", () => {
@@ -153,20 +175,44 @@ function bind() {
   $("#domainsMenu").addEventListener("keydown", (e) => {
     const items = $$("a", $("#domainsMenu"));
     const i = items.indexOf(document.activeElement);
-    if (e.key === "ArrowDown") { e.preventDefault(); items[(i + 1) % items.length].focus(); }
-    if (e.key === "ArrowUp") { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      items[(i + 1) % items.length].focus();
+    }
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      items[(i - 1 + items.length) % items.length].focus();
+    }
   });
-  document.addEventListener("click", (e) => { if (!e.target.closest(".tab-menu")) closeDomainsMenu(); });
+  document.addEventListener("click", (e) => {
+    if (!(/** @type {Element} */ (e.target).closest(".tab-menu"))) closeDomainsMenu();
+  });
 
   document.addEventListener("keydown", (event) => {
     const target = document.activeElement;
     const typing = target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
-    if ((event.key === "k" || event.key === "K") && (event.ctrlKey || event.metaKey)) { event.preventDefault(); focusSearch(); return; }
-    if (event.key === "/" && !typing && !event.ctrlKey && !event.metaKey && !event.altKey) { event.preventDefault(); focusSearch(); return; }
+    if ((event.key === "k" || event.key === "K") && (event.ctrlKey || event.metaKey)) {
+      event.preventDefault();
+      focusSearch();
+      return;
+    }
+    if (event.key === "/" && !typing && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      event.preventDefault();
+      focusSearch();
+      return;
+    }
     if (event.key === "Escape") {
-      if (!$("#domainsMenu").hidden) { closeDomainsMenu(); $("#domainsMenuBtn").focus(); return; }
-      if (drawerOpen()) { setDrawer(false); $("#menuBtn").focus(); return; }
-      if (typing) target.blur();
+      if (!$("#domainsMenu").hidden) {
+        closeDomainsMenu();
+        $("#domainsMenuBtn").focus();
+        return;
+      }
+      if (drawerOpen()) {
+        setDrawer(false);
+        $("#menuBtn").focus();
+        return;
+      }
+      if (typing) /** @type {HTMLElement} */ (target).blur();
     }
   });
 
@@ -176,7 +222,8 @@ function bind() {
     $$("[data-nav]").forEach((a) => {
       const on = a.dataset.nav === current;
       a.classList.toggle("is-active", on);
-      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      if (on) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
     });
   };
   window.addEventListener("hc:urlchange", refreshActive);
@@ -189,13 +236,27 @@ function bind() {
 async function hydrate() {
   try {
     const catalog = await loadCatalog();
-    $$('[data-count="all"]').forEach((n) => { n.textContent = activeResources(catalog).length; });
-    $$('[data-count="osint"]').forEach((n) => { n.textContent = domainCount(catalog, "osint"); });
-    $("#domainsMenu").innerHTML = `<a href="domaines"><strong>Tous les domaines</strong><small>${catalog.domains.length}</small></a>` +
-      catalog.domains.map((d) => `<a href="${escapeHTML(catalogueURL({ domain: d.id }))}">${escapeHTML(d.title)}<small>${domainCount(catalog, d.id)}</small></a>`).join("");
+    $$('[data-count="all"]').forEach((n) => {
+      n.textContent = activeResources(catalog).length;
+    });
+    $$('[data-count="osint"]').forEach((n) => {
+      n.textContent = domainCount(catalog, "osint");
+    });
+    $("#domainsMenu").innerHTML =
+      `<a href="domaines"><strong>Tous les domaines</strong><small>${catalog.domains.length}</small></a>` +
+      catalog.domains
+        .map(
+          (d) =>
+            `<a href="${escapeHTML(catalogueURL({ domain: d.id }))}">${escapeHTML(d.title)}<small>${domainCount(catalog, d.id)}</small></a>`
+        )
+        .join("");
     const news = newResourcesCount(catalog);
     $("#bellBadge").hidden = news === 0;
-    if (news) $("#bellLink").setAttribute("aria-label", `Nouveautés du catalogue : ${news} nouvelle${news > 1 ? "s" : ""} ressource${news > 1 ? "s" : ""}`);
+    if (news)
+      $("#bellLink").setAttribute(
+        "aria-label",
+        `Nouveautés du catalogue : ${news} nouvelle${news > 1 ? "s" : ""} ressource${news > 1 ? "s" : ""}`
+      );
   } catch (error) {
     console.error(error);
     $("#domainsMenu").innerHTML = '<a href="domaines">Tous les domaines</a>';

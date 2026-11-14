@@ -5,7 +5,8 @@ import { gunzipSync, brotliDecompressSync } from "node:zlib";
 import { createSiteServer, isPublicPath } from "../scripts/serve.mjs";
 import { SECURITY_HEADERS } from "../scripts/site-config.mjs";
 
-let server; let base;
+let server;
+let base;
 before(async () => {
   server = createSiteServer({ root: new URL("..", import.meta.url).pathname });
   await new Promise((r) => server.listen(0, "127.0.0.1", r));
@@ -24,17 +25,43 @@ test("les pages publiques répondent 200 avec toutes les en-têtes de sécurité
 });
 
 test("les fichiers internes ne sont jamais servis (liste blanche)", async () => {
-  for (const path of ["/package.json", "/scripts/serve.mjs", "/scripts/site-config.mjs", "/tests/server.test.mjs", "/.gitignore", "/.git/HEAD", "/.git/config",
-    "/.github/workflows/link-check.yml", "/.github/dependabot.yml", "/node_modules/x.js", "/vercel.json", "/data/", "/js/", "/library/02-OSINT/", "/library/02-OSINT/other.txt"]) {
+  for (const path of [
+    "/package.json",
+    "/scripts/serve.mjs",
+    "/scripts/site-config.mjs",
+    "/tests/server.test.mjs",
+    "/.gitignore",
+    "/.git/HEAD",
+    "/.git/config",
+    "/.github/workflows/link-check.yml",
+    "/.github/dependabot.yml",
+    "/node_modules/x.js",
+    "/vercel.json",
+    "/data/",
+    "/js/",
+    "/library/02-OSINT/",
+    "/library/02-OSINT/other.txt"
+  ]) {
     const res = await get(path);
     assert.equal(res.status, 404, path);
   }
 });
 
 test("les ressources nécessaires au site sont servies avec le bon type", async () => {
-  const cases = { "/ui.css": /text\/css/, "/js/shell.js": /javascript/, "/data/resources.json": /json/, "/library/02-OSINT/README.md": /markdown/,
-    "/assets/fonts/manrope-var-latin.woff2": /font\/woff2/, "/vendor/purify.min.js": /javascript/, "/robots.txt": /text\/plain/, "/sitemap.xml": /xml/,
-    "/site.webmanifest": /manifest/, "/LICENSE": /text\/plain/, "/LICENSE-DATA.txt": /text\/plain/, "/assets/og-image.png": /image\/png/ };
+  const cases = {
+    "/ui.css": /text\/css/,
+    "/js/shell.js": /javascript/,
+    "/data/resources.json": /json/,
+    "/library/02-OSINT/README.md": /markdown/,
+    "/assets/fonts/manrope-var-latin.woff2": /font\/woff2/,
+    "/vendor/purify.min.js": /javascript/,
+    "/robots.txt": /text\/plain/,
+    "/sitemap.xml": /xml/,
+    "/site.webmanifest": /manifest/,
+    "/LICENSE": /text\/plain/,
+    "/LICENSE-DATA.txt": /text\/plain/,
+    "/assets/og-image.png": /image\/png/
+  };
   for (const [path, type] of Object.entries(cases)) {
     const res = await get(path);
     assert.equal(res.status, 200, path);
@@ -67,11 +94,13 @@ test("traversée de répertoire, méthodes interdites et URL invalides sont refu
 
 function rawGet(path, headers) {
   return new Promise((resolve, reject) => {
-    http.get(base + path, { headers }, (res) => {
-      const chunks = [];
-      res.on("data", (c) => chunks.push(c));
-      res.on("end", () => resolve({ res, body: Buffer.concat(chunks) }));
-    }).on("error", reject);
+    http
+      .get(base + path, { headers }, (res) => {
+        const chunks = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve({ res, body: Buffer.concat(chunks) }));
+      })
+      .on("error", reject);
   });
 }
 
@@ -103,13 +132,21 @@ test("cache : ETag et 304 ; HTML revalidé, polices et vendor immuables", async 
 
 test("HSTS uniquement derrière HTTPS ; HEAD sans corps", async () => {
   assert.equal((await get("/")).headers.get("strict-transport-security"), null);
-  assert.match((await get("/", { headers: { "x-forwarded-proto": "https" } })).headers.get("strict-transport-security"), /max-age=31536000/);
+  assert.match(
+    (await get("/", { headers: { "x-forwarded-proto": "https" } })).headers.get("strict-transport-security"),
+    /max-age=31536000/
+  );
   const head = await get("/", { method: "HEAD" });
   assert.equal(head.status, 200);
-  assert.equal((await head.text()), "");
+  assert.equal(await head.text(), "");
 });
 
 test("isPublicPath : seuls les chemins prévus sont publics", () => {
   assert.ok(isPublicPath("/index.html") && isPublicPath("/js/app-like.js") && isPublicPath("/library/03-RED-TEAM/Web-Security/README.md"));
-  assert.ok(!isPublicPath("/package.json") && !isPublicPath("/.env") && !isPublicPath("/scripts/serve.mjs") && !isPublicPath("/library/x/y/z/README.md"));
+  assert.ok(
+    !isPublicPath("/package.json") &&
+      !isPublicPath("/.env") &&
+      !isPublicPath("/scripts/serve.mjs") &&
+      !isPublicPath("/library/x/y/z/README.md")
+  );
 });

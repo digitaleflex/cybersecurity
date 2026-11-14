@@ -23,6 +23,11 @@ on:
       - "data/schema.md"
       - "scripts/**"
       - "package.json"
+      - "package-lock.json"
+      - "eslint.config.mjs"
+      - "tsconfig.json"
+      - ".prettierrc.json"
+      - "e2e/**"
       - ".github/workflows/catalog-validation.yml"
   push:
     branches: [main]
@@ -47,6 +52,11 @@ on:
       - "data/schema.md"
       - "scripts/**"
       - "package.json"
+      - "package-lock.json"
+      - "eslint.config.mjs"
+      - "tsconfig.json"
+      - ".prettierrc.json"
+      - "e2e/**"
       - ".github/workflows/catalog-validation.yml"
 
 permissions:
@@ -63,8 +73,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install dev tools (lint, formatter, type checker)
+        run: npm ci
       - name: Check JavaScript syntax
         run: npm run check
+      - name: Lint
+        run: npm run lint
+      - name: Check formatting
+        run: npm run format:check
+      - name: Type check
+        run: npm run typecheck
       - name: Run catalog tests
         run: npm test
       - name: Validate JSON catalog

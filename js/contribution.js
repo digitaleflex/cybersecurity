@@ -4,10 +4,18 @@ import { DESCRIPTION_RANGE, validateResource, TYPES, LEVELS, ACCESS, LANGUAGES }
 export const REPO_URL = "https://github.com/digitaleflex/cybersecurity";
 export const MAX_TAGS = 8;
 
-const strip = (value) => String(value ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const strip = (value) =>
+  String(value ?? "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
 
 export function slugify(text, max = 60) {
-  return strip(text).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, max).replace(/-+$/g, "");
+  return strip(text)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, max)
+    .replace(/-+$/g, "");
 }
 
 /** Identifiant libre : « Awesome OSINT » -> awesome-osint, puis awesome-osint-2 s'il existe déjà. */
@@ -27,7 +35,9 @@ export function parseURL(value) {
     const host = url.hostname.toLowerCase().replace(/^www\./, "");
     const path = url.pathname.replace(/\/+$/, "").toLowerCase();
     return { href: url.href, secure: url.protocol === "https:", host, key: `${host}${path}` };
-  } catch { return null; }
+  } catch {
+    return null;
+  }
 }
 
 export function parseTags(text) {
@@ -42,14 +52,18 @@ export function parseTags(text) {
 /** Cherche la ressource dans le catalogue : même URL, même site, titre identique ou proche. */
 export function findDuplicates(resources, { url, title }) {
   const target = parseURL(url);
-  const wanted = strip(title).replace(/[^a-z0-9]+/g, " ").trim();
+  const wanted = strip(title)
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
   const result = { exact: [], sameHost: [], similarTitle: [] };
   for (const resource of resources) {
     const known = parseURL(resource.url);
     if (target && known && known.key === target.key) result.exact.push(resource);
     else if (target && known && known.host === target.host) result.sameHost.push(resource);
     else if (wanted.length >= 4) {
-      const name = strip(resource.title).replace(/[^a-z0-9]+/g, " ").trim();
+      const name = strip(resource.title)
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
       if (name === wanted || (wanted.length >= 6 && (name.includes(wanted) || wanted.includes(name)))) result.similarTitle.push(resource);
     }
   }
@@ -62,7 +76,9 @@ export function buildResource(values, { today, takenIds = [] }) {
   return {
     id: suggestId(values.title, takenIds),
     title: String(values.title ?? "").trim(),
-    description: String(values.description ?? "").trim().replace(/\s+/g, " "),
+    description: String(values.description ?? "")
+      .trim()
+      .replace(/\s+/g, " "),
     url: parsed ? parsed.href : String(values.url ?? "").trim(),
     domain: values.domain,
     category: String(values.category ?? "").trim(),
@@ -91,9 +107,12 @@ export function validateDraft(values, { domainIds = [], takenIds = [], today = "
   if (!TYPES.includes(values.type)) errors.type = "Choisis un type.";
   if (!LEVELS.includes(values.level)) errors.level = "Choisis un niveau.";
   if (!ACCESS.includes(values.access)) errors.access = "Indique si la ressource est gratuite, freemium ou payante.";
-  if (!(values.language ?? []).length || !(values.language ?? []).every((l) => LANGUAGES.includes(l))) errors.language = "Indique au moins une langue.";
+  if (!(values.language ?? []).length || !(values.language ?? []).every((l) => LANGUAGES.includes(l)))
+    errors.language = "Indique au moins une langue.";
   if (!String(values.category ?? "").trim()) errors.category = "Indique une catégorie (ex. Investigation, SIEM…).";
-  const length = String(values.description ?? "").trim().replace(/\s+/g, " ").length;
+  const length = String(values.description ?? "")
+    .trim()
+    .replace(/\s+/g, " ").length;
   const [min, max] = DESCRIPTION_RANGE;
   if (length < min) errors.description = `Décris la ressource en ${min} caractères minimum (${length} actuellement).`;
   else if (length > max) errors.description = `Reste concis : ${max} caractères maximum (${length} actuellement).`;
@@ -107,7 +126,9 @@ export function validateDraft(values, { domainIds = [], takenIds = [], today = "
 /** Lien GitHub vers le formulaire de ticket déjà rempli (aucun serveur nécessaire). */
 export function buildIssueURL(values, labels) {
   const params = new URLSearchParams({ template: "resource-suggestion.yml", title: `[Ressource] ${String(values.title).trim()}` });
-  const set = (key, value) => { if (value) params.set(key, value); };
+  const set = (key, value) => {
+    if (value) params.set(key, value);
+  };
   set("resource_title", String(values.title).trim());
   set("url", parseURL(values.url)?.href ?? values.url);
   set("domain", labels.domain);

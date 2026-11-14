@@ -1,21 +1,40 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { parseQuery, canonicalValue, indexResource, matchResource, scoreResource, editDistance, invalidFields, hasQuery } from "../js/search.js";
+import {
+  parseQuery,
+  canonicalValue,
+  indexResource,
+  matchResource,
+  scoreResource,
+  editDistance,
+  invalidFields,
+  hasQuery
+} from "../js/search.js";
 
 const catalog = JSON.parse(readFileSync(new URL("../data/resources.json", import.meta.url), "utf8"));
 const ctx = { domains: catalog.domains };
 const titleOf = (id) => catalog.domains.find((d) => d.id === id)?.title ?? "";
 const active = catalog.resources.filter((r) => r.status !== "archived");
 const index = new Map(active.map((r) => [r.id, indexResource(r, titleOf(r.domain))]));
-const search = (q, opts) => { const p = parseQuery(q, ctx); return active.filter((r) => matchResource(r, index.get(r.id), p, opts)); };
+const search = (q, opts) => {
+  const p = parseQuery(q, ctx);
+  return active.filter((r) => matchResource(r, index.get(r.id), p, opts));
+};
 
 test("parseQuery : mots, phrases, exclusions et opérateurs avec alias français", () => {
   const p = parseQuery('osint "Threat Intelligence" -github lang:fr niveau:Débutant -tag:eu', ctx);
   assert.deepEqual(p.terms, ["osint"]);
   assert.deepEqual(p.phrases, ["threat intelligence"]);
   assert.deepEqual(p.excluded, ["github"]);
-  assert.deepEqual(p.fields.map((f) => [f.field, f.value, f.negated]), [["language", "fr", false], ["level", "beginner", false], ["tag", "eu", true]]);
+  assert.deepEqual(
+    p.fields.map((f) => [f.field, f.value, f.negated]),
+    [
+      ["language", "fr", false],
+      ["level", "beginner", false],
+      ["tag", "eu", true]
+    ]
+  );
 });
 
 test("un « mot:valeur » qui n'est pas un opérateur reste un terme (URL, horaire…)", () => {
@@ -61,15 +80,24 @@ test("mots (ET), phrase exacte et exclusion", () => {
 });
 
 test("recherche insensible aux accents et à la casse", () => {
-  assert.deepEqual(search("INVESTIGATION").map((r) => r.id), search("investigation").map((r) => r.id));
+  assert.deepEqual(
+    search("INVESTIGATION").map((r) => r.id),
+    search("investigation").map((r) => r.id)
+  );
   assert.equal(search("Securité").length, search("securite").length);
 });
 
 test("tolérance aux fautes : exacte d'abord, approchante seulement en mode fuzzy", () => {
-  const name = active.find((r) => /^[A-Za-z]{6,}/.test(r.title)).title.split(/\W+/)[0].toLowerCase();
+  const name = active
+    .find((r) => /^[A-Za-z]{6,}/.test(r.title))
+    .title.split(/\W+/)[0]
+    .toLowerCase();
   const typo = name.slice(0, 2) + name[3] + name[2] + name.slice(4); // transposition de 2 lettres
   assert.equal(search(typo).length, 0, "sans fuzzy : rien");
-  assert.ok(search(typo, { fuzzy: true }).some((r) => index.get(r.id).words.includes(name)), "avec fuzzy : retrouve la ressource");
+  assert.ok(
+    search(typo, { fuzzy: true }).some((r) => index.get(r.id).words.includes(name)),
+    "avec fuzzy : retrouve la ressource"
+  );
   assert.equal(search("abc", { fuzzy: true }).length, search("abc").length, "mots courts : jamais approximatifs");
 });
 
@@ -84,7 +112,10 @@ test("scoreResource : un titre qui correspond passe avant une simple mention", (
   const target = active.find((r) => r.title.split(/\W+/)[0].length >= 5);
   const word = target.title.split(/\W+/)[0].toLowerCase();
   const p = parseQuery(word, ctx);
-  const ranked = active.filter((r) => matchResource(r, index.get(r.id), p)).map((r) => [scoreResource(r, index.get(r.id), p), r]).sort((a, b) => b[0] - a[0]);
+  const ranked = active
+    .filter((r) => matchResource(r, index.get(r.id), p))
+    .map((r) => [scoreResource(r, index.get(r.id), p), r])
+    .sort((a, b) => b[0] - a[0]);
   assert.ok(ranked.length >= 1);
   assert.ok(ranked[0][0] >= 10, "le meilleur résultat a le terme dans son titre");
   assert.equal(hasQuery(parseQuery("", ctx)), false);

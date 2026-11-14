@@ -1,6 +1,14 @@
 import {
-  TYPE_LABELS, STATUS_LABELS, LEVEL_LABELS, escapeHTML, safeExternalURL, icon,
-  favorites, toggleFavorite, pushRecent, getDomain
+  TYPE_LABELS,
+  STATUS_LABELS,
+  LEVEL_LABELS,
+  escapeHTML,
+  safeExternalURL,
+  icon,
+  favorites,
+  toggleFavorite,
+  pushRecent,
+  getDomain
 } from "./data.js";
 
 export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
@@ -10,7 +18,10 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
   const level = LEVEL_LABELS[resource.level] || resource.level;
   const status = STATUS_LABELS[resource.status] || "Statut inconnu";
   const access = { free: "Gratuit", paid: "Payant", freemium: "Freemium" }[resource.access] || resource.access;
-  const languages = (resource.language || []).slice(0, 2).map((l) => l.toUpperCase()).join(" · ");
+  const languages = (resource.language || [])
+    .slice(0, 2)
+    .map((l) => l.toUpperCase())
+    .join(" · ");
   const tags = (resource.tags || []).slice(0, 3);
   const fav = favorites().includes(resource.id);
 
@@ -35,7 +46,11 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
 export function bindCards(container, onFavorite = () => {}) {
   container.addEventListener("click", (event) => {
     const fav = event.target.closest("[data-fav]");
-    if (fav) { toggleFavorite(fav.dataset.fav); onFavorite(); return; }
+    if (fav) {
+      toggleFavorite(fav.dataset.fav);
+      onFavorite();
+      return;
+    }
     const open = event.target.closest("[data-open]");
     if (open) pushRecent(open.dataset.open);
   });

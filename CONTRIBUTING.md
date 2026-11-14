@@ -76,6 +76,20 @@ Les valeurs autorisées (domaines, types, niveaux, accès, langues) sont décrit
 
 Ne modifie pas le schéma JSON sans mettre à jour le site, `data/schema.md` et ce guide. Ne soumets ni secrets, ni données personnelles, ni fichiers tiers soumis au droit d'auteur.
 
+## Outils de développement (pour modifier le code)
+
+Le site n'a **aucune dépendance en production** (`npm start` suffit). Les outils ci-dessous ne servent qu'au développement et à la CI :
+
+```bash
+npm ci                  # installe les outils (tests, linter, formateur, types)
+npm run verify          # syntaxe + lint + format + types + catalogue + tests unitaires
+npm run e2e             # tests de navigateur (liens, accessibilité, sécurité, formulaires, mobile)
+npm run lighthouse      # budget de performance, accessibilité et SEO
+npm run format          # reformate le JavaScript (Prettier)
+```
+
+Avant d'ouvrir une Pull Request touchant au code, lance au minimum `npm run verify`. La CI exécute les mêmes contrôles ainsi que les tests de navigateur.
+
 ## Qualité avant quantité
 
 Les mainteneurs peuvent retirer les doublons, liens morts, ressources trompeuses, ressources dangereuses ou références sans provenance fiable.

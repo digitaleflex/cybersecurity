@@ -517,3 +517,22 @@ main>section.card+section.card,.dos-donts+section.card{margin-top:16px}
 .suggest-list{display:grid;gap:4px;margin:6px 0 4px;justify-items:center}
 .suggest-list:empty{display:none}
 @media(max-width:680px){.adv-row{grid-template-columns:1fr}}
+
+/* ---------- très petits écrans (≤ 380px) : rien ne doit dépasser la largeur de l'écran ---------- */
+@media(max-width:380px){
+  .topbar{gap:6px;padding:0 12px}
+  .brand-compact .brand-text{display:none}
+  .top-actions{gap:6px}
+  .icon-btn,.avatar{width:40px;height:40px}
+  main{padding-left:14px;padding-right:14px}
+}
+@media(max-width:680px){
+  .resource-grid,.domain-pages,.profile-grid,.community-hero,.community-grid,.card-collection{grid-template-columns:minmax(0,1fr)}
+}
+.resource-card h2,.resource-card h3,.resource-card p,.coll-copy h2,.community-copy h2,.profile h2,.page-head h1,.card h2{overflow-wrap:anywhere}
+.stat-band{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat-band>div{min-width:0}
+.stat-band span{overflow-wrap:anywhere}
+.card-topline{flex-wrap:wrap}
+@media(max-width:1080px){.stat-band{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.stat-band>div{gap:8px;padding:12px}.stat-band .ico{width:22px;height:22px}.stat-band strong{font-size:17px}}

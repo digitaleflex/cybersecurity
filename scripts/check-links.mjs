@@ -6,7 +6,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(`--${name}`);
-const option = (name) => args.find((a) => a.startsWith(`--${name}=`))?.split("=").slice(1).join("=");
+const option = (name) =>
+  args
+    .find((a) => a.startsWith(`--${name}=`))
+    ?.split("=")
+    .slice(1)
+    .join("=");
 
 const catalog = JSON.parse(readFileSync(new URL("../data/resources.json", import.meta.url), "utf8"));
 let resources = catalog.resources.filter((r) => !["archived", "removed"].includes(r.status));
@@ -51,16 +56,29 @@ async function check(resource) {
     response = await request(resource.url, "HEAD");
     if (response.status >= 400) response = await request(resource.url, "GET"); // certains sites refusent HEAD
   } catch (e) {
-    try { response = await request(resource.url, "GET"); error = undefined; } catch (e2) { error = e2; }
+    try {
+      response = await request(resource.url, "GET");
+      error = undefined;
+    } catch (e2) {
+      error = e2;
+    }
   }
-  return { id: resource.id, title: resource.title, url: resource.url, featured: Boolean(resource.featured), ...classify(resource, response, error) };
+  return {
+    id: resource.id,
+    title: resource.title,
+    url: resource.url,
+    featured: Boolean(resource.featured),
+    ...classify(resource, response, error)
+  };
 }
 
 const results = [];
 let cursor = 0;
-await Promise.all(Array.from({ length: Math.min(CONCURRENCY, resources.length) }, async () => {
-  while (cursor < resources.length) results.push(await check(resources[cursor++]));
-}));
+await Promise.all(
+  Array.from({ length: Math.min(CONCURRENCY, resources.length) }, async () => {
+    while (cursor < resources.length) results.push(await check(resources[cursor++]));
+  })
+);
 results.sort((a, b) => a.id.localeCompare(b.id));
 
 const count = (level) => results.filter((r) => r.level === level).length;
@@ -71,7 +89,8 @@ if (flag("markdown")) {
   console.log(`## Contrôle des liens\n\n${summary}\n`);
   if (problems.length) {
     console.log("| Niveau | Ressource | Détail |\n|---|---|---|");
-    for (const r of problems) console.log(`| ${r.level === "broken" ? "🔴 cassé" : "🟡 à surveiller"} | [${r.title}](${r.url}) (\`${r.id}\`) | ${r.detail} |`);
+    for (const r of problems)
+      console.log(`| ${r.level === "broken" ? "🔴 cassé" : "🟡 à surveiller"} | [${r.title}](${r.url}) (\`${r.id}\`) | ${r.detail} |`);
   }
 } else {
   console.log(summary);

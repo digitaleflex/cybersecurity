@@ -1,7 +1,20 @@
 // État des filtres du catalogue <-> paramètres d'URL (fonctions pures, testées dans tests/url-state.test.mjs).
 export const SORTS = ["featured", "az", "za", "newest"];
 export const VIEWS = ["favorites", "recent", "featured"];
-export const DEFAULT_FILTERS = Object.freeze({ q: "", domain: "", category: "", type: "", level: "", status: "", lang: "", access: "", tag: "", sort: "featured", view: "" });
+/** @type {Readonly<Record<string, string>>} */
+export const DEFAULT_FILTERS = Object.freeze({
+  q: "",
+  domain: "",
+  category: "",
+  type: "",
+  level: "",
+  status: "",
+  lang: "",
+  access: "",
+  tag: "",
+  sort: "featured",
+  view: ""
+});
 export const MAX_QUERY_LENGTH = 100;
 
 /**

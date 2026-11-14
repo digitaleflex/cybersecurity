@@ -30,7 +30,14 @@ test("chaque page publique a un titre, une description, un canonical et des bali
 });
 
 test("l'image de partage et les icônes existent", () => {
-  for (const f of ["assets/og-image.png", "assets/icon-192.png", "assets/icon-512.png", "assets/icon-maskable-512.png", "assets/favicon-64.png"]) assert.ok(existsSync(join(root, f)), f);
+  for (const f of [
+    "assets/og-image.png",
+    "assets/icon-192.png",
+    "assets/icon-512.png",
+    "assets/icon-maskable-512.png",
+    "assets/favicon-64.png"
+  ])
+    assert.ok(existsSync(join(root, f)), f);
   const manifest = JSON.parse(read("site.webmanifest"));
   for (const icon of manifest.icons) assert.ok(existsSync(join(root, icon.src.replace(/^\//, ""))), icon.src);
   assert.ok(manifest.icons.some((i) => i.purpose === "maskable"));
@@ -46,16 +53,26 @@ test("aucune ressource tierce n'est chargée (polices, scripts, styles, images)"
     }
   }
   for (const f of ["ui.css", "docs.css"]) if (/@import|url\(\s*["']?https?:/i.test(read(f))) problems.push(`${f}: ressource externe`);
-  for (const f of readdirSync(join(root, "js")).map((x) => `js/${x}`).concat("docs.js")) if (/import\s*\(\s*["']https?:|importScripts/.test(read(f))) problems.push(`${f}: import externe`);
+  for (const f of readdirSync(join(root, "js"))
+    .map((x) => `js/${x}`)
+    .concat("docs.js"))
+    if (/import\s*\(\s*["']https?:|importScripts/.test(read(f))) problems.push(`${f}: import externe`);
   assert.deepEqual(problems, []);
 });
 
 test("compatible avec la CSP stricte : aucun script/style/gestionnaire en ligne", () => {
   const problems = [];
-  const sources = readdirSync(root).filter((f) => f.endsWith(".html")).map((f) => [f, read(f)])
-    .concat(readdirSync(join(root, "js")).map((f) => [`js/${f}`, read(`js/${f}`)]), [["docs.js", read("docs.js")]]);
+  const sources = readdirSync(root)
+    .filter((f) => f.endsWith(".html"))
+    .map((f) => [f, read(f)])
+    .concat(
+      readdirSync(join(root, "js"))
+        .filter((f) => f.endsWith(".js"))
+        .map((f) => [`js/${f}`, read(`js/${f}`)]),
+      [["docs.js", read("docs.js")]]
+    );
   for (const [name, text] of sources) {
-    for (const m of text.matchAll(/<script(?![^>]*\bsrc=)(?![^>]*application\/ld\+json)[^>]*>/g)) problems.push(`${name}: script en ligne`);
+    if (/<script(?![^>]*\bsrc=)(?![^>]*application\/ld\+json)[^>]*>/.test(text)) problems.push(`${name}: script en ligne`);
     if (/\son[a-z]+\s*=\s*["']/i.test(text.replace(/<script[\s\S]*?<\/script>/g, ""))) problems.push(`${name}: gestionnaire on…=`);
     if (/<[a-z][^>]*\sstyle\s*=\s*["']/i.test(text)) problems.push(`${name}: attribut style`);
   }
@@ -87,13 +104,27 @@ test("les chiffres du README et du CATALOG correspondent aux données", () => {
 });
 
 test("aucun identifiant en double dans une page, ni en conflit avec ceux injectés par js/shell.js", () => {
-  const shellIds = ["sidebar", "topbar", "scrim", "contribTitle", "mySpaceLabel", "themeToggle", "menuBtn", "domainsMenuBtn", "domainsMenu", "topSearchBtn", "bellLink", "bellBadge"];
+  const shellIds = [
+    "sidebar",
+    "topbar",
+    "scrim",
+    "contribTitle",
+    "mySpaceLabel",
+    "themeToggle",
+    "menuBtn",
+    "domainsMenuBtn",
+    "domainsMenu",
+    "topSearchBtn",
+    "bellLink",
+    "bellBadge"
+  ];
   const problems = [];
   for (const page of pages) {
     const ids = [...read(page).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
     for (const id of new Set(ids)) {
       if (ids.filter((x) => x === id).length > 1) problems.push(`${page}: id « ${id} » en double`);
-      if (shellIds.includes(id) && !["sidebar", "topbar", "scrim"].includes(id)) problems.push(`${page}: id « ${id} » déjà utilisé par la coque commune`);
+      if (shellIds.includes(id) && !["sidebar", "topbar", "scrim"].includes(id))
+        problems.push(`${page}: id « ${id} » déjà utilisé par la coque commune`);
     }
   }
   assert.deepEqual(problems, []);

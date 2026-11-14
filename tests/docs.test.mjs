@@ -10,7 +10,7 @@ const docPaths = new Set(DOCUMENTS.map((d) => d.path));
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (["node_modules", ".git", ".github"].includes(name)) continue;
+    if (["node_modules", ".git", ".github", "test-results", "playwright-report", "lighthouse-report"].includes(name)) continue;
     const full = join(dir, name);
     if (statSync(full).isDirectory()) walk(full, out);
     else out.push(relative(root, full).split("\\").join("/"));
@@ -46,7 +46,9 @@ test("tous les liens internes des documents Markdown se résolvent", () => {
       if (/^(https?:|mailto:|#)/i.test(href)) continue;
       const path = href.split("#")[0];
       if (!path) continue;
-      let target = normalize(join(dirname(file), path)).split("\\").join("/");
+      let target = normalize(join(dirname(file), path))
+        .split("\\")
+        .join("/");
       if (existsSync(join(root, target)) && statSync(join(root, target)).isDirectory()) target = `${target.replace(/\/$/, "")}/README.md`;
       if (!existsSync(join(root, target))) problems.push(`${file} → ${href} (fichier introuvable)`);
       else if (target.endsWith(".md") && !docPaths.has(target)) problems.push(`${file} → ${href} (non lisible dans le lecteur)`);

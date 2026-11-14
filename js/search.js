@@ -1,44 +1,104 @@
 // Moteur de recherche du catalogue (fonctions pures, testées dans tests/search.test.mjs).
 // Syntaxe : mots (ET) · "phrase exacte" · -exclu · champ:valeur (lang, tag, domaine, type, niveau, acces, statut), avec « - » devant pour exclure.
 export const FIELD_ALIASES = {
-  lang: "language", langue: "language",
-  tag: "tag", tags: "tag", motcle: "tag",
-  domain: "domain", domaine: "domain",
-  type: "type", format: "type",
-  level: "level", niveau: "level",
-  access: "access", acces: "access",
-  status: "status", statut: "status"
+  lang: "language",
+  langue: "language",
+  tag: "tag",
+  tags: "tag",
+  motcle: "tag",
+  domain: "domain",
+  domaine: "domain",
+  type: "type",
+  format: "type",
+  level: "level",
+  niveau: "level",
+  access: "access",
+  acces: "access",
+  status: "status",
+  statut: "status"
 };
 
-const LEVELS = { debutant: "beginner", beginner: "beginner", intermediaire: "intermediate", intermediate: "intermediate", avance: "advanced", advanced: "advanced", pro: "professional", professionnel: "professional", professional: "professional" };
+const LEVELS = {
+  debutant: "beginner",
+  beginner: "beginner",
+  intermediaire: "intermediate",
+  intermediate: "intermediate",
+  avance: "advanced",
+  advanced: "advanced",
+  pro: "professional",
+  professionnel: "professional",
+  professional: "professional"
+};
 const ACCESS = { gratuit: "free", free: "free", freemium: "freemium", payant: "paid", paid: "paid" };
 const LANGS = { fr: "fr", francais: "fr", french: "fr", en: "en", anglais: "en", english: "en", multi: "multi", multilingue: "multi" };
-const STATUSES = { verifie: "verified", verified: "verified", averifier: "needs-review", "needs-review": "needs-review", needsreview: "needs-review" };
+const STATUSES = {
+  verifie: "verified",
+  verified: "verified",
+  averifier: "needs-review",
+  "needs-review": "needs-review",
+  needsreview: "needs-review"
+};
 const TYPES = {
-  outil: "tool", tool: "tool", formation: "course", cours: "course", course: "course", labo: "lab", laboratoire: "lab", lab: "lab",
-  documentation: "documentation", doc: "documentation", depot: "repository", repo: "repository", repository: "repository",
-  framework: "framework", plateforme: "platform", platform: "platform", communaute: "community", community: "community",
-  rapport: "report", report: "report", bibliotheque: "library", library: "library", annuaire: "directory", directory: "directory",
-  base: "database", database: "database"
+  outil: "tool",
+  tool: "tool",
+  formation: "course",
+  cours: "course",
+  course: "course",
+  labo: "lab",
+  laboratoire: "lab",
+  lab: "lab",
+  documentation: "documentation",
+  doc: "documentation",
+  depot: "repository",
+  repo: "repository",
+  repository: "repository",
+  framework: "framework",
+  plateforme: "platform",
+  platform: "platform",
+  communaute: "community",
+  community: "community",
+  rapport: "report",
+  report: "report",
+  bibliotheque: "library",
+  library: "library",
+  annuaire: "directory",
+  directory: "directory",
+  base: "database",
+  database: "database"
 };
 
-export const norm = (value) => String(value ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+export const norm = (value) =>
+  String(value ?? "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
 const compact = (value) => norm(value).replace(/[^a-z0-9]+/g, "");
-const slug = (value) => norm(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const slug = (value) =>
+  norm(value)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 /** Valeur d'un opérateur -> valeur canonique du catalogue, ou null si elle n'existe pas. */
 export function canonicalValue(field, raw, { domains = [] } = {}) {
   const key = compact(raw);
   if (!key) return null;
   switch (field) {
-    case "language": return LANGS[key] ?? null;
-    case "level": return LEVELS[key] ?? null;
-    case "access": return ACCESS[key] ?? null;
-    case "status": return STATUSES[key] ?? null;
-    case "type": return TYPES[key] ?? null;
-    case "domain": return domains.find((d) => compact(d.id) === key || compact(d.title) === key)?.id ?? null;
-    case "tag": return slug(raw) || null;
-    default: return null;
+    case "language":
+      return LANGS[key] ?? null;
+    case "level":
+      return LEVELS[key] ?? null;
+    case "access":
+      return ACCESS[key] ?? null;
+    case "status":
+      return STATUSES[key] ?? null;
+    case "type":
+      return TYPES[key] ?? null;
+    case "domain":
+      return domains.find((d) => compact(d.id) === key || compact(d.title) === key)?.id ?? null;
+    case "tag":
+      return slug(raw) || null;
+    default:
+      return null;
   }
 }
 
@@ -74,8 +134,26 @@ export function indexResource(resource, domainTitle = "") {
   const tags = (resource.tags || []).map(slug);
   const title = norm(resource.title);
   const category = norm(resource.category);
-  const haystack = norm([resource.title, resource.description, resource.category, resource.source, resource.domain, domainTitle, resource.access, ...(resource.tags || []), ...(resource.language || [])].join(" "));
-  const words = [...new Set(norm([resource.title, resource.category, resource.source, ...(resource.tags || [])].join(" ")).split(/[^a-z0-9]+/).filter((w) => w.length >= 4))];
+  const haystack = norm(
+    [
+      resource.title,
+      resource.description,
+      resource.category,
+      resource.source,
+      resource.domain,
+      domainTitle,
+      resource.access,
+      ...(resource.tags || []),
+      ...(resource.language || [])
+    ].join(" ")
+  );
+  const words = [
+    ...new Set(
+      norm([resource.title, resource.category, resource.source, ...(resource.tags || [])].join(" "))
+        .split(/[^a-z0-9]+/)
+        .filter((w) => w.length >= 4)
+    )
+  ];
   return { title, category, tags, haystack, words };
 }
 
@@ -83,7 +161,9 @@ export function indexResource(resource, domainTitle = "") {
 export function editDistance(a, b, max = 2) {
   if (Math.abs(a.length - b.length) > max) return max + 1;
   const rows = [];
-  for (let i = 0; i <= a.length; i += 1) { rows[i] = [i]; }
+  for (let i = 0; i <= a.length; i += 1) {
+    rows[i] = [i];
+  }
   for (let j = 0; j <= b.length; j += 1) rows[0][j] = j;
   for (let i = 1; i <= a.length; i += 1) {
     let best = Infinity;
@@ -111,9 +191,12 @@ function termMatches(term, entry, fuzzy) {
 function fieldMatches(f, resource, entry) {
   const value = f.value;
   switch (f.field) {
-    case "language": return (resource.language || []).includes(value);
-    case "tag": return entry.tags.includes(value);
-    default: return resource[f.field] === value;
+    case "language":
+      return (resource.language || []).includes(value);
+    case "tag":
+      return entry.tags.includes(value);
+    default:
+      return resource[f.field] === value;
   }
 }
 

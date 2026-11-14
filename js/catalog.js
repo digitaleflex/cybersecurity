@@ -1,8 +1,26 @@
 // Page Catalogue : recherche avancée et filtres synchronisés avec l'URL (?domain=osint&lang=fr&tag=forensic&q=…).
 import "./shell.js";
 import {
-  $, $$, escapeHTML, plural, icon, TYPE_LABELS, STATUS_LABELS, LEVEL_LABELS, ACCESS_LABELS, LANG_LABELS, SORT_LABELS, VIEW_LABELS,
-  loadCatalog, activeResources, getDomain, categoriesOf, favorites, recents, showLoadError, SENSITIVE_DOMAINS
+  $,
+  $$,
+  escapeHTML,
+  plural,
+  icon,
+  TYPE_LABELS,
+  STATUS_LABELS,
+  LEVEL_LABELS,
+  ACCESS_LABELS,
+  LANG_LABELS,
+  SORT_LABELS,
+  VIEW_LABELS,
+  loadCatalog,
+  activeResources,
+  getDomain,
+  categoriesOf,
+  favorites,
+  recents,
+  showLoadError,
+  SENSITIVE_DOMAINS
 } from "./data.js";
 import { resourceCard, bindCards } from "./cards.js";
 import { docURL } from "./docs-index.js";
@@ -42,22 +60,42 @@ function fillSelect(select, options, firstLabel) {
 function popularTags() {
   const counts = new Map();
   for (const r of activeResources(catalog)) for (const tag of r.tags || []) counts.set(tag, (counts.get(tag) || 0) + 1);
-  return [...counts].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, POPULAR_TAGS);
+  return [...counts]
+    .filter(([, n]) => n >= 2)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, POPULAR_TAGS);
 }
 
 function populateStatic() {
-  fillSelect($("#domainFilter"), catalog.domains.map((d) => [d.id, d.title]), "Tous les domaines");
-  fillSelect($("#typeFilter"), [...new Set(activeResources(catalog).map((r) => r.type))].sort().map((t) => [t, TYPE_LABELS[t] || t]), "Tous les formats");
+  fillSelect(
+    $("#domainFilter"),
+    catalog.domains.map((d) => [d.id, d.title]),
+    "Tous les domaines"
+  );
+  fillSelect(
+    $("#typeFilter"),
+    [...new Set(activeResources(catalog).map((r) => r.type))].sort().map((t) => [t, TYPE_LABELS[t] || t]),
+    "Tous les formats"
+  );
   fillSelect($("#levelFilter"), Object.entries(LEVEL_LABELS), "Tous les niveaux");
   fillSelect($("#statusFilter"), Object.entries(STATUS_LABELS), "Tous les statuts");
   fillSelect($("#languageFilter"), Object.entries(LANG_LABELS), "Toutes les langues");
   fillSelect($("#accessFilter"), Object.entries(ACCESS_LABELS), "Tous les accès");
   fillSelect($("#sortFilter"), Object.entries(SORT_LABELS));
-  $("#tagChips").innerHTML = popularTags().map(([tag, n]) => `<button type="button" class="tag-chip" data-tag="${escapeHTML(tag)}" aria-pressed="false">#${escapeHTML(tag)} <small>${n}</small></button>`).join("");
+  $("#tagChips").innerHTML = popularTags()
+    .map(
+      ([tag, n]) =>
+        `<button type="button" class="tag-chip" data-tag="${escapeHTML(tag)}" aria-pressed="false">#${escapeHTML(tag)} <small>${n}</small></button>`
+    )
+    .join("");
 }
 
 function syncControls() {
-  fillSelect($("#categoryFilter"), categoriesOf(catalog, filters.domain).map(([name, n]) => [name, `${name} (${n})`]), "Toutes les catégories");
+  fillSelect(
+    $("#categoryFilter"),
+    categoriesOf(catalog, filters.domain).map(([name, n]) => [name, `${name} (${n})`]),
+    "Toutes les catégories"
+  );
   $("#domainFilter").value = filters.domain;
   $("#categoryFilter").value = filters.category;
   $("#typeFilter").value = filters.type;
@@ -66,7 +104,9 @@ function syncControls() {
   $("#languageFilter").value = filters.lang;
   $("#accessFilter").value = filters.access;
   $("#sortFilter").value = filters.sort;
-  searchInputs().forEach((input) => { if (input.value !== filters.q) input.value = filters.q; });
+  searchInputs().forEach((input) => {
+    if (input.value !== filters.q) input.value = filters.q;
+  });
   $$("#tagChips [data-tag]").forEach((chip) => chip.setAttribute("aria-pressed", String(chip.dataset.tag === filters.tag)));
   const advanced = ADVANCED_KEYS.filter((key) => filters[key]).length;
   $("#advBadge").hidden = advanced === 0;
@@ -87,8 +127,12 @@ function renderChips() {
     tag: filters.tag && `#${filters.tag}`,
     view: filters.view && VIEW_LABELS[filters.view]
   };
-  const chips = Object.entries(labels).filter(([, label]) => label)
-    .map(([key, label]) => `<button type="button" class="filter-chip" data-clear="${key}" aria-label="Retirer le filtre : ${escapeHTML(label)}">${escapeHTML(label)} ${icon("x")}</button>`);
+  const chips = Object.entries(labels)
+    .filter(([, label]) => label)
+    .map(
+      ([key, label]) =>
+        `<button type="button" class="filter-chip" data-clear="${key}" aria-label="Retirer le filtre : ${escapeHTML(label)}">${escapeHTML(label)} ${icon("x")}</button>`
+    );
   const box = $("#activeFilters");
   box.innerHTML = chips.join("");
   box.hidden = chips.length === 0;
@@ -119,7 +163,8 @@ function getFiltered(f = filters, { fuzzy = false } = {}) {
     if (f.view === "recent") return recent.indexOf(a.id) - recent.indexOf(b.id);
     if (f.sort === "az") return a.title.localeCompare(b.title, "fr");
     if (f.sort === "za") return b.title.localeCompare(a.title, "fr");
-    if (f.sort === "newest") return String(b.added || b.verified || "").localeCompare(String(a.added || a.verified || "")) || a.title.localeCompare(b.title, "fr");
+    if (f.sort === "newest")
+      return String(b.added || b.verified || "").localeCompare(String(a.added || a.verified || "")) || a.title.localeCompare(b.title, "fr");
     if (ranked && score.get(b.id) !== score.get(a.id)) return score.get(b.id) - score.get(a.id);
     return Number(Boolean(b.featured)) - Number(Boolean(a.featured)) || a.title.localeCompare(b.title, "fr");
   });
@@ -127,37 +172,61 @@ function getFiltered(f = filters, { fuzzy = false } = {}) {
 }
 
 const FILTER_NAMES = {
-  q: () => "la recherche", domain: () => getDomain(catalog, filters.domain)?.title, category: () => filters.category,
-  type: () => TYPE_LABELS[filters.type], level: () => LEVEL_LABELS[filters.level], status: () => STATUS_LABELS[filters.status],
-  lang: () => LANG_LABELS[filters.lang], access: () => ACCESS_LABELS[filters.access], tag: () => `#${filters.tag}`, view: () => VIEW_LABELS[filters.view]
+  q: () => "la recherche",
+  domain: () => getDomain(catalog, filters.domain)?.title,
+  category: () => filters.category,
+  type: () => TYPE_LABELS[filters.type],
+  level: () => LEVEL_LABELS[filters.level],
+  status: () => STATUS_LABELS[filters.status],
+  lang: () => LANG_LABELS[filters.lang],
+  access: () => ACCESS_LABELS[filters.access],
+  tag: () => `#${filters.tag}`,
+  view: () => VIEW_LABELS[filters.view]
 };
 
 /** Quand rien ne correspond : propose de retirer le filtre qui bloque, avec le nombre de résultats que cela donnerait. */
 function suggestions() {
-  return Object.keys(FILTER_NAMES).filter((key) => filters[key])
+  return Object.keys(FILTER_NAMES)
+    .filter((key) => filters[key])
     .map((key) => ({ key, count: getFiltered({ ...filters, [key]: DEFAULT_FILTERS[key] }).list.length }))
-    .filter((s) => s.count > 0).sort((a, b) => b.count - a.count).slice(0, 3);
+    .filter((s) => s.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 3);
 }
 
 function render() {
-  let { list, parsed } = getFiltered();
+  const first = getFiltered();
+  const { parsed } = first;
+  let { list } = first;
   const bad = invalidFields(parsed);
   let note = "";
-  if (bad.length) note = `Valeur inconnue pour ${bad.map((f) => `« ${f.operator}:${f.raw} »`).join(", ")}. Voir « Syntaxe de recherche » pour les valeurs possibles.`;
+  if (bad.length)
+    note = `Valeur inconnue pour ${bad.map((f) => `« ${f.operator}:${f.raw} »`).join(", ")}. Voir « Syntaxe de recherche » pour les valeurs possibles.`;
   else if (!list.length && parsed.terms.length) {
     const approx = getFiltered(filters, { fuzzy: true }).list;
-    if (approx.length) { list = approx; note = `Aucun résultat exact pour « ${filters.q} » : voici des résultats approchants.`; }
+    if (approx.length) {
+      list = approx;
+      note = `Aucun résultat exact pour « ${filters.q} » : voici des résultats approchants.`;
+    }
   }
   const noteBox = $("#searchNote");
   noteBox.textContent = note;
   noteBox.hidden = !note;
 
   $("#resultsCount").textContent = `${plural(list.length, "ressource")} trouvée${list.length > 1 ? "s" : ""}`;
-  $("#resourceGrid").innerHTML = list.slice(0, visible).map((r) => resourceCard(catalog, r, { heading: "h2" })).join("");
+  $("#resourceGrid").innerHTML = list
+    .slice(0, visible)
+    .map((r) => resourceCard(catalog, r, { heading: "h2" }))
+    .join("");
   $("#emptyState").hidden = list.length !== 0;
   $("#emptyText").textContent = EMPTY_TEXT[filters.view] || "Essaie un autre terme ou assouplis les filtres.";
   const help = list.length === 0 ? suggestions() : [];
-  $("#emptySuggestions").innerHTML = help.map((s) => `<li><button type="button" class="link-btn" data-clear="${s.key}">Retirer ${escapeHTML(FILTER_NAMES[s.key]() || "ce filtre")} → ${plural(s.count, "résultat")}</button></li>`).join("");
+  $("#emptySuggestions").innerHTML = help
+    .map(
+      (s) =>
+        `<li><button type="button" class="link-btn" data-clear="${s.key}">Retirer ${escapeHTML(FILTER_NAMES[s.key]() || "ce filtre")} → ${plural(s.count, "résultat")}</button></li>`
+    )
+    .join("");
   $("#loadMore").hidden = visible >= list.length || list.length === 0;
   $("#emptyPropose").href = `contribuer${filters.q ? `?title=${encodeURIComponent(filters.q)}` : ""}#formulaire`;
   $("#resetFilters").hidden = sameFilters(filters, DEFAULT_FILTERS);
@@ -165,7 +234,10 @@ function render() {
   const domainInfo = filters.domain ? getDomain(catalog, filters.domain) : null;
   const guide = $("#domainGuide");
   guide.hidden = !domainInfo?.path;
-  if (domainInfo?.path) { guide.href = docURL(domainInfo.path); $("#domainGuideLabel").textContent = `Guide ${domainInfo.title}`; }
+  if (domainInfo?.path) {
+    guide.href = docURL(domainInfo.path);
+    $("#domainGuideLabel").textContent = `Guide ${domainInfo.title}`;
+  }
   $("#domainNotice").hidden = !SENSITIVE_DOMAINS.includes(filters.domain);
   const domain = domainInfo?.title;
   document.title = domain ? `${domain} · ${BASE_TITLE}` : BASE_TITLE;
@@ -213,13 +285,30 @@ async function init() {
   syncControls();
 
   searchInputs().forEach((input) => input.addEventListener("input", (e) => update({ q: e.target.value.slice(0, 100) }, { push: false })));
-  [["#domainFilter", "domain"], ["#categoryFilter", "category"], ["#typeFilter", "type"], ["#levelFilter", "level"], ["#statusFilter", "status"],
-    ["#languageFilter", "lang"], ["#accessFilter", "access"], ["#sortFilter", "sort"]]
-    .forEach(([selector, key]) => $(selector).addEventListener("change", (e) => update({ [key]: e.target.value, ...(key === "domain" ? { category: "" } : {}) })));
-  const reset = () => { filters = { ...DEFAULT_FILTERS }; visible = PAGE_SIZE; syncControls(); commit(); };
+  [
+    ["#domainFilter", "domain"],
+    ["#categoryFilter", "category"],
+    ["#typeFilter", "type"],
+    ["#levelFilter", "level"],
+    ["#statusFilter", "status"],
+    ["#languageFilter", "lang"],
+    ["#accessFilter", "access"],
+    ["#sortFilter", "sort"]
+  ].forEach(([selector, key]) =>
+    $(selector).addEventListener("change", (e) => update({ [key]: e.target.value, ...(key === "domain" ? { category: "" } : {}) }))
+  );
+  const reset = () => {
+    filters = { ...DEFAULT_FILTERS };
+    visible = PAGE_SIZE;
+    syncControls();
+    commit();
+  };
   $("#resetFilters").addEventListener("click", reset);
   $("#emptyReset").addEventListener("click", reset);
-  $("#loadMore").addEventListener("click", () => { visible += PAGE_SIZE; render(); });
+  $("#loadMore").addEventListener("click", () => {
+    visible += PAGE_SIZE;
+    render();
+  });
   const clear = (e) => {
     const chip = e.target.closest("[data-clear]");
     if (chip) update({ [chip.dataset.clear]: DEFAULT_FILTERS[chip.dataset.clear] });
@@ -236,13 +325,22 @@ async function init() {
     update({ q: example.dataset.example }, { push: true });
     $("#searchInput").focus();
   });
-  bindCards($("#resourceGrid"), () => { if (filters.view === "favorites") render(); });
-  window.addEventListener("popstate", () => { filters = readURL(); visible = PAGE_SIZE; syncControls(); window.dispatchEvent(new Event("hc:urlchange")); render(); });
+  bindCards($("#resourceGrid"), () => {
+    if (filters.view === "favorites") render();
+  });
+  window.addEventListener("popstate", () => {
+    filters = readURL();
+    visible = PAGE_SIZE;
+    syncControls();
+    window.dispatchEvent(new Event("hc:urlchange"));
+    render();
+  });
 
   render();
 
   const params = new URLSearchParams(location.search);
-  if (params.get("focus")) { // arrivée depuis Ctrl+K sur une autre page
+  if (params.get("focus")) {
+    // arrivée depuis Ctrl+K sur une autre page
     history.replaceState(null, "", `${location.pathname}${serializeFilters(filters)}`);
     $("#searchInput").focus();
   }
