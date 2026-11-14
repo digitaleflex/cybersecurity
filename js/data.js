@@ -97,7 +97,7 @@ export function catalogueURL(filters = {}) {
 }
 
 /* ---------- stockage local (favoris, récents) ---------- */
-function readStore(key) {
+export function readStore(key) {
   try {
     const value = JSON.parse(localStorage.getItem(key) || "[]");
     return Array.isArray(value) ? value.filter((v) => typeof v === "string") : [];
@@ -105,7 +105,7 @@ function readStore(key) {
     return [];
   }
 }
-function writeStore(key, value) {
+export function writeStore(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {

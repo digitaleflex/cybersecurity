@@ -27,6 +27,7 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
 
   return `<article class="resource-card" data-id="${escapeHTML(resource.id)}">
     <button class="fav-btn" type="button" data-fav="${escapeHTML(resource.id)}" aria-pressed="${fav}" aria-label="${fav ? "Retirer des favoris" : "Ajouter aux favoris"} : ${escapeHTML(resource.title)}">${icon("star")}</button>
+    <button class="list-btn" type="button" data-list-add="${escapeHTML(resource.id)}" data-title="${escapeHTML(resource.title)}" aria-haspopup="dialog" aria-label="Ajouter à une liste : ${escapeHTML(resource.title)}">${icon("list")}</button>
     <div class="card-topline">
       <span class="resource-type">${escapeHTML(type)}</span>
       <span class="pill">${escapeHTML(level)}</span>
@@ -44,7 +45,13 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
 
 /** Délégation d'événements : favoris et historique. onFavorite() est appelé après un changement de favori. */
 export function bindCards(container, onFavorite = () => {}) {
-  container.addEventListener("click", (event) => {
+  container.addEventListener("click", async (event) => {
+    const add = event.target.closest("[data-list-add]");
+    if (add) {
+      const { openListDialog } = await import("./lists-ui.js");
+      openListDialog(add.dataset.listAdd, add.dataset.title, add);
+      return;
+    }
     const fav = event.target.closest("[data-fav]");
     if (fav) {
       toggleFavorite(fav.dataset.fav);

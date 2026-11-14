@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { SITE_URL, PAGES, SECURITY_HEADERS, HSTS } from "../scripts/site-config.mjs";
+import { SITE_URL, PAGES, NOINDEX_PAGES, SECURITY_HEADERS, HSTS } from "../scripts/site-config.mjs";
 import { generated } from "../scripts/build-seo.mjs";
 
 const root = new URL("..", import.meta.url).pathname;
@@ -128,4 +128,16 @@ test("aucun identifiant en double dans une page, ni en conflit avec ceux inject�
     }
   }
   assert.deepEqual(problems, []);
+});
+
+test("les pages personnelles (Mon espace, liste partagée) sont balisées noindex et absentes du sitemap", () => {
+  const sitemap = read("sitemap.xml");
+  for (const page of NOINDEX_PAGES) {
+    const html = read(`${page}.html`);
+    assert.match(html, /<meta name="robots" content="noindex,follow">/, `${page}: noindex`);
+    assert.match(html, /<title>[^<]{10,}<\/title>/, `${page}: titre`);
+    assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, `${page}: un seul h1`);
+    assert.ok(!sitemap.includes(`/${page}<`), `${page}: absent du sitemap`);
+  }
+  for (const page of PAGES) assert.match(read(`${page}.html`), /content="index,follow"/, `${page}: indexable`);
 });

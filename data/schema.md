@@ -21,3 +21,20 @@ The static website reads `data/resources.json`.
 - `removed`: withdrawn from the public catalog.
 
 Never use the catalog entry date as a verification date. Check access, license, language, maintenance and scope before changing `needs-review` to `verified`.
+
+## Machine-readable schemas
+- [`resources.schema.json`](resources.schema.json) — JSON Schema (2020-12) of one resource. Reference it from an editor with `"$schema"` for autocompletion. `js/resource-schema.js` holds the same rules for the validator, the tests and the contribution form; `tests/schema.test.mjs` guarantees both stay equivalent.
+- Optional field `license` (free text or SPDX identifier) may be added once it has been checked. Unknown fields are rejected.
+
+## Link health (`health.json`)
+`data/health.json` is **generated** by `npm run health` (`scripts/check-links.mjs --health`): never edit it by hand. It records, per active resource, the result of the last link check:
+
+| State | Meaning |
+|---|---|
+| `ok` | The URL answers. |
+| `redirect` | The address now redirects to another site: review the canonical URL. |
+| `blocked` | The site refuses robots (HTTP 401/403/429): check by hand. |
+| `unreachable` | Server or network error, possibly temporary. |
+| `broken` | Not found (404/410) or domain does not exist. |
+
+The file is described by [`health.schema.json`](health.schema.json). The weekly workflow `link-check.yml` produces a fresh copy as an artifact; commit it to update the public « État du catalogue » page.

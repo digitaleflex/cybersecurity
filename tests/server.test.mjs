@@ -16,7 +16,19 @@ after(() => new Promise((r) => server.close(r)));
 const get = (path, init = {}) => fetch(base + path, { redirect: "manual", ...init });
 
 test("les pages publiques répondent 200 avec toutes les en-têtes de sécurité", async () => {
-  for (const path of ["/", "/catalogue", "/domaines", "/communaute", "/docs?doc=README.md", "/mentions-legales", "/confidentialite"]) {
+  for (const path of [
+    "/",
+    "/catalogue",
+    "/domaines",
+    "/etat",
+    "/communaute",
+    "/contribuer",
+    "/espace",
+    "/liste?ids=a",
+    "/docs?doc=README.md",
+    "/mentions-legales",
+    "/confidentialite"
+  ]) {
     const res = await get(path);
     assert.equal(res.status, 200, path);
     assert.match(res.headers.get("content-type"), /text\/html/);
@@ -52,6 +64,10 @@ test("les ressources nécessaires au site sont servies avec le bon type", async 
     "/ui.css": /text\/css/,
     "/js/shell.js": /javascript/,
     "/data/resources.json": /json/,
+    "/data/resources.schema.json": /json/,
+    "/data/health.json": /json/,
+    "/data/health.schema.json": /json/,
+    "/data/schema.md": /markdown/,
     "/library/02-OSINT/README.md": /markdown/,
     "/assets/fonts/manrope-var-latin.woff2": /font\/woff2/,
     "/vendor/purify.min.js": /javascript/,

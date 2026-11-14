@@ -1,5 +1,6 @@
 // Contrôle de disponibilité des URL du catalogue.
-// Usage : node scripts/check-links.mjs [--featured] [--domain=osint] [--limit=20] [--markdown] [--json=chemin] [--no-fail]
+// Usage : node scripts/check-links.mjs [--featured] [--domain=osint] [--limit=20] [--markdown] [--json=chemin] [--health[=chemin]] [--no-fail]
+// --health : écrit l'état de santé des liens (data/health.json par défaut) ; refusé si le contrôle est partiel.
 // --no-fail : rapporte les liens cassés sans faire échouer la commande (utilisé sur les pull requests).
 // Ne modifie jamais data/resources.json : la validation (licence, accès, métadonnées) reste humaine.
 import { readFileSync, writeFileSync } from "node:fs";
@@ -33,20 +34,22 @@ async function request(url, method) {
 function classify(resource, response, error) {
   if (error) {
     const code = error.cause?.code || error.name;
-    if (["ENOTFOUND", "ERR_INVALID_URL"].includes(code)) return { level: "broken", detail: `DNS / URL invalide (${code})` };
-    return { level: "warn", detail: `Réseau : ${code}` };
+    if (["ENOTFOUND", "ERR_INVALID_URL"].includes(code))
+      return { level: "broken", health: "broken", detail: `DNS / URL invalide (${code})` };
+    return { level: "warn", health: "unreachable", detail: `Réseau : ${code}` };
   }
   const { status } = response;
-  if (status === 404 || status === 410) return { level: "broken", detail: `HTTP ${status}` };
-  if ([401, 403, 429, 999].includes(status)) return { level: "warn", detail: `HTTP ${status} (protection anti-robot ?)` };
-  if (status >= 500) return { level: "warn", detail: `HTTP ${status}` };
-  if (status >= 400) return { level: "broken", detail: `HTTP ${status}` };
+  if (status === 404 || status === 410) return { level: "broken", health: "broken", detail: `HTTP ${status}` };
+  if ([401, 403, 429, 999].includes(status))
+    return { level: "warn", health: "blocked", detail: `HTTP ${status} (protection anti-robot ?)` };
+  if (status >= 500) return { level: "warn", health: "unreachable", detail: `HTTP ${status}` };
+  if (status >= 400) return { level: "broken", health: "broken", detail: `HTTP ${status}` };
   const from = new URL(resource.url);
   const to = new URL(response.url);
   if (from.hostname.replace(/^www\./, "") !== to.hostname.replace(/^www\./, "")) {
-    return { level: "warn", detail: `Redirigé vers ${to.origin}` };
+    return { level: "warn", health: "redirect", detail: `Redirigé vers ${to.origin}`, finalUrl: to.href };
   }
-  return { level: "ok", detail: `HTTP ${status}` };
+  return { level: "ok", health: "ok", detail: `HTTP ${status}` };
 }
 
 async function check(resource) {
@@ -95,6 +98,23 @@ if (flag("markdown")) {
 } else {
   console.log(summary);
   for (const r of problems) console.log(`${r.level === "broken" ? "✖" : "!"} ${r.id} — ${r.detail} — ${r.url}`);
+}
+if (flag("health") || option("health")) {
+  const partial = flag("featured") || option("domain") || option("limit");
+  if (partial) {
+    console.error("--health exige un contrôle complet du catalogue (sans --featured, --domain ni --limit).");
+    process.exit(2);
+  }
+  const target = option("health") || "data/health.json";
+  const entries = Object.fromEntries(
+    results.map((r) => [
+      r.id,
+      { health: r.health, ...(r.health === "ok" ? {} : { detail: r.detail }), ...(r.finalUrl ? { finalUrl: r.finalUrl } : {}) }
+    ])
+  );
+  const health = { version: 1, checked: new Date().toISOString().slice(0, 10), source: "scripts/check-links.mjs", results: entries };
+  writeFileSync(new URL(`../${target}`, import.meta.url), `${JSON.stringify(health, null, 2)}\n`);
+  console.log(`État de santé écrit dans ${target} (${results.length} ressources, contrôle du ${health.checked}).`);
 }
 if (option("json")) writeFileSync(option("json"), JSON.stringify({ checked: new Date().toISOString(), summary, results }, null, 2));
 process.exit(count("broken") > 0 && !flag("no-fail") ? 1 : 0);

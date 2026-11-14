@@ -22,6 +22,7 @@ const NAV = [
   { id: "home", href: "./", label: "Accueil", ico: "home" },
   { id: "catalog", href: "catalogue", label: "Catalogue", ico: "catalog", count: "all" },
   { id: "domains", href: "domaines", label: "Domaines", ico: "cube" },
+  { id: "status", href: "etat", label: "État du catalogue", ico: "layers" },
   { id: "osint", href: catalogueURL({ domain: "osint" }), label: "OSINT", ico: "shield-check", count: "osint" },
   { id: "paths", href: "docs?doc=LEARNING-PATHS.md", label: "Parcours", ico: "route", badge: "Nouveau" },
   { id: "collections", href: "./#collections", label: "Collections", ico: "folder" },
@@ -30,9 +31,10 @@ const NAV = [
   { id: "contribute", href: "contribuer", label: "Contribuer", ico: "plus" }
 ];
 const SPACE = [
+  { id: "space", href: "espace", label: "Mon espace", ico: "user" },
   { id: "favorites", href: catalogueURL({ view: "favorites" }), label: "Favoris", ico: "star", count: "fav" },
   { id: "recent", href: catalogueURL({ view: "recent" }), label: "Consultés récemment", ico: "clock" },
-  { id: "contrib", href: `${GITHUB_URL}/pulls`, label: "Mes contributions", ico: "user", external: true }
+  { id: "contrib", href: `${GITHUB_URL}/pulls`, label: "Mes contributions", ico: "code", external: true }
 ];
 
 function activeId() {
@@ -103,7 +105,7 @@ function renderFooter() {
     <footer class="footer">
       <a class="brand" href="./"><img src="assets/logo-mark-96.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b> <small>Cyber <span>Library</span></small></span></a>
       <p>Une initiative de partage de connaissances cyber.</p>
-      <nav aria-label="Liens utiles"><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="contribuer">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
+      <nav aria-label="Liens utiles"><a href="etat">État du catalogue</a><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="contribuer">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
       <small>© ${new Date().getFullYear()} HashCode · Digital E-Flex</small>
     </footer>`
   );

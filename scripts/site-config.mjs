@@ -28,4 +28,7 @@ export const SECURITY_HEADERS = {
 export const HSTS = "max-age=31536000; includeSubDomains";
 
 /** Pages HTML publiques (URL propres : /catalogue pour catalogue.html ; l'accueil est /). */
-export const PAGES = ["index", "catalogue", "domaines", "communaute", "contribuer", "docs", "mentions-legales", "confidentialite"];
+export const PAGES = ["index", "catalogue", "domaines", "etat", "communaute", "contribuer", "docs", "mentions-legales", "confidentialite"];
+
+/** Pages utiles mais sans intérêt pour un moteur de recherche (contenu personnel ou généré) : exclues du sitemap, balisées noindex. */
+export const NOINDEX_PAGES = ["espace", "liste"];

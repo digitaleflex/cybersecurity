@@ -6,8 +6,11 @@ export const PAGES = [
   "/",
   "/catalogue",
   "/domaines",
+  "/etat",
   "/communaute",
   "/contribuer",
+  "/espace",
+  "/liste?ids=osint-framework&titre=Test",
   "/mentions-legales",
   "/confidentialite",
   "/docs?doc=README.md"

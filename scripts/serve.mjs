@@ -31,7 +31,7 @@ const PUBLIC_PATHS = [
   /^\/js\/[A-Za-z0-9_-]+\.js$/,
   /^\/vendor\/[A-Za-z0-9._-]+\.(?:js|txt|md)$/,
   /^\/assets\/(?:fonts\/)?[A-Za-z0-9._-]+\.(?:webp|png|svg|ico|woff2|txt)$/,
-  /^\/data\/(?:resources\.json|schema\.md)$/,
+  /^\/data\/(?:resources\.json|resources\.schema\.json|health\.json|health\.schema\.json|schema\.md)$/,
   /^\/library\/[A-Za-z0-9_-]+(?:\/[A-Za-z0-9_-]+)?\/README\.md$/
 ];
 export const isPublicPath = (path) => PUBLIC_PATHS.some((re) => re.test(path));
@@ -39,7 +39,7 @@ export const isPublicPath = (path) => PUBLIC_PATHS.some((re) => re.test(path));
 function cacheControl(path) {
   if (/^\/(?:assets\/fonts|vendor)\//.test(path)) return "public, max-age=31536000, immutable";
   if (path.startsWith("/assets/")) return "public, max-age=604800, stale-while-revalidate=86400";
-  if (path === "/data/resources.json" || path.endsWith(".md")) return "public, max-age=300, stale-while-revalidate=3600";
+  if (path.startsWith("/data/") || path.endsWith(".md")) return "public, max-age=300, stale-while-revalidate=3600";
   return "no-cache"; // HTML, JS, CSS : toujours revalidés (ETag), donc jamais périmés après un déploiement
 }
 

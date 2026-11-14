@@ -6,6 +6,7 @@ node_modules/
 .env.*
 !.env.example
 link-report.json
+link-health.json
 playwright-report/
 test-results/
 lighthouse-report/

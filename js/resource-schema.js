@@ -34,6 +34,8 @@ export const REQUIRED_FIELDS = [
   "status",
   "featured"
 ];
+export const OPTIONAL_FIELDS = ["added", "license"];
+export const HEALTH_STATES = ["ok", "redirect", "blocked", "unreachable", "broken"];
 export const DESCRIPTION_RANGE = [40, 220];
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -46,6 +48,11 @@ export function validateResource(resource, { domainIds = [] } = {}) {
     if (resource[key] === undefined || resource[key] === null || resource[key] === "") errors.push(`${label}: missing ${key}`);
   }
   if (!Object.hasOwn(resource, "verified")) errors.push(`${label}: missing verified field`);
+  const known = new Set([...REQUIRED_FIELDS, "verified", ...OPTIONAL_FIELDS]);
+  for (const key of Object.keys(resource)) if (!known.has(key)) errors.push(`${label}: unknown field ${key}`);
+  if (typeof resource.featured !== "boolean" && resource.featured !== undefined) errors.push(`${label}: featured must be a boolean`);
+  if (resource.license !== undefined && (typeof resource.license !== "string" || !resource.license.trim()))
+    errors.push(`${label}: license must be a non-empty string`);
   if (resource.id && !ID.test(resource.id)) errors.push(`${label}: id must be lowercase letters, digits and hyphens`);
   try {
     if (!["http:", "https:"].includes(new URL(resource.url).protocol)) errors.push(`${label}: unsupported URL protocol`);
@@ -84,6 +91,19 @@ export function validateCatalog(data) {
     ids.add(resource.id);
     if (urls.has(resource.url)) errors.push(`${label}: duplicate URL`);
     urls.add(resource.url);
+  }
+  return errors;
+}
+
+/** Valide data/health.json (résultat du contrôle de liens) par rapport aux identifiants du catalogue. */
+export function validateHealth(health, resourceIds = []) {
+  const errors = [];
+  if (health?.version !== 1) errors.push("health: version must be 1");
+  if (!DATE.test(health?.checked ?? "")) errors.push("health: checked must be YYYY-MM-DD");
+  const known = new Set(resourceIds);
+  for (const [id, entry] of Object.entries(health?.results ?? {})) {
+    if (known.size && !known.has(id)) errors.push(`health: unknown resource ${id}`);
+    if (!HEALTH_STATES.includes(entry?.health)) errors.push(`health: ${id}: unsupported state ${entry?.health}`);
   }
   return errors;
 }

@@ -85,6 +85,7 @@ npm ci                  # installe les outils (tests, linter, formateur, types)
 npm run verify          # syntaxe + lint + format + types + catalogue + tests unitaires
 npm run e2e             # tests de navigateur (liens, accessibilité, sécurité, formulaires, mobile)
 npm run lighthouse      # budget de performance, accessibilité et SEO
+npm run health          # contrôle les liens et met à jour data/health.json (page « État du catalogue »)
 npm run format          # reformate le JavaScript (Prettier)
 ```
 

@@ -8,7 +8,7 @@
     "start": "node scripts/serve.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "test": "node --test",
-    "check": "node --check js/data.js && node --check js/url-state.js && node --check js/cards.js && node --check js/shell.js && node --check js/theme-init.js && node --check js/home.js && node --check js/catalog.js && node --check js/domains.js && node --check js/icons.js && node --check js/adv-open.js && node --check js/search.js && node --check js/resource-schema.js && node --check js/contribution.js && node --check js/contribute.js && node --check js/docs-index.js && node --check docs.js && node --check scripts/serve.mjs && node --check scripts/site-config.mjs && node --check scripts/build-seo.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/check-links.mjs",
+    "check": "node scripts/check-syntax.mjs",
     "check:links": "node scripts/check-links.mjs",
     "build:seo": "node scripts/build-seo.mjs",
     "e2e": "playwright test",
@@ -17,7 +17,8 @@
     "format": "prettier --write \"**/*.{js,mjs}\"",
     "format:check": "prettier --check \"**/*.{js,mjs}\"",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "verify": "npm run check && npm run lint && npm run format:check && npm run typecheck && npm run validate:catalog && npm test"
+    "verify": "npm run check && npm run lint && npm run format:check && npm run typecheck && npm run validate:catalog && npm test",
+    "health": "node scripts/check-links.mjs --health --no-fail"
   },
   "license": "MIT",
   "homepage": "https://cybersecurity.eflex.app/",
@@ -33,6 +34,7 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.6",
+    "ajv": "^8.20.0",
     "axe-core": "^4.14.0",
     "chrome-launcher": "^1.2.3",
     "eslint": "^10.15.0",

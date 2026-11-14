@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="color-scheme" content="dark light">
+  <title>Mon espace — HashCode Cyber Library</title>
+  <meta name="description" content="Tes favoris, tes listes personnalisées et ton historique, stockés uniquement dans ton navigateur : aucun compte, aucune donnée envoyée.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/espace">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Mon espace — HashCode Cyber Library">
+  <meta property="og:description" content="Tes favoris, tes listes personnalisées et ton historique, stockés uniquement dans ton navigateur : aucun compte, aucune donnée envoyée.">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/espace">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mon espace — HashCode Cyber Library">
+  <meta name="twitter:description" content="Tes favoris, tes listes personnalisées et ton historique, stockés uniquement dans ton navigateur : aucun compte, aucune donnée envoyée.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="app" data-page="space">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale"></aside>
+    <div class="main-col">
+      <header class="topbar" id="topbar"></header>
+      <main id="main">
+        <section class="page-head" aria-labelledby="spaceTitle">
+          <p class="eyebrow"><i></i> Mon espace</p>
+          <h1 id="spaceTitle">Mon espace</h1>
+          <p class="muted">Tes favoris, tes ressources récentes et tes listes. <strong>Tout reste dans ton navigateur</strong> : rien n'est envoyé à un serveur, il n'y a ni compte ni mot de passe. Exporte un fichier pour retrouver tes données sur un autre appareil. <a href="confidentialite">Confidentialité</a></p>
+        </section>
+        <p class="space-status" id="spaceStatus" role="status" aria-live="polite"></p>
+
+        <div class="space-wrap">
+        <section class="card space-card" id="favoris" aria-labelledby="favTitle" data-space-section hidden>
+          <h2 id="favTitle">Favoris <span class="count-pill" id="favCount">0</span></h2>
+          <div class="resource-grid fav-grid" id="favGrid"></div>
+        </section>
+
+        <section class="card space-card" id="listes" aria-labelledby="listsTitle" data-space-section hidden>
+          <h2 id="listsTitle">Mes listes <span class="count-pill" id="listCount">0</span></h2>
+          <p class="muted">Regroupe des ressources par thème (atelier, parcours, projet) et partage-les par un simple lien.</p>
+          <form class="inline-form" id="createListForm">
+            <label class="sr-only" for="newListName">Nom de la nouvelle liste</label>
+            <input id="newListName" type="text" maxlength="60" placeholder="Nom de la liste, ex. Atelier OSINT" autocomplete="off">
+            <button class="btn btn-primary btn-sm" id="createListBtn" type="submit"><svg class="ico"><use href="#i-plus"/></svg> Créer la liste</button>
+          </form>
+          <div class="lists" id="listsContainer"></div>
+        </section>
+
+        <section class="card space-card" id="recents" aria-labelledby="recentTitle" data-space-section hidden>
+          <h2 id="recentTitle">Consultées récemment <span class="count-pill" id="recentCount">0</span></h2>
+          <ul class="recent-list" id="recentList"></ul>
+          <button class="btn btn-ghost btn-sm" id="clearRecent" type="button" hidden>Effacer l'historique</button>
+        </section>
+
+        <section class="card space-card" id="donnees" aria-labelledby="dataTitle" data-space-section hidden>
+          <h2 id="dataTitle">Sauvegarde et transfert</h2>
+          <p class="muted">Le fichier d'export contient tes favoris, tes listes et ton historique (200 Ko maximum à l'import). Il est vérifié avant toute modification.</p>
+          <div class="transfer">
+            <button class="btn btn-ghost" id="exportBtn" type="button"><svg class="ico"><use href="#i-doc"/></svg> Exporter mes données (.json)</button>
+            <div class="fld"><label for="importFile">Importer un fichier</label><input id="importFile" type="file" accept=".json,application/json"></div>
+          </div>
+          <div class="import-preview" id="importPreview" hidden>
+            <p id="importSummary"></p>
+            <fieldset class="fld-set"><legend class="sr-only">Mode d'import</legend>
+              <label class="check"><input type="radio" name="importMode" value="merge" checked> <span>Fusionner avec mes données actuelles (recommandé)</span></label>
+              <label class="check"><input type="radio" name="importMode" value="replace"> <span>Remplacer mes données actuelles</span></label>
+            </fieldset>
+            <button class="btn btn-primary btn-sm" id="importApply" type="button">Importer</button>
+          </div>
+          <div class="danger-zone"><button class="btn btn-ghost btn-sm danger" id="clearAll" type="button">Tout effacer de ce navigateur</button></div>
+        </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="js/space.js"></script>
+  <noscript><p class="noscript">JavaScript est nécessaire pour Mon espace : tes données sont stockées dans ton navigateur.</p></noscript>
+</body>
+</html>

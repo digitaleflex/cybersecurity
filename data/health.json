@@ -1,0 +1,484 @@
+{
+  "version": 1,
+  "checked": "2026-11-14",
+  "source": "scripts/check-links.mjs",
+  "results": {
+    "awesome-blue-team": {
+      "health": "ok"
+    },
+    "awesome-cybersecurity-learning-resources": {
+      "health": "ok"
+    },
+    "awesome-osint": {
+      "health": "ok"
+    },
+    "awesome-osint-list": {
+      "health": "ok"
+    },
+    "awesome-pentest": {
+      "health": "ok"
+    },
+    "awesome-red-teaming": {
+      "health": "ok"
+    },
+    "aws-security-docs": {
+      "health": "ok"
+    },
+    "bellingcat-toolkit": {
+      "health": "ok"
+    },
+    "benin-apiex": {
+      "health": "redirect",
+      "detail": "Redirigé vers https://investbenin.bj",
+      "finalUrl": "https://investbenin.bj/"
+    },
+    "benin-budget-data": {
+      "health": "unreachable",
+      "detail": "HTTP 503"
+    },
+    "benin-dnc": {
+      "health": "ok"
+    },
+    "benin-government-portal": {
+      "health": "ok"
+    },
+    "benin-instad": {
+      "health": "unreachable",
+      "detail": "HTTP 503"
+    },
+    "benin-journal-officiel": {
+      "health": "unreachable",
+      "detail": "HTTP 503"
+    },
+    "benin-nada": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "benin-open-data": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "benin-procurement-journal": {
+      "health": "ok"
+    },
+    "benin-public-services": {
+      "health": "ok"
+    },
+    "bloodhound": {
+      "health": "ok"
+    },
+    "blueteamlabs": {
+      "health": "ok"
+    },
+    "capa": {
+      "health": "ok"
+    },
+    "cape-sandbox": {
+      "health": "ok"
+    },
+    "census-data": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "censys-search": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "cis-controls": {
+      "health": "ok"
+    },
+    "cisa-advisories": {
+      "health": "ok"
+    },
+    "cisco-skillsforall": {
+      "health": "redirect",
+      "detail": "Redirigé vers https://www.netacad.com",
+      "finalUrl": "https://www.netacad.com/"
+    },
+    "common-crawl": {
+      "health": "ok"
+    },
+    "copernicus-browser": {
+      "health": "ok"
+    },
+    "copernicus-data": {
+      "health": "ok"
+    },
+    "cordis": {
+      "health": "ok"
+    },
+    "crossref": {
+      "health": "ok"
+    },
+    "crt-sh": {
+      "health": "unreachable",
+      "detail": "HTTP 502"
+    },
+    "cutter": {
+      "health": "ok"
+    },
+    "cyberdefenders": {
+      "health": "ok"
+    },
+    "defcon-groups": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "enisa-publications": {
+      "health": "ok"
+    },
+    "epo-espacenet": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "eu-data-portal": {
+      "health": "ok"
+    },
+    "eu-sanctions-map": {
+      "health": "ok"
+    },
+    "eu-transparency-register": {
+      "health": "ok"
+    },
+    "euipo": {
+      "health": "unreachable",
+      "detail": "HTTP 503"
+    },
+    "eur-lex": {
+      "health": "ok"
+    },
+    "europa-public-registers": {
+      "health": "ok"
+    },
+    "european-e-justice": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "eurostat": {
+      "health": "ok"
+    },
+    "exiftool": {
+      "health": "ok"
+    },
+    "fao-faostat": {
+      "health": "ok"
+    },
+    "fec-data": {
+      "health": "ok"
+    },
+    "ffuf": {
+      "health": "ok"
+    },
+    "first": {
+      "health": "ok"
+    },
+    "first-epss": {
+      "health": "ok"
+    },
+    "flightradar24": {
+      "health": "ok"
+    },
+    "gdelt-project": {
+      "health": "ok"
+    },
+    "ghdb": {
+      "health": "ok"
+    },
+    "ghidra": {
+      "health": "ok"
+    },
+    "google-search-operators": {
+      "health": "ok"
+    },
+    "govinfo": {
+      "health": "ok"
+    },
+    "hackthebox": {
+      "health": "ok"
+    },
+    "hacktricks": {
+      "health": "ok"
+    },
+    "hdx": {
+      "health": "ok"
+    },
+    "icann-lookup": {
+      "health": "ok"
+    },
+    "ilo-ilostat": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "imf-data": {
+      "health": "ok"
+    },
+    "inteltechniques": {
+      "health": "ok"
+    },
+    "internet-archive": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "invid-weverify": {
+      "health": "ok"
+    },
+    "itu-data": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "juice-shop": {
+      "health": "ok"
+    },
+    "kube-bench": {
+      "health": "ok"
+    },
+    "kubernetes-security": {
+      "health": "ok"
+    },
+    "linux-journey": {
+      "health": "redirect",
+      "detail": "Redirigé vers https://labex.io",
+      "finalUrl": "https://labex.io/linuxjourney"
+    },
+    "maigret": {
+      "health": "ok"
+    },
+    "mapillary": {
+      "health": "ok"
+    },
+    "marinetraffic": {
+      "health": "ok"
+    },
+    "metasploit": {
+      "health": "ok"
+    },
+    "microsoft-learn-security": {
+      "health": "ok"
+    },
+    "missing-semester": {
+      "health": "ok"
+    },
+    "mitre-attack": {
+      "health": "ok"
+    },
+    "nasa-earthdata": {
+      "health": "ok"
+    },
+    "nasa-firms": {
+      "health": "ok"
+    },
+    "nasa-worldview": {
+      "health": "ok"
+    },
+    "nist-cybersecurity": {
+      "health": "ok"
+    },
+    "nmap": {
+      "health": "ok"
+    },
+    "noaa-data": {
+      "health": "ok"
+    },
+    "nuclei": {
+      "health": "ok"
+    },
+    "nvd": {
+      "health": "ok"
+    },
+    "oecd-data": {
+      "health": "ok"
+    },
+    "openalex": {
+      "health": "ok"
+    },
+    "openccti": {
+      "health": "ok"
+    },
+    "opencorporates": {
+      "health": "ok"
+    },
+    "opensanctions": {
+      "health": "ok"
+    },
+    "opensecuritytraining": {
+      "health": "ok"
+    },
+    "openstreetmap": {
+      "health": "ok"
+    },
+    "openstreetmap-wiki": {
+      "health": "ok"
+    },
+    "osint-framework": {
+      "health": "ok"
+    },
+    "osintshifu-awesome-osint-repos": {
+      "health": "ok"
+    },
+    "overthewire-bandit": {
+      "health": "ok"
+    },
+    "owasp-api-security": {
+      "health": "ok"
+    },
+    "owasp-asvs": {
+      "health": "ok"
+    },
+    "owasp-chapters": {
+      "health": "ok"
+    },
+    "owasp-cheatsheets": {
+      "health": "ok"
+    },
+    "owasp-masvs": {
+      "health": "ok"
+    },
+    "owasp-wstg": {
+      "health": "ok"
+    },
+    "owasp-zap": {
+      "health": "ok"
+    },
+    "picoctf": {
+      "health": "ok"
+    },
+    "portswigger-academy": {
+      "health": "ok"
+    },
+    "prowler": {
+      "health": "ok"
+    },
+    "radare2": {
+      "health": "ok"
+    },
+    "remnux": {
+      "health": "ok"
+    },
+    "rootme": {
+      "health": "ok"
+    },
+    "sam-gov": {
+      "health": "ok"
+    },
+    "sans-reading-room": {
+      "health": "ok"
+    },
+    "scoutsuite": {
+      "health": "ok"
+    },
+    "sec-edgar": {
+      "health": "ok"
+    },
+    "security-onion": {
+      "health": "redirect",
+      "detail": "Redirigé vers https://securityonionsolutions.com",
+      "finalUrl": "https://securityonionsolutions.com/"
+    },
+    "security-reference-guide": {
+      "health": "ok"
+    },
+    "semgrep": {
+      "health": "ok"
+    },
+    "sherlock": {
+      "health": "ok"
+    },
+    "sigma": {
+      "health": "ok"
+    },
+    "spiderfoot": {
+      "health": "ok"
+    },
+    "subfinder": {
+      "health": "ok"
+    },
+    "suncalc": {
+      "health": "ok"
+    },
+    "suricata": {
+      "health": "ok"
+    },
+    "ted-europa": {
+      "health": "ok"
+    },
+    "theharvester": {
+      "health": "ok"
+    },
+    "thehive": {
+      "health": "ok"
+    },
+    "tineye": {
+      "health": "ok"
+    },
+    "trivy": {
+      "health": "ok"
+    },
+    "tryhackme": {
+      "health": "ok"
+    },
+    "un-comtrade": {
+      "health": "ok"
+    },
+    "un-data": {
+      "health": "ok"
+    },
+    "unhcr-data": {
+      "health": "blocked",
+      "detail": "HTTP 403 (protection anti-robot ?)"
+    },
+    "urlhaus": {
+      "health": "ok"
+    },
+    "urlscan": {
+      "health": "ok"
+    },
+    "us-data-gov": {
+      "health": "ok"
+    },
+    "usaspending": {
+      "health": "ok"
+    },
+    "usgs-earthexplorer": {
+      "health": "ok"
+    },
+    "usgs-earthquake": {
+      "health": "ok"
+    },
+    "uspto-search": {
+      "health": "ok"
+    },
+    "velociraptor": {
+      "health": "ok"
+    },
+    "volatility3": {
+      "health": "ok"
+    },
+    "wazuh": {
+      "health": "ok"
+    },
+    "whatsmyname": {
+      "health": "ok"
+    },
+    "who-gho": {
+      "health": "ok"
+    },
+    "wipo-ip-portal": {
+      "health": "ok"
+    },
+    "wireshark-docs": {
+      "health": "ok"
+    },
+    "world-bank-data": {
+      "health": "ok"
+    },
+    "wto-data": {
+      "health": "ok"
+    },
+    "yara": {
+      "health": "ok"
+    },
+    "zeek": {
+      "health": "ok"
+    }
+  }
+}
