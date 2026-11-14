@@ -85,3 +85,16 @@ test("les chiffres du README et du CATALOG correspondent aux données", () => {
   assert.equal(Number(readme.match(/OSINT\]\([^)]*\) — (\d+) resources/)[1]), osint);
   assert.equal(Number(read("CATALOG.md").match(/02-OSINT[^\n]*?\| (\d+) ressources/)[1]), osint);
 });
+
+test("aucun identifiant en double dans une page, ni en conflit avec ceux injectés par js/shell.js", () => {
+  const shellIds = ["sidebar", "topbar", "scrim", "contribTitle", "mySpaceLabel", "themeToggle", "menuBtn", "domainsMenuBtn", "domainsMenu", "topSearchBtn", "bellLink", "bellBadge"];
+  const problems = [];
+  for (const page of pages) {
+    const ids = [...read(page).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+    for (const id of new Set(ids)) {
+      if (ids.filter((x) => x === id).length > 1) problems.push(`${page}: id « ${id} » en double`);
+      if (shellIds.includes(id) && !["sidebar", "topbar", "scrim"].includes(id)) problems.push(`${page}: id « ${id} » déjà utilisé par la coque commune`);
+    }
+  }
+  assert.deepEqual(problems, []);
+});

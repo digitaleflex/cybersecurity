@@ -17,7 +17,8 @@ const NAV = [
   { id: "paths", href: "docs?doc=LEARNING-PATHS.md", label: "Parcours", ico: "route", badge: "Nouveau" },
   { id: "collections", href: "./#collections", label: "Collections", ico: "folder" },
   { id: "docs", href: "docs", label: "Guides & Docs", ico: "doc" },
-  { id: "community", href: "communaute", label: "Communauté", ico: "users" }
+  { id: "community", href: "communaute", label: "Communauté", ico: "users" },
+  { id: "contribute", href: "contribuer", label: "Contribuer", ico: "plus" }
 ];
 const SPACE = [
   { id: "favorites", href: catalogueURL({ view: "favorites" }), label: "Favoris", ico: "star", count: "fav" },
@@ -57,7 +58,7 @@ function renderSidebar() {
       ${icon("book-plus", "ico-lg")}
       <h2 id="contribTitle">Contribuez à la bibliothèque</h2>
       <p>Ajoutez des ressources, proposez des mises à jour et enrichissez la base.</p>
-      <a class="btn btn-primary btn-block" href="${GITHUB_URL}/issues/new/choose" target="_blank" rel="noopener noreferrer">Contribuer ${icon("arrow")}</a>
+      <a class="btn btn-primary btn-block" href="contribuer">Contribuer ${icon("arrow")}</a>
     </section>
     <div class="side-foot"><button class="icon-btn" type="button" id="themeToggle" aria-label="Passer au thème clair">${icon("sun")}</button></div>`;
 }
@@ -90,7 +91,7 @@ function renderFooter() {
     <footer class="footer">
       <a class="brand" href="./"><img src="assets/logo-mark-96.webp" alt="" width="30" height="30"><span class="brand-text"><b>HashCode</b> <small>Cyber <span>Library</span></small></span></a>
       <p>Une initiative de partage de connaissances cyber.</p>
-      <nav aria-label="Liens utiles"><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="docs?doc=CONTRIBUTING.md">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
+      <nav aria-label="Liens utiles"><a href="communaute">Communauté</a><a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="docs?doc=QUALITY.md">Qualité &amp; éthique</a><a href="contribuer">Contribuer</a><a href="mentions-legales">Mentions légales</a><a href="confidentialite">Confidentialité</a></nav>
       <small>© ${new Date().getFullYear()} HashCode · Digital E-Flex</small>
     </footer>`);
 }

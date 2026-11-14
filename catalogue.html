@@ -55,6 +55,32 @@
             <label class="sr-only" for="levelFilter">Niveau</label><select id="levelFilter"><option value="">Tous les niveaux</option></select>
             <label class="sr-only" for="statusFilter">Statut</label><select id="statusFilter"><option value="">Tous les statuts</option></select>
           </div>
+          <details class="adv-search" id="advSearch">
+            <summary><svg class="ico"><use href="#i-search"/></svg> Recherche avancée <span class="adv-badge" id="advBadge" hidden>0</span></summary>
+            <div class="adv-body">
+              <div class="adv-row">
+                <div class="fld"><label for="languageFilter">Langue</label><select id="languageFilter"><option value="">Toutes les langues</option></select></div>
+                <div class="fld"><label for="accessFilter">Accès</label><select id="accessFilter"><option value="">Tous les accès</option></select></div>
+              </div>
+              <div class="fld">
+                <p class="adv-label" id="tagsLabel">Mots-clés populaires</p>
+                <div id="tagChips" class="tag-chips" role="group" aria-labelledby="tagsLabel"></div>
+              </div>
+              <div class="fld">
+                <p class="adv-label" id="syntaxLabel">Syntaxe de recherche <span class="muted">— clique sur un exemple pour l'essayer</span></p>
+                <ul class="syntax-list" id="syntaxList" aria-labelledby="syntaxLabel">
+                  <li><button type="button" class="syntax-ex" data-example="lang:fr"><code>lang:fr</code><span>contenus en français</span></button></li>
+                  <li><button type="button" class="syntax-ex" data-example="acces:gratuit niveau:debutant"><code>acces:gratuit niveau:debutant</code><span>gratuit, pour débuter</span></button></li>
+                  <li><button type="button" class="syntax-ex" data-example="tag:geoint"><code>tag:geoint</code><span>par mot-clé</span></button></li>
+                  <li><button type="button" class="syntax-ex" data-example="domaine:red-team type:outil"><code>domaine:red-team type:outil</code><span>les outils Red Team</span></button></li>
+                  <li><button type="button" class="syntax-ex" data-example="&quot;threat intelligence&quot;"><code>"threat intelligence"</code><span>phrase exacte</span></button></li>
+                  <li><button type="button" class="syntax-ex" data-example="osint -github"><code>osint -github</code><span>exclure un mot</span></button></li>
+                </ul>
+                <p class="hint">Plusieurs mots : tous doivent apparaître. Avec une recherche, les résultats les plus pertinents arrivent en premier, et les fautes de frappe légères sont tolérées quand rien ne correspond. Opérateurs : <code>lang</code>, <code>tag</code>, <code>domaine</code>, <code>type</code>, <code>niveau</code>, <code>acces</code>, <code>statut</code> (précède-les de <code>-</code> pour exclure).</p>
+              </div>
+            </div>
+          </details>
+          <script src="js/adv-open.js"></script>
         </div>
         <div class="toolbar-bottom">
           <div class="results-line">
@@ -66,8 +92,9 @@
           <label class="sort-control">Trier par <select id="sortFilter"></select></label>
         </div>
 
+        <p class="search-note" id="searchNote" role="status" aria-live="polite" hidden></p>
         <div id="resourceGrid" class="resource-grid" aria-live="polite"></div>
-        <div id="emptyState" class="empty-state" hidden><svg class="ico ico-lg"><use href="#i-search"/></svg><h2>Aucune ressource trouvée</h2><p id="emptyText">Essaie un autre terme ou modifie les filtres.</p><button class="btn btn-ghost" id="emptyReset" type="button">Effacer les filtres</button></div>
+        <div id="emptyState" class="empty-state" hidden><svg class="ico ico-lg"><use href="#i-search"/></svg><h2>Aucune ressource trouvée</h2><p id="emptyText">Essaie un autre terme ou assouplis les filtres.</p><ul class="suggest-list" id="emptySuggestions"></ul><div class="btn-row"><button class="btn btn-ghost" id="emptyReset" type="button">Effacer les filtres</button><a class="btn btn-primary" id="emptyPropose" href="contribuer#formulaire">Proposer cette ressource</a></div></div>
         <div class="load-more-wrap"><button id="loadMore" class="btn btn-ghost" type="button" hidden>Afficher plus de ressources <svg class="ico"><use href="#i-chev-down"/></svg></button></div>
         <p class="catalog-note">Les ressources « À vérifier » sont en attente de validation par un mainteneur.</p>
       </main>

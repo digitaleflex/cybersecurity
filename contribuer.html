@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="color-scheme" content="dark light">
+  <title>Contribuer — HashCode Cyber Library</title>
+  <meta name="description" content="Propose une ressource, signale un lien cassé ou corrige une fiche : un guide pas à pas et un formulaire qui détecte les doublons, sans compétence technique.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/contribuer">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Contribuer — HashCode Cyber Library">
+  <meta property="og:description" content="Propose une ressource, signale un lien cassé ou corrige une fiche : un guide pas à pas et un formulaire qui détecte les doublons, sans compétence technique.">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/contribuer">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contribuer — HashCode Cyber Library">
+  <meta name="twitter:description" content="Propose une ressource, signale un lien cassé ou corrige une fiche : un guide pas à pas et un formulaire qui détecte les doublons, sans compétence technique.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="app" data-page="contribute">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale"></aside>
+    <div class="main-col">
+      <header class="topbar" id="topbar"></header>
+      <main id="main">
+        <section class="page-head" aria-labelledby="contribPageTitle">
+          <p class="eyebrow"><i></i> Contribuer</p>
+          <h1 id="contribPageTitle">Aide-nous à enrichir la <span>bibliothèque</span></h1>
+          <p class="muted">Tu as trouvé une ressource utile, un lien cassé ou une erreur ? Choisis la voie qui te convient. <strong>Aucune compétence technique n'est requise.</strong></p>
+        </section>
+
+        <section class="profile-grid" aria-label="Choisis ton parcours">
+          <article class="card profile">
+            <span class="profile-num">1</span>
+            <h2>Je n'ai pas GitHub</h2>
+            <p>Rejoins le groupe WhatsApp et envoie le nom, le lien officiel et une phrase d'explication. Un mainteneur crée la fiche pour toi.</p>
+            <a class="btn btn-ghost" href="https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-whatsapp"/></svg> Ouvrir le groupe <svg class="ico"><use href="#i-external"/></svg></a>
+          </article>
+          <article class="card profile profile-main">
+            <span class="profile-num">2</span>
+            <h2>Je connais GitHub <small>2 minutes</small></h2>
+            <p>Remplis le formulaire ci-dessous : il vérifie ta fiche, détecte les doublons et prépare un ticket déjà rempli.</p>
+            <a class="btn btn-primary" href="#formulaire"><svg class="ico"><use href="#i-plus"/></svg> Remplir le formulaire</a>
+          </article>
+          <article class="card profile">
+            <span class="profile-num">3</span>
+            <h2>Je sais coder</h2>
+            <p>Ajoute ta fiche dans <code>data/resources.json</code> et ouvre une Pull Request. La validation automatique contrôle le format.</p>
+            <a class="btn btn-ghost" href="#pull-request"><svg class="ico"><use href="#i-code"/></svg> Voir les étapes</a>
+          </article>
+        </section>
+
+        <section class="card form-card" id="formulaire" aria-labelledby="formTitle">
+          <h2 id="formTitle">Proposer une ressource</h2>
+          <p class="muted">Les champs marqués d'une étoile sont obligatoires. Rien n'est envoyé tant que tu ne cliques pas sur « Ouvrir le ticket GitHub » : tout est vérifié dans ton navigateur.</p>
+          <form id="resourceForm" novalidate autocomplete="off">
+            <div class="form-grid">
+              <div class="fld">
+                <label for="f-title">Nom officiel <span aria-hidden="true">*</span></label>
+                <input id="f-title" name="title" type="text" maxlength="120" required aria-describedby="e-title">
+                <p class="err" id="e-title" role="alert"></p>
+              </div>
+              <div class="fld">
+                <label for="f-url">Adresse officielle (https) <span aria-hidden="true">*</span></label>
+                <input id="f-url" name="url" type="url" inputmode="url" placeholder="https://" maxlength="300" required aria-describedby="e-url">
+                <p class="err" id="e-url" role="alert"></p>
+              </div>
+            </div>
+
+            <div id="dupPanel" class="dup-panel" role="status" aria-live="polite" hidden></div>
+
+            <div class="form-grid form-grid-3">
+              <div class="fld">
+                <label for="f-domain">Domaine <span aria-hidden="true">*</span></label>
+                <select id="f-domain" name="domain" required aria-describedby="e-domain"><option value="">Choisir…</option></select>
+                <p class="err" id="e-domain" role="alert"></p>
+              </div>
+              <div class="fld">
+                <label for="f-type">Type <span aria-hidden="true">*</span></label>
+                <select id="f-type" name="type" required aria-describedby="e-type"><option value="">Choisir…</option></select>
+                <p class="err" id="e-type" role="alert"></p>
+              </div>
+              <div class="fld">
+                <label for="f-level">Niveau <span aria-hidden="true">*</span></label>
+                <select id="f-level" name="level" required aria-describedby="e-level"><option value="">Choisir…</option></select>
+                <p class="err" id="e-level" role="alert"></p>
+              </div>
+              <div class="fld">
+                <label for="f-access">Accès <span aria-hidden="true">*</span></label>
+                <select id="f-access" name="access" required aria-describedby="e-access"><option value="">Choisir…</option></select>
+                <p class="err" id="e-access" role="alert"></p>
+              </div>
+              <div class="fld">
+                <label for="f-category">Catégorie <span aria-hidden="true">*</span></label>
+                <input id="f-category" name="category" type="text" list="categoryList" maxlength="60" required aria-describedby="e-category h-category">
+                <datalist id="categoryList"></datalist>
+                <p class="hint" id="h-category">Choisis dans la liste ou écris la tienne.</p>
+                <p class="err" id="e-category" role="alert"></p>
+              </div>
+              <fieldset class="fld fld-set" aria-describedby="e-language">
+                <legend>Langue du contenu <span aria-hidden="true">*</span></legend>
+                <div id="langBoxes" class="checks"></div>
+                <p class="err" id="e-language" role="alert"></p>
+              </fieldset>
+            </div>
+
+            <div class="fld">
+              <label for="f-description">Que fournit cette ressource ? <span aria-hidden="true">*</span></label>
+              <textarea id="f-description" name="description" rows="3" maxlength="400" required aria-describedby="e-description h-description"></textarea>
+              <p class="hint" id="h-description"><span id="descCount">0</span> / 220 caractères — factuel, sans promotion (minimum 40).</p>
+              <p class="err" id="e-description" role="alert"></p>
+            </div>
+
+            <div class="form-grid">
+              <div class="fld">
+                <label for="f-tags">Mots-clés <span class="opt">(facultatif)</span></label>
+                <input id="f-tags" name="tags" type="text" placeholder="osint, verification" maxlength="120" aria-describedby="h-tags">
+                <p class="hint" id="h-tags">Séparés par des virgules (8 maximum).</p>
+              </div>
+              <div class="fld">
+                <label for="f-evidence">Pourquoi l'inclure ? <span class="opt">(facultatif)</span></label>
+                <input id="f-evidence" name="evidence" type="text" maxlength="300" aria-describedby="h-evidence">
+                <p class="hint" id="h-evidence">Documentation officielle, projet maintenu, exemple d'usage…</p>
+              </div>
+            </div>
+
+            <aside class="notice" id="formNotice" role="note" hidden><svg class="ico"><use href="#i-shield-check"/></svg><p><strong>Usage autorisé uniquement.</strong> Cette ressource touche à la sécurité offensive : elle n'est acceptée que pour des tests autorisés ou des environnements de formation.</p></aside>
+
+            <div class="fld">
+              <label class="check"><input type="checkbox" id="f-safety" required> <span>Je confirme que cette ressource ne promeut ni accès non autorisé, ni doxxing, ni vol d'identifiants, ni diffusion de données volées. <span aria-hidden="true">*</span></span></label>
+              <p class="err" id="e-safety" role="alert"></p>
+            </div>
+
+            <p class="err err-form" id="e-form" role="alert"></p>
+
+            <div class="form-actions">
+              <a class="btn btn-primary" id="issueBtn" href="#formulaire" target="_blank" rel="noopener noreferrer" aria-disabled="true">Ouvrir le ticket GitHub <svg class="ico"><use href="#i-external"/></svg></a>
+              <button class="btn btn-ghost" type="button" id="copyBtn" disabled><svg class="ico"><use href="#i-doc"/></svg> Copier la fiche JSON</button>
+              <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+            </div>
+            <p class="fineprint">Le ticket s'ouvre sur GitHub (compte nécessaire) : relis-le puis valide. La fiche reste « À vérifier » jusqu'à validation par un mainteneur.</p>
+          </form>
+          <details class="json-details" id="jsonDetails" hidden>
+            <summary>Aperçu de la fiche JSON</summary>
+            <pre id="jsonPreview" tabindex="0" aria-label="Aperçu de la fiche JSON"></pre>
+          </details>
+        </section>
+
+        <section class="dos-donts" aria-label="Ce qui est accepté ou refusé">
+          <article class="card dos">
+            <h2><svg class="ico"><use href="#i-check"/></svg> Nous acceptons</h2>
+            <ul>
+              <li>Documentation officielle, standards et référentiels</li>
+              <li>Cours légaux, livres autorisés, MOOC</li>
+              <li>Projets open source et outils défensifs</li>
+              <li>Laboratoires d'entraînement, CTF, cyber ranges</li>
+              <li>Communautés vérifiables, jeux de données publics, rapports de recherche</li>
+            </ul>
+          </article>
+          <article class="card donts">
+            <h2><svg class="ico"><use href="#i-x"/></svg> Nous refusons</h2>
+            <ul>
+              <li>Données volées, identifiants divulgués, doxxing</li>
+              <li>Liens de piratage, marchés d'accès non autorisés</li>
+              <li>Contenus malveillants hors contexte de recherche</li>
+              <li>Ressources encourageant des intrusions illégales</li>
+              <li>Liens raccourcis, relais ou pages sans source fiable</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card" id="pull-request" aria-labelledby="prTitle">
+          <h2 id="prTitle">Pull Request pas à pas</h2>
+          <ol class="steps">
+            <li><strong>Prépare ta fiche.</strong> Utilise le formulaire ci-dessus et clique sur « Copier la fiche JSON » (elle est déjà conforme), ou écris-la à la main d'après le <a href="docs?doc=CONTRIBUTING.md">guide de contribution</a>.</li>
+            <li><strong>Fais un fork</strong> du <a href="https://github.com/digitaleflex/cybersecurity" target="_blank" rel="noopener noreferrer">dépôt GitHub</a> et clone-le (Node.js 22 ou plus récent).</li>
+            <li><strong>Ajoute la fiche</strong> dans le tableau <code>resources</code> de <code>data/resources.json</code>.</li>
+            <li><strong>Vérifie</strong> avec <code>npm run validate:catalog</code> puis <code>npm test</code>.</li>
+            <li><strong>Ouvre la Pull Request</strong> et remplis le gabarit : explique l'utilité de la ressource.</li>
+            <li><strong>Relecture.</strong> Un mainteneur relit ; la fiche reste « À vérifier » jusqu'à contrôle humain.</li>
+          </ol>
+        </section>
+
+        <section class="card" aria-labelledby="otherTitle">
+          <h2 id="otherTitle">Autres façons d'aider</h2>
+          <ul class="contrib-list">
+            <li><a href="https://github.com/digitaleflex/cybersecurity/issues/new?template=broken-link.yml" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-link"/></svg><span><b>Signaler un lien cassé</b><small>Une adresse ne répond plus ou a changé</small></span><svg class="ico"><use href="#i-external"/></svg></a></li>
+            <li><a href="https://github.com/digitaleflex/cybersecurity/issues/new?template=correction.yml" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-doc"/></svg><span><b>Corriger une fiche</b><small>Description, niveau, langue ou accès erroné</small></span><svg class="ico"><use href="#i-external"/></svg></a></li>
+            <li><a href="docs?doc=SECURITY.md"><svg class="ico"><use href="#i-shield-check"/></svg><span><b>Signaler une faille de sécurité</b><small>Procédure de signalement privé</small></span><svg class="ico"><use href="#i-chev-right"/></svg></a></li>
+            <li><a href="communaute"><svg class="ico"><use href="#i-users"/></svg><span><b>Rejoindre la communauté</b><small>Échanger avec les autres contributeurs</small></span><svg class="ico"><use href="#i-chev-right"/></svg></a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="js/contribute.js"></script>
+  <noscript><p class="noscript">JavaScript est nécessaire pour le formulaire. Tu peux aussi <a href="https://github.com/digitaleflex/cybersecurity/issues/new/choose">ouvrir un ticket GitHub</a> ou rejoindre le <a href="https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D">groupe WhatsApp</a>.</p></noscript>
+</body>
+</html>

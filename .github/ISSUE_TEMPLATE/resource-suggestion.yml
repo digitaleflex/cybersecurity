@@ -1,30 +1,31 @@
-name: Resource suggestion
-description: Propose a resource for HashCode Cyber Library.
-title: "[Resource] "
+name: Proposer une ressource
+description: Propose une ressource pour HashCode Cyber Library (le plus simple : utilise le formulaire de la page Contribuer du site, il remplit ce ticket pour toi).
+title: "[Ressource] "
 labels: ["resource-review"]
 body:
   - type: markdown
     attributes:
       value: |
-        Merci de proposer une ressource. Les liens doivent pointer vers l'éditeur, l'auteur ou le dépôt original. Les ressources offensives doivent être destinées à des tests autorisés ou à des environnements de formation contrôlés.
+        Merci de proposer une ressource ! Le lien doit pointer vers l'éditeur, l'auteur ou le dépôt **original**. Les ressources offensives doivent viser des tests autorisés ou des environnements de formation contrôlés.
+        Astuce : le formulaire de la page **Contribuer** du site détecte les doublons avant l'envoi.
   - type: input
-    id: title
+    id: resource_title
     attributes:
-      label: Resource title
-      placeholder: Official project or resource name
+      label: Nom de la ressource
+      placeholder: Nom officiel du projet ou de la ressource
     validations:
       required: true
   - type: input
     id: url
     attributes:
-      label: Canonical URL
+      label: Adresse officielle (https)
       placeholder: https://...
     validations:
       required: true
   - type: dropdown
     id: domain
     attributes:
-      label: Domain
+      label: Domaine
       options:
         - Fundamentals
         - OSINT
@@ -43,53 +44,86 @@ body:
   - type: dropdown
     id: type
     attributes:
-      label: Resource type
+      label: Type
       options:
-        - Tool
-        - Course
-        - Lab
+        - Outil
+        - Formation
+        - Laboratoire
         - Documentation
-        - Repository
+        - Dépôt GitHub
         - Framework
-        - Platform
-        - Community
-        - Report
-        - Library
-        - Directory
+        - Plateforme
+        - Communauté
+        - Rapport
+        - Bibliothèque
+        - Annuaire
+        - Base de données
     validations:
       required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Niveau
+      options:
+        - Débutant
+        - Intermédiaire
+        - Avancé
+        - Professionnel
+    validations:
+      required: true
+  - type: dropdown
+    id: access
+    attributes:
+      label: Accès
+      options:
+        - Gratuit
+        - Freemium
+        - Payant
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Langue du contenu
+      options:
+        - Français
+        - Anglais
+        - Multilingue
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Catégorie
+      description: Ex. Investigation, SIEM, GEOINT, Web Security…
+      placeholder: Investigation
+    validations:
+      required: false
+  - type: input
+    id: tags
+    attributes:
+      label: Mots-clés (séparés par des virgules)
+      placeholder: osint, verification
+    validations:
+      required: false
   - type: textarea
     id: description
     attributes:
-      label: What does it provide?
-      description: Explain the educational or operational value in 1–3 sentences.
+      label: Que fournit cette ressource ?
+      description: 40 à 220 caractères, factuel, sans promotion.
     validations:
       required: true
-  - type: input
-    id: license
-    attributes:
-      label: License / access model
-      placeholder: Open source license, free, freemium, paid, unknown
-    validations:
-      required: false
-  - type: input
-    id: language
-    attributes:
-      label: Content language
-      placeholder: English, French, multilingual, unknown
-    validations:
-      required: false
   - type: textarea
     id: evidence
     attributes:
-      label: Why should it be included?
-      description: Share official documentation, maintenance evidence, or a useful example.
+      label: Pourquoi l'inclure ?
+      description: Documentation officielle, preuve de maintenance, exemple d'usage utile.
     validations:
       required: true
   - type: checkboxes
     id: safety
     attributes:
-      label: Responsible use
+      label: Usage responsable
       options:
-        - label: I checked that this resource does not promote unauthorized access, doxxing, credential theft, or distribution of stolen data.
+        - label: J'ai vérifié que cette ressource ne promeut ni accès non autorisé, ni doxxing, ni vol d'identifiants, ni diffusion de données volées.
           required: true

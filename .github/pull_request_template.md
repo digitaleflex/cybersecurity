@@ -1,15 +1,18 @@
-## Summary
-Describe the resource or documentation change.
+## Résumé
+Décris la ressource ou la modification de documentation.
 
-## Review checklist
-- [ ] Canonical source URL checked.
-- [ ] No duplicate resource ID or URL.
-- [ ] Domain, type and skill level are accurate.
-- [ ] Access model, license and language are not guessed.
-- [ ] Verification date is accurate.
-- [ ] New resources are marked `needs-review` until a maintainer validates them.
-- [ ] Offensive resources are scoped to authorized labs or written permission.
-- [ ] No secrets, personal data, copyrighted copies or leaked material are included.
+## Pourquoi cette ressource ?
+Utilité pédagogique ou opérationnelle (1 à 3 phrases).
+
+## Checklist de revue
+- [ ] Le lien pointe vers la source originale ou officielle.
+- [ ] Aucun doublon d'identifiant ou d'URL.
+- [ ] Domaine, type et niveau sont exacts.
+- [ ] Accès, licence et langue ne sont pas devinés.
+- [ ] Les nouvelles fiches sont `needs-review` avec `verified: null` et une date `added`.
+- [ ] Les ressources offensives visent des tests autorisés ou des environnements de formation.
+- [ ] Aucun secret, donnée personnelle, copie protégée ou donnée volée.
 
 ## Validation
-- [ ] `npm run validate:catalog` passes (when catalog data changes).
+- [ ] `npm run validate:catalog` passe.
+- [ ] `npm test` passe.

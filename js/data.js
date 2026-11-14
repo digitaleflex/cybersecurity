@@ -18,6 +18,9 @@ export const LEVEL_LABELS = {
   beginner: "Débutant", intermediate: "Intermédiaire",
   advanced: "Avancé", professional: "Professionnel"
 };
+export const ACCESS_LABELS = { free: "Gratuit", freemium: "Freemium", paid: "Payant" };
+export const LANG_LABELS = { fr: "Français", en: "Anglais", multi: "Multilingue" };
+export const SENSITIVE_DOMAINS = ["red-team", "malware-analysis", "reverse-engineering", "ctf-labs"];
 export const SORT_LABELS = { featured: "Sélection HashCode", az: "Nom A → Z", za: "Nom Z → A", newest: "Ajouts récents" };
 export const VIEW_LABELS = { favorites: "Mes favoris", recent: "Consultés récemment", featured: "Sélection HashCode" };
 export const DOMAIN_ICONS = {

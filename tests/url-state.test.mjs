@@ -7,7 +7,10 @@ const allowed = {
   categories: ["GEOINT", "Investigation"],
   types: ["tool", "course"],
   levels: ["beginner", "advanced"],
-  statuses: ["verified", "needs-review"]
+  statuses: ["verified", "needs-review"],
+  languages: ["fr", "en", "multi"],
+  accesses: ["free", "freemium", "paid"],
+  tags: ["osint", "forensic"]
 };
 
 test("une URL vide donne les filtres par défaut", () => {
@@ -17,6 +20,12 @@ test("une URL vide donne les filtres par défaut", () => {
 test("les filtres valides sont lus depuis l'URL", () => {
   const f = parseFilters("?domain=osint&type=tool&level=advanced&sort=newest&view=featured&q=shodan", allowed);
   assert.deepEqual(f, { ...DEFAULT_FILTERS, domain: "osint", type: "tool", level: "advanced", sort: "newest", view: "featured", q: "shodan" });
+});
+
+test("les nouveaux filtres langue, accès et mot-clé sont lus et validés", () => {
+  assert.deepEqual(parseFilters("?lang=fr&access=free&tag=osint", allowed), { ...DEFAULT_FILTERS, lang: "fr", access: "free", tag: "osint" });
+  assert.deepEqual(parseFilters("?lang=klingon&access=gratuit&tag=inconnu", allowed), DEFAULT_FILTERS);
+  assert.equal(serializeFilters({ ...DEFAULT_FILTERS, lang: "fr", tag: "osint" }), "?lang=fr&tag=osint");
 });
 
 test("les valeurs inconnues sont ignorées sans erreur", () => {

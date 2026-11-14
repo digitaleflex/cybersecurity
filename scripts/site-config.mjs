@@ -28,4 +28,4 @@ export const SECURITY_HEADERS = {
 export const HSTS = "max-age=31536000; includeSubDomains";
 
 /** Pages HTML publiques (URL propres : /catalogue pour catalogue.html ; l'accueil est /). */
-export const PAGES = ["index", "catalogue", "domaines", "communaute", "docs", "mentions-legales", "confidentialite"];
+export const PAGES = ["index", "catalogue", "domaines", "communaute", "contribuer", "docs", "mentions-legales", "confidentialite"];
