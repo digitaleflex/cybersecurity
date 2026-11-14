@@ -54,3 +54,6 @@ Ajouter une entrée dans `data/resources.json` et, si utile, dans le README du d
 ## Qualité avant quantité
 
 Les mainteneurs peuvent retirer les doublons, liens morts, ressources trompeuses, ressources dangereuses ou références sans provenance fiable.
+
+## Licence des contributions
+En contribuant, tu acceptes que ton apport soit publié sous les licences du projet : [MIT](LICENSE) pour le code, [CC BY 4.0](LICENSE-DATA.txt) pour le catalogue et les contenus rédigés. Merci de respecter le [code de conduite](CODE_OF_CONDUCT.md).

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /data/
 
-Sitemap: /sitemap.xml
+Sitemap: https://cybersecurity.eflex.app/sitemap.xml

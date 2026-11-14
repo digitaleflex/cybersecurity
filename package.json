@@ -8,7 +8,17 @@
     "start": "node scripts/serve.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "test": "node --test",
-    "check": "node --check app.js && node --check shell.js && node --check docs.js && node --check scripts/serve.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/check-links.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check": "node --check js/data.js && node --check js/url-state.js && node --check js/cards.js && node --check js/shell.js && node --check js/theme-init.js && node --check js/home.js && node --check js/catalog.js && node --check js/domains.js && node --check js/icons.js && node --check js/docs-index.js && node --check docs.js && node --check scripts/serve.mjs && node --check scripts/site-config.mjs && node --check scripts/build-seo.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/check-links.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "build:seo": "node scripts/build-seo.mjs"
+  },
+  "license": "MIT",
+  "homepage": "https://cybersecurity.eflex.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitaleflex/cybersecurity.git"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="color-scheme" content="dark light">
+  <title>Catalogue — HashCode Cyber Library</title>
+  <meta name="description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/catalogue">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Catalogue — HashCode Cyber Library">
+  <meta property="og:description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/catalogue">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catalogue — HashCode Cyber Library">
+  <meta name="twitter:description" content="Toutes les ressources de cybersécurité, OSINT et investigation numérique : recherche, filtres par domaine, format et niveau.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="app" data-page="catalog">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale"></aside>
+    <div class="main-col">
+      <header class="topbar" id="topbar"></header>
+      <main id="main">
+        <section class="page-head" aria-labelledby="catalogTitle">
+          <p class="eyebrow"><i></i> Le catalogue</p>
+          <h1 id="catalogTitle">Toutes les ressources</h1>
+          <p class="muted">Outils, documentations, formations, laboratoires et communautés classés par spécialité. Les filtres sont conservés dans l'adresse : copie le lien pour partager ta recherche.</p>
+        </section>
+
+        <aside class="notice" id="domainNotice" role="note" hidden><svg class="ico"><use href="#i-shield-check"/></svg><p><strong>Usage autorisé uniquement.</strong> Ces ressources servent à l'apprentissage, à la recherche et à la défense. Ne les utilisez que sur des systèmes que vous possédez ou pour lesquels vous avez une autorisation écrite. <a href="docs?doc=QUALITY.md">Politique de qualité et d'éthique</a></p></aside>
+
+        <div class="toolbar">
+          <label class="field field-search" for="searchInput"><svg class="ico"><use href="#i-search"/></svg><span class="sr-only">Rechercher dans le catalogue</span><input id="searchInput" data-search type="search" placeholder="Rechercher…" autocomplete="off" maxlength="100"></label>
+          <div class="filters">
+            <label class="sr-only" for="domainFilter">Domaine</label><select id="domainFilter"><option value="">Tous les domaines</option></select>
+            <label class="sr-only" for="categoryFilter">Catégorie</label><select id="categoryFilter"><option value="">Toutes les catégories</option></select>
+            <label class="sr-only" for="typeFilter">Format</label><select id="typeFilter"><option value="">Tous les formats</option></select>
+            <label class="sr-only" for="levelFilter">Niveau</label><select id="levelFilter"><option value="">Tous les niveaux</option></select>
+            <label class="sr-only" for="statusFilter">Statut</label><select id="statusFilter"><option value="">Tous les statuts</option></select>
+          </div>
+        </div>
+        <div class="toolbar-bottom">
+          <div class="results-line">
+            <span id="resultsCount" role="status" aria-live="polite">Chargement du catalogue…</span>
+            <div class="active-filters" id="activeFilters" aria-label="Filtres actifs" hidden></div>
+            <a id="domainGuide" class="link-btn" href="docs" hidden><svg class="ico"><use href="#i-doc"/></svg> <span id="domainGuideLabel">Guide</span></a>
+            <button id="resetFilters" class="link-btn" type="button" hidden><svg class="ico"><use href="#i-refresh"/></svg> Réinitialiser</button>
+          </div>
+          <label class="sort-control">Trier par <select id="sortFilter"></select></label>
+        </div>
+
+        <div id="resourceGrid" class="resource-grid" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state" hidden><svg class="ico ico-lg"><use href="#i-search"/></svg><h2>Aucune ressource trouvée</h2><p id="emptyText">Essaie un autre terme ou modifie les filtres.</p><button class="btn btn-ghost" id="emptyReset" type="button">Effacer les filtres</button></div>
+        <div class="load-more-wrap"><button id="loadMore" class="btn btn-ghost" type="button" hidden>Afficher plus de ressources <svg class="ico"><use href="#i-chev-down"/></svg></button></div>
+        <p class="catalog-note">Les ressources « À vérifier » sont en attente de validation par un mainteneur.</p>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="js/catalog.js"></script>
+  <noscript><p class="noscript">JavaScript est nécessaire pour afficher la navigation et le catalogue.</p></noscript>
+</body>
+</html>

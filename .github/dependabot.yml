@@ -1,0 +1,9 @@
+# Met à jour automatiquement les actions GitHub utilisées par la CI (le projet n'a aucune dépendance npm).
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"

@@ -1,4 +1,5 @@
 /* Lecteur de documentation — repose sur les tokens de ui.css */
+.docs-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid var(--line)}
 .docs-breadcrumb{display:flex;align-items:center;gap:10px;min-width:0;font:500 13px var(--mono);color:var(--muted)}
 .docs-breadcrumb a{color:var(--accent-text)}
 .docs-breadcrumb b{font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -8,8 +9,15 @@
 .docs-sidebar>p.muted{font-size:13.5px;margin-bottom:18px}
 .docs-search{flex:none;min-width:0;width:100%}
 .docs-nav{margin-top:20px}
-.docs-nav-group{margin-bottom:18px}
-.docs-nav-label,.docs-toc-title{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-bottom:8px}
+.docs-nav-group{margin-bottom:10px}
+.docs-nav-group>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;padding:8px 6px;border-radius:6px}
+.docs-nav-group>summary::-webkit-details-marker{display:none}
+.docs-nav-group>summary::after{content:"";width:7px;height:7px;border:solid var(--muted-2);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .15s;margin-right:4px}
+.docs-nav-group[open]>summary::after{transform:rotate(-135deg)}
+.docs-nav-group>summary:hover{background:var(--panel-3)}
+.docs-nav-n{margin-left:auto;font:500 11px var(--mono);color:var(--muted-2)}
+.docs-nav-label,.docs-toc-title{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+.docs-toc-title{margin-bottom:8px}
 .docs-nav-link{display:block;padding:10px 12px;margin:2px 0;border:1px solid transparent;border-radius:var(--radius-sm);color:var(--muted);font-size:14px;font-weight:600;transition:.15s}
 .docs-nav-link:hover{color:var(--text);background:var(--panel-3)}
 .docs-nav-link.is-active{color:var(--accent-text);background:var(--accent-soft);border-color:var(--accent-line)}
@@ -58,8 +66,6 @@
 .docs-mobile-toc{display:none}
 .docs-footer{display:flex;justify-content:space-between;gap:14px;margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted-2);font:500 12px var(--mono)}
 .docs-footer a{color:var(--accent-text)}
-.back-btn{display:none}
-@media(min-width:1081px){.back-btn{display:inline-flex}}
 @media(max-width:1180px){
   .docs-shell{grid-template-columns:220px minmax(0,1fr);gap:28px}
   .docs-toc-panel{display:none}
@@ -71,12 +77,8 @@
   .docs-shell{display:block;padding-top:18px}
   .docs-sidebar{position:static;max-height:none;margin-bottom:22px;padding:0 0 18px;border-bottom:1px solid var(--line)}
   .docs-sidebar h2{font-size:22px}
-  .docs-nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
-  .docs-nav-group{display:contents}
-  .docs-nav-label{display:none}
-  .docs-nav-link{white-space:nowrap;border-color:var(--line);margin:0}
+  .docs-nav{max-height:46vh;overflow:auto}
   .docs-breadcrumb{display:none}
-  #sourceLink{display:none}
   .markdown-body{font-size:14.5px}
   .markdown-body pre{font-size:12px;padding:14px}
 }
