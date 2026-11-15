@@ -8,33 +8,64 @@ export const GITHUB_URL = "https://github.com/digitaleflex/cybersecurity";
 export const SITE_URL = "https://cybersecurity.eflex.app";
 
 export const TYPE_LABELS = {
-  tool: "Outil", course: "Formation", lab: "Laboratoire",
-  documentation: "Documentation", repository: "Dépôt GitHub",
-  framework: "Framework", platform: "Plateforme", community: "Communauté",
-  report: "Rapport", library: "Bibliothèque", directory: "Annuaire", database: "Base de données"
+  tool: "Outil",
+  course: "Formation",
+  lab: "Laboratoire",
+  documentation: "Documentation",
+  repository: "Dépôt GitHub",
+  framework: "Framework",
+  platform: "Plateforme",
+  community: "Communauté",
+  report: "Rapport",
+  library: "Bibliothèque",
+  directory: "Annuaire",
+  database: "Base de données"
 };
 export const STATUS_LABELS = { verified: "Vérifié", "needs-review": "À vérifier" };
 export const LEVEL_LABELS = {
-  beginner: "Débutant", intermediate: "Intermédiaire",
-  advanced: "Avancé", professional: "Professionnel"
+  beginner: "Débutant",
+  intermediate: "Intermédiaire",
+  advanced: "Avancé",
+  professional: "Professionnel"
 };
+export const ACCESS_LABELS = { free: "Gratuit", freemium: "Freemium", paid: "Payant" };
+export const LANG_LABELS = { fr: "Français", en: "Anglais", multi: "Multilingue" };
+export const SENSITIVE_DOMAINS = ["red-team", "malware-analysis", "reverse-engineering", "ctf-labs"];
 export const SORT_LABELS = { featured: "Sélection HashCode", az: "Nom A → Z", za: "Nom Z → A", newest: "Ajouts récents" };
 export const VIEW_LABELS = { favorites: "Mes favoris", recent: "Consultés récemment", featured: "Sélection HashCode" };
 export const DOMAIN_ICONS = {
-  fundamentals: "cube", osint: "target", "red-team": "bolt", "blue-team": "shield",
-  "reverse-engineering": "code", "malware-analysis": "bug", "cloud-security": "cloud",
-  "application-security": "lock", "ctf-labs": "flag", "courses-books": "grad",
-  communities: "users", "research-reports": "doc"
+  fundamentals: "cube",
+  osint: "target",
+  "red-team": "bolt",
+  "blue-team": "shield",
+  "reverse-engineering": "code",
+  "malware-analysis": "bug",
+  "cloud-security": "cloud",
+  "application-security": "lock",
+  "ctf-labs": "flag",
+  "courses-books": "grad",
+  communities: "users",
+  "research-reports": "doc"
 };
 
 /* ---------- utilitaires ---------- */
+/** Premier élément correspondant (typé `any` : les pages garantissent la présence des éléments ciblés). @param {string} selector @param {ParentNode} [root] @returns {any} */
 export const $ = (selector, root = document) => root.querySelector(selector);
+/** Tous les éléments correspondants. @param {string} selector @param {ParentNode} [root] @returns {any[]} */
 export const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
 export function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  })[char]);
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]
+  );
 }
 
 export function safeExternalURL(value) {
@@ -47,7 +78,10 @@ export function safeExternalURL(value) {
 }
 
 export function normalizeText(value) {
-  return String(value ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLocaleLowerCase("fr");
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLocaleLowerCase("fr");
 }
 
 export const icon = (name, cls = "") => `<svg class="ico ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
@@ -63,14 +97,20 @@ export function catalogueURL(filters = {}) {
 }
 
 /* ---------- stockage local (favoris, récents) ---------- */
-function readStore(key) {
+export function readStore(key) {
   try {
     const value = JSON.parse(localStorage.getItem(key) || "[]");
     return Array.isArray(value) ? value.filter((v) => typeof v === "string") : [];
-  } catch { return []; }
+  } catch {
+    return [];
+  }
 }
-function writeStore(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* stockage indisponible */ }
+export function writeStore(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    /* stockage indisponible */
+  }
 }
 export const favorites = () => readStore(FAV_KEY);
 export const recents = () => readStore(RECENT_KEY);
@@ -101,7 +141,8 @@ export function loadCatalog() {
 export const activeResources = (c) => c.resources.filter((r) => !["archived", "removed"].includes(r.status));
 export const getDomain = (c, id) => c.domains.find((d) => d.id === id);
 export const domainCount = (c, id) => activeResources(c).filter((r) => r.domain === id).length;
-export const domainsByCount = (c) => [...c.domains].sort((a, b) => domainCount(c, b.id) - domainCount(c, a.id) || a.number.localeCompare(b.number));
+export const domainsByCount = (c) =>
+  [...c.domains].sort((a, b) => domainCount(c, b.id) - domainCount(c, a.id) || a.number.localeCompare(b.number));
 
 export function categoriesOf(c, domainId) {
   const counts = new Map();
@@ -116,7 +157,7 @@ export function newResourcesCount(c) {
   if (!c.updated) return 0;
   return activeResources(c).filter((r) => {
     if (!r.added) return false;
-    const diff = (new Date(c.updated) - new Date(r.added)) / 86400000;
+    const diff = (new Date(c.updated).getTime() - new Date(r.added).getTime()) / 86400000;
     return diff >= 0 && diff <= NEW_WINDOW_DAYS;
   }).length;
 }

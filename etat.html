@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="color-scheme" content="dark light">
+  <title>État du catalogue — HashCode Cyber Library</title>
+  <meta name="description" content="Transparence sur le catalogue : progression de la vérification des ressources, répartition par domaine, langue et niveau, et santé des liens, mis à jour à chaque contrôle.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cybersecurity.eflex.app/etat">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HashCode Cyber Library">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="État du catalogue — HashCode Cyber Library">
+  <meta property="og:description" content="Transparence sur le catalogue : progression de la vérification des ressources, répartition par domaine, langue et niveau, et santé des liens, mis à jour à chaque contrôle.">
+  <meta property="og:url" content="https://cybersecurity.eflex.app/etat">
+  <meta property="og:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HashCode Cyber Library — cybersécurité, OSINT, investigation, knowledge base">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="État du catalogue — HashCode Cyber Library">
+  <meta name="twitter:description" content="Transparence sur le catalogue : progression de la vérification des ressources, répartition par domaine, langue et niveau, et santé des liens, mis à jour à chaque contrôle.">
+  <meta name="twitter:image" content="https://cybersecurity.eflex.app/assets/og-image.png">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="app" data-page="status">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigation latérale"></aside>
+    <div class="main-col">
+      <header class="topbar" id="topbar"></header>
+      <main id="main">
+        <section class="page-head" aria-labelledby="statusTitle">
+          <p class="eyebrow"><i></i> Transparence</p>
+          <h1 id="statusTitle">État du catalogue</h1>
+          <p class="muted">Ce que contient la bibliothèque, ce qui est vérifié, et l'état des liens. Les chiffres sont calculés à partir des données publiques, jamais saisis à la main. <span id="statusDates"></span></p>
+        </section>
+
+        <div class="status-wrap">
+        <section class="kpis" id="kpis" aria-label="Chiffres clés"></section>
+
+        <section class="card status-card" id="verification" aria-labelledby="verifTitle" hidden>
+          <h2 id="verifTitle">Progression de la vérification</h2>
+          <div id="verifBody"></div>
+        </section>
+
+        <div class="status-grid" id="charts" aria-live="polite"></div>
+
+        <section class="card status-card" id="healthCard" aria-labelledby="healthTitle" hidden>
+          <h2 id="healthTitle">Santé des liens</h2>
+          <div id="healthBody"></div>
+        </section>
+
+        <section class="card status-card" id="aboutCard" aria-labelledby="aboutTitle" hidden>
+          <h2 id="aboutTitle">Comment lire ces chiffres</h2>
+          <ul class="plain-list">
+            <li><strong>« Vérifiée »</strong> signifie qu'un mainteneur a contrôlé l'adresse officielle, l'accès, la licence et la description (voir la <a href="docs?doc=QUALITY.md">politique de qualité</a>). Un lien qui répond ne suffit pas.</li>
+            <li><strong>Santé des liens</strong> : un contrôle automatique hebdomadaire. Certains sites refusent les robots tout en fonctionnant très bien pour les visiteurs : la mention « refuse les robots » demande une vérification à la main, pas une suppression.</li>
+            <li>Les données sources sont dans <a href="https://github.com/digitaleflex/cybersecurity/blob/main/data/resources.json" target="_blank" rel="noopener noreferrer"><code>data/resources.json</code></a> et <a href="https://github.com/digitaleflex/cybersecurity/blob/main/data/health.json" target="_blank" rel="noopener noreferrer"><code>data/health.json</code></a>, sous licence <a href="LICENSE-DATA.txt">CC BY 4.0</a>.</li>
+            <li>Tu peux aider : <a href="contribuer">propose une ressource</a>, <a href="https://github.com/digitaleflex/cybersecurity/issues/new?template=broken-link.yml" target="_blank" rel="noopener noreferrer">signale un lien cassé</a>, ou participe à la <a href="https://github.com/digitaleflex/cybersecurity/issues/6" target="_blank" rel="noopener noreferrer">vérification des ressources</a>.</li>
+          </ul>
+        </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="js/status.js"></script>
+  <noscript><p class="noscript">JavaScript est nécessaire pour calculer ces statistiques. Les données brutes sont dans <a href="data/resources.json">data/resources.json</a>.</p></noscript>
+</body>
+</html>

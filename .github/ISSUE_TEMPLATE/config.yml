@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Rejoindre la communauté (WhatsApp)
+    url: https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D
+    about: Pas de compte GitHub ? Envoie ta suggestion dans le groupe, un mainteneur créera la fiche.
+  - name: Signaler une faille de sécurité
+    url: https://github.com/digitaleflex/cybersecurity/security/advisories/new
+    about: Merci de ne pas ouvrir de ticket public pour une vulnérabilité (voir SECURITY.md).

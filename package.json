@@ -8,9 +8,17 @@
     "start": "node scripts/serve.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "test": "node --test",
-    "check": "node --check js/data.js && node --check js/url-state.js && node --check js/cards.js && node --check js/shell.js && node --check js/theme-init.js && node --check js/home.js && node --check js/catalog.js && node --check js/domains.js && node --check js/icons.js && node --check js/docs-index.js && node --check docs.js && node --check scripts/serve.mjs && node --check scripts/site-config.mjs && node --check scripts/build-seo.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/check-links.mjs",
+    "check": "node scripts/check-syntax.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "build:seo": "node scripts/build-seo.mjs"
+    "build:seo": "node scripts/build-seo.mjs",
+    "e2e": "playwright test",
+    "lighthouse": "node e2e/lighthouse.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,mjs}\"",
+    "format:check": "prettier --check \"**/*.{js,mjs}\"",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "verify": "npm run check && npm run lint && npm run format:check && npm run typecheck && npm run validate:catalog && npm test",
+    "health": "node scripts/check-links.mjs --health --no-fail"
   },
   "license": "MIT",
   "homepage": "https://cybersecurity.eflex.app/",
@@ -20,5 +28,19 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.6",
+    "ajv": "^8.20.0",
+    "axe-core": "^4.14.0",
+    "chrome-launcher": "^1.2.3",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "lighthouse": "^13.6.0",
+    "prettier": "^3.10.1",
+    "typescript": "^7.0.2"
   }
 }

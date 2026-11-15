@@ -1,4 +1,5 @@
-# Met à jour automatiquement les actions GitHub utilisées par la CI (le projet n'a aucune dépendance npm).
+# Mises à jour automatiques : actions GitHub de la CI et outils de développement (tests, linter).
+# Aucune dépendance n'est utilisée en production : le site n'a rien à installer pour démarrer.
 version: 2
 updates:
   - package-ecosystem: "github-actions"
@@ -7,3 +8,12 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "ci"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      dev-tools:
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore"

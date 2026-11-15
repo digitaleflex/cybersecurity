@@ -1,0 +1,77 @@
+name: Browser tests
+
+on:
+  pull_request:
+    paths:
+      - "*.html"
+      - "*.md"
+      - "js/**"
+      - "vendor/**"
+      - "assets/**"
+      - "scripts/**"
+      - "e2e/**"
+      - "ui.css"
+      - "docs.css"
+      - "docs.js"
+      - "data/**"
+      - "library/**"
+      - "package.json"
+      - "package-lock.json"
+      - "playwright.config.mjs"
+      - ".github/workflows/e2e.yml"
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    name: Navigation, accessibilité, sécurité, formulaires
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests
+        run: npm run e2e
+      - name: Upload report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  lighthouse:
+    name: Budget Lighthouse (performance, accessibilité, SEO)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Check budget
+        run: npm run lighthouse
+      - name: Upload summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-summary
+          path: lighthouse-report/
+          retention-days: 7

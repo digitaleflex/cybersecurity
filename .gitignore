@@ -1,1 +1,12 @@
-.vercel\nnode_modules\n.DS_Store\n*.log\n.env\n.env.*\n!.env.example\nlink-report.json
+.vercel
+node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+link-report.json
+link-health.json
+playwright-report/
+test-results/
+lighthouse-report/

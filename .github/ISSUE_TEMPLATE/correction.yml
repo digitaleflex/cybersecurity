@@ -1,0 +1,41 @@
+name: Proposer une correction de fiche
+description: Une information d'une fiche du catalogue est fausse ou incomplète (description, niveau, langue, accès, catégorie…).
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: input
+    id: resource
+    attributes:
+      label: Ressource concernée
+      placeholder: Nom de la ressource
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Information à corriger
+      options:
+        - Description
+        - Domaine ou catégorie
+        - Type
+        - Niveau
+        - Langue
+        - Accès (gratuit, freemium, payant)
+        - Tags
+        - Autre
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Valeur proposée
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source qui l'atteste
+      description: Lien vers la page officielle qui confirme l'information.
+      placeholder: https://...
+    validations:
+      required: false

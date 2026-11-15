@@ -49,7 +49,12 @@ export const DOCUMENTS = [
 ];
 
 /** Titre long (pour l'onglet et le fil d'Ariane) : "Linux — 01 · Fundamentals". */
-export const docTitle = (doc) => (doc.group.match(/^\d\d ·/) && doc.title !== "Vue d'ensemble" ? `${doc.title} — ${doc.group}` : doc.group.match(/^\d\d ·/) ? `${doc.group}` : doc.title);
+export const docTitle = (doc) =>
+  doc.group.match(/^\d\d ·/) && doc.title !== "Vue d'ensemble"
+    ? `${doc.title} — ${doc.group}`
+    : doc.group.match(/^\d\d ·/)
+      ? `${doc.group}`
+      : doc.title;
 
 /** Chemin du document pour un lien de page : docs.html?doc=… */
 export const docURL = (path, hash = "") => `docs?doc=${encodeURIComponent(path)}${hash}`;

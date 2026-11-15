@@ -1,6 +1,14 @@
 import {
-  TYPE_LABELS, STATUS_LABELS, LEVEL_LABELS, escapeHTML, safeExternalURL, icon,
-  favorites, toggleFavorite, pushRecent, getDomain
+  TYPE_LABELS,
+  STATUS_LABELS,
+  LEVEL_LABELS,
+  escapeHTML,
+  safeExternalURL,
+  icon,
+  favorites,
+  toggleFavorite,
+  pushRecent,
+  getDomain
 } from "./data.js";
 
 export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
@@ -10,12 +18,16 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
   const level = LEVEL_LABELS[resource.level] || resource.level;
   const status = STATUS_LABELS[resource.status] || "Statut inconnu";
   const access = { free: "Gratuit", paid: "Payant", freemium: "Freemium" }[resource.access] || resource.access;
-  const languages = (resource.language || []).slice(0, 2).map((l) => l.toUpperCase()).join(" · ");
+  const languages = (resource.language || [])
+    .slice(0, 2)
+    .map((l) => l.toUpperCase())
+    .join(" · ");
   const tags = (resource.tags || []).slice(0, 3);
   const fav = favorites().includes(resource.id);
 
   return `<article class="resource-card" data-id="${escapeHTML(resource.id)}">
     <button class="fav-btn" type="button" data-fav="${escapeHTML(resource.id)}" aria-pressed="${fav}" aria-label="${fav ? "Retirer des favoris" : "Ajouter aux favoris"} : ${escapeHTML(resource.title)}">${icon("star")}</button>
+    <button class="list-btn" type="button" data-list-add="${escapeHTML(resource.id)}" data-title="${escapeHTML(resource.title)}" aria-haspopup="dialog" aria-label="Ajouter à une liste : ${escapeHTML(resource.title)}">${icon("list")}</button>
     <div class="card-topline">
       <span class="resource-type">${escapeHTML(type)}</span>
       <span class="pill">${escapeHTML(level)}</span>
@@ -33,9 +45,19 @@ export function resourceCard(catalog, resource, { heading = "h3" } = {}) {
 
 /** Délégation d'événements : favoris et historique. onFavorite() est appelé après un changement de favori. */
 export function bindCards(container, onFavorite = () => {}) {
-  container.addEventListener("click", (event) => {
+  container.addEventListener("click", async (event) => {
+    const add = event.target.closest("[data-list-add]");
+    if (add) {
+      const { openListDialog } = await import("./lists-ui.js");
+      openListDialog(add.dataset.listAdd, add.dataset.title, add);
+      return;
+    }
     const fav = event.target.closest("[data-fav]");
-    if (fav) { toggleFavorite(fav.dataset.fav); onFavorite(); return; }
+    if (fav) {
+      toggleFavorite(fav.dataset.fav);
+      onFavorite();
+      return;
+    }
     const open = event.target.closest("[data-open]");
     if (open) pushRecent(open.dataset.open);
   });

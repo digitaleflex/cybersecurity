@@ -2,4 +2,6 @@
 try {
   const theme = localStorage.getItem("hc-theme");
   if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
-} catch { /* stockage indisponible : thème sombre par défaut */ }
+} catch {
+  /* stockage indisponible : thème sombre par défaut */
+}

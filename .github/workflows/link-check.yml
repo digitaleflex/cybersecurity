@@ -28,7 +28,7 @@ jobs:
           EXTRA_FLAGS: ${{ github.event_name == 'pull_request' && '--no-fail' || '' }}
         run: |
           set +e
-          node scripts/check-links.mjs --markdown --json=link-report.json $EXTRA_FLAGS > "$GITHUB_STEP_SUMMARY"
+          node scripts/check-links.mjs --markdown --json=link-report.json --health=link-health.json $EXTRA_FLAGS > "$GITHUB_STEP_SUMMARY"
           code=$?
           cat "$GITHUB_STEP_SUMMARY"
           exit $code
@@ -37,4 +37,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: link-report
-          path: link-report.json
+          path: |
+            link-report.json
+            link-health.json

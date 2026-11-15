@@ -19,7 +19,7 @@ HashCode Cyber Library brings together documentation, tools, courses, books, lab
 - [Contribution guide](CONTRIBUTING.md)
 - [Quality & safety policy](QUALITY.md)
 - [Resource data](data/resources.json)
-- [Website](index.html) — pages: [Home](index.html), [Catalogue](catalogue.html) (filters are kept in the URL, e.g. `catalogue.html?domain=osint&sort=newest`), [Domains](domaines.html), [Community](communaute.html), [Docs](docs.html)
+- [Website](index.html) — pages: [Home](index.html), [Catalogue](catalogue.html) (filters are kept in the URL, e.g. `catalogue.html?domain=osint&sort=newest`), [Domains](domaines.html), [Catalogue status](etat.html), [My space](espace.html) (favourites, lists, export/import — stored in the browser only), [Community](communaute.html), [Contribute](contribuer.html), [Docs](docs.html)
 - [Join the community on WhatsApp](https://chat.whatsapp.com/IDcosEG4jjOK4mTAYsX92D)
 
 ## Twelve domains
